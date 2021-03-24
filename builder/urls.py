@@ -1,8 +1,21 @@
 from django.urls import path
 from builder import views
 
-app_name='pokemon_team_builder'
+app_name='builder'
 
 urlpatterns=[
-    path('', views.index, name='index'),
+    path('', views.home, name='home'),
+    path('home/', views.home, name='home'),
+    path('home/popular/', views.popular, name='popular'),
+    path('home/recent/', views.recent, name='recent'),
+    path('share/', views.share, name='share'),
+    path('share/<slug:username_private_slug>/', views.share_priv_username, name=''),
+    path('share/<slug:username_slug>/', views.share_username, name=''),
+    path('friends/', views.friends, name='friends'),
+    path('friends/<slug:friendname_slug>/', views.viewfriend, name=''),
+    path('builder/', views.builder, name='builder'),
+    path('builder/<slug:teamname_slug>/', views.buildteam, name='build_team'),
+    path('login/', views.user_login, name='login'),
+    path('logout/', views.user_logout, name='logout'),
+    path('signup/', views.signup, name='signup'),
 ]

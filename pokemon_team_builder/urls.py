@@ -19,7 +19,12 @@ from django.urls import include
 from builder import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.home, name='home'),
+    path('share', views.share, name='share'),
+    path('friends', views.friends, name='friends'),
+    path('builder', views.builder, name='builder'),
+    path('login', views.user_login, name='login'),
+    path('signup', views.signup, name='signup'),
     path('admin/', include('builder.urls')),
     path('admin/', admin.site.urls),
 ]
