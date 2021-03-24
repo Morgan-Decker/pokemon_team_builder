@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+body, html {
+    height: 100%;
+  }
+  
+  .background {
+    background: rgba(24,24,24,1);
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .plus {
+    position: relative;
+    left: 100px;
+    top: 3px;
+    font-size: 50px;
+    color: #8E8E8E;
+  }
+
+  .teamlist {
+    position: relative;
+    left: 20px;
+    bottom: 5px;
+  }
+
+  .login_link {
+    width: 108px;
+    color: rgba(255,255,255,1);
+    position: absolute;
+    top: 35px;
+    right: 120px;
+    font-size: 28px;
+    opacity: 1;
+    text-align: center;
+  }
+
+  .signup_link {
+    width: 108px;
+    color: rgba(255,255,255,1);
+    position: absolute;
+    top: 35px;
+    right: 10px;
+    font-size: 28px;
+    opacity: 1;
+    text-align: center;
+  }
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+hr {
+    background-color: #464646;
+    height: 1px;
+    border: none;
+}
+
+#navbar {
+    background-color: #212121;
+    height: 100px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.menu-bars {
+    margin-left: 2rem;
+    font-size: 2rem;
+    color: #fff;
+}
+
+#nav-menu {
+    background-color: #212121;
+    width: 380px;
+    height:  100vh;
+    display:  flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    transition : 850ms;
+}
+
+#nav-menu.active {
+    left: 0;
+    transition: 350ms;
+}
+
+.nav-text {
+    display: flex;
+    justify-content: start;
+    list-style: none;
+    height: 50px;
+    padding: 1rem;
+}
+
+.nav-text a{
+    text-decoration: none;
+    color: #f5f5f5;
+    font-size: 1.8rem;
+    margin-left: -1rem;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 22px;
+}
+
+.gym {
+    position: relative;
+    bottom: -12px;
+}
+
+.nav-text:hover {
+    background-color: rgba(144,144,144, 0.219);
+    cursor: pointer;
+}
+
+.nav-menu-items {
+    width: 100%;
+}
+
+.nav-icon {
+    padding-right: 1rem;
+    color: #909090;
+}
+
+#navbar-toggle {
+    background-color: #212121;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+#navbar-toggle h1 {
+    color: #fff;
+    font-family: 'Oswald', sans-serif;
+    font-size: 28px;
+}
+
+#navbar-toggle a {
+    text-decoration: none;
+}
+
+.fa-bars {
+    color: #fff;
+}
+
+.nav-section {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.nav-section2 {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+}
