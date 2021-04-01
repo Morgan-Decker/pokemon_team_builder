@@ -2,15 +2,7 @@
 
 body, html {
     height: 100%;
-  }
-  
-  .background {
-    background: rgba(24,24,24,1);
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+}
 
   .plus {
     position: relative;

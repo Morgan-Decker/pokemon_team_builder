@@ -76,7 +76,12 @@ WSGI_APPLICATION = 'pokemon_team_builder.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': 'db.sqlite3',
+        'USER': 'USER NAME',
+        'USER': 'USER NAME',
+        'PASSWORD': 'USER PASSWORD',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

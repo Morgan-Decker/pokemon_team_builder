@@ -1,30 +1,20 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
-from builder.forms import UserForm, UserProfileForm
-from builder.models import Team
+from builder.forms import UserForm, UserProfileForm, Pokemon
+from builder.models import Team, Pokemon, Move, Ability, Item
 
 
 # Create your views here.
 
 def home(request):
-    # create team lists for home page display
-    # popular teams order by views and new teams order by most recently added
-    popular_team_list = Team.objects.order_by('-id')[:4]
-    new_team_list = Team.objects.order_by('-id')[:8]
-
     context_dict = {}
-    context_dict['popular_teams'] = popular_team_list
-    context_dict['new_teams'] = new_team_list
-
-    visitor_cookie_handler(request)
-
     # find out html address!!
 
-    response = render(request, 'home.html', context=context_dict)
+    response = render(request, 'home.html', context_dict)
     return response
 
 
@@ -58,15 +48,13 @@ def recent(request):
 
 # @login_required
 def share(request):
-    if not request.user.is_authenticated():
+    # if not request.user.is_authenticated():
 
-        # list of public teams
-        # list of private teams
+    # list of public teams
+    # list of private teams
 
-        context_dict = {}
-
-    else:
-        return HttpResponse("You are not logged in.")
+    context_dict = {}
+    return render(request, 'share.html', context=context_dict)
 
 
 # @login_required
@@ -89,6 +77,7 @@ def friends(request):
     # get list of each friend's teams
 
     context_dict = {}
+    return render(request, 'friends.html', context=context_dict)
 
 
 # @login_required
@@ -100,6 +89,8 @@ def viewfriend(request, friendname_slug):
 
 def builder(request):
     context_dict = {}
+    context_dict['pokemon'] = Pokemon()
+    return render(request, 'builder.html', context=context_dict)
 
 
 def buildteam(request, teamname_slug):
@@ -153,7 +144,7 @@ def signup(request):
         profile_form = UserProfileForm()
 
     return render(request,
-                  'register.html',
+                  'signup.html',
                   context={'user_form': user_form,
                            'profile_form': profile_form,
                            'registered': registered})
