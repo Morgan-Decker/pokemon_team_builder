@@ -2,4 +2,10 @@ function ajax(options){
    var url = options.url || "", //Requested link
    type = (options.type || "get").toLowerCase(), //Request method, default is get
    data = options.data || null, //requested data
-   
+   contentType = options.contentType || "", //Request header
+   dataType = options.dataType || "", //request type
+   async = options.async === undefined && true, //Whether it is asynchronous, the default is true.
+   timeOut = options.timeOut, //Timeout time.
+   before = options.before || function(){}, //The function executed before sending
+   error = options.error || function(){}, //function executed by error
+   success = options.success || function() {}; //Callback function for successful request
