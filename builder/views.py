@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
 from builder.forms import UserForm, UserProfileForm, Pokemon
-from builder.models import Team, Pokemon, Move, Ability, Item
+from builder.models import Team, Pokemon, Move, Ability, Item, Nature
 
 
 # Create your views here.
@@ -90,7 +90,17 @@ def viewfriend(request, friendname_slug):
 def builder(request):
     context_dict = {}
     context_dict['pokemon'] = Pokemon()
-    return render(request, 'builder.html', context=context_dict)
+    pokemon_database = Pokemon.objects.all()
+    move_database = Move.objects.all()
+    nature_database = Nature.objects.all()
+    ability_database = Ability.objects.all()
+    item_database = Item.objects.all()
+    return render(request, 'builder.html', {"showpokemon":pokemon_database,
+                                            "showmove":move_database,
+                                            "shownature":nature_database,
+                                            "showability":ability_database,
+                                            "showitem":item_database
+                                            })
 
 
 def buildteam(request, teamname_slug):
