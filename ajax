@@ -1,0 +1,5 @@
+function ajax(options){
+   var url = options.url || "", //Requested link
+   type = (options.type || "get").toLowerCase(), //Request method, default is get
+   data = options.data || null, //requested data
+   
