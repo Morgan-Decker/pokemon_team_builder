@@ -1,0 +1,365 @@
+.pokemon_sprite{
+position:relative;
+}
+.pokemon_sprite img{
+position:absolute;
+top:-520px;
+left:1050px;
+}
+
+.gigantamax_factor{
+position:relative;
+}
+.gigantamax_factor img{
+position:absolute;
+top:-290px;
+left:1165px;
+}
+
+.type1_div{
+position:relative;
+}
+.type1_div img{
+position:absolute;
+top:-190px;
+left:1070px;
+}
+
+.type2_div{
+position:relative;
+}
+.type2_div img{
+position:absolute;
+top:-190px;
+left:1170px;
+}
+
+.pokemon_text{
+  font-family: 'Oswald', sans-serif;
+  font-size: 15px;
+  color: white;
+  position: relative;
+  left: 600px;
+  top: 20px;
+}
+.pokemonlist {
+  --radius: 0;
+  --baseFg: white;
+  --baseBg: #3A3A3A;
+  --accentFg: black;
+  --accentBg: #3A3A3A;
+  width:400px;
+  position: relative;
+  left: 600px;
+  top: 20px;
+}
+
+.ability_text{
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  color: white;
+  position: relative;
+  left: 600px;
+  top: 30px;
+}
+.abilitylist {
+  --radius: 0;
+  --baseFg: white;
+  --baseBg: #3A3A3A;
+  --accentFg: black;
+  --accentBg: #3A3A3A;
+  width:350px;
+  position: relative;
+  left: 600px;
+  top: 30px;
+}
+
+.nature_text{
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  color: white;
+  position: relative;
+  left: 600px;
+  top: 40px;
+}
+.naturelist {
+  --radius: 0;
+  --baseFg: white;
+  --baseBg: #3A3A3A;
+  --accentFg: black;
+  --accentBg: #3A3A3A;
+  width:350px;
+  position: relative;
+  left: 600px;
+  top: 40px;
+}
+
+.item_text{
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  color: white;
+  position: relative;
+  left: 600px;
+  top: 50px;
+}
+.itemlist {
+  --radius: 0;
+  --baseFg: white;
+  --baseBg: #3A3A3A;
+  --accentFg: black;
+  --accentBg: #3A3A3A;
+  width:350px;
+  position: relative;
+  left: 600px;
+  top: 50px;
+}
+
+.move_text{
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  color: white;
+  position: relative;
+  left: 1020px;
+  top: 60px;
+}
+.move1list {
+  --radius: 0;
+  --baseFg: white;
+  --baseBg: #3A3A3A;
+  --accentFg: black;
+  --accentBg: #3A3A3A;
+  width:350px;
+  position: relative;
+  left: 1000px;
+  top: 65px;
+  padding-left: 60px;
+}
+.move1_div{
+position:relative;
+}
+.move1_div img{
+position:absolute;
+top:-117px;
+left:1010px;
+}
+
+.move2list {
+  --radius: 0;
+  --baseFg: white;
+  --baseBg: #3A3A3A;
+  --accentFg: black;
+  --accentBg: #3A3A3A;
+  width:350px;
+  position: relative;
+  left: 1000px;
+  top: 75px;
+  padding-left: 60px;
+}
+.move2_div{
+position:relative;
+}
+.move2_div img{
+position:absolute;
+top:-62px;
+left:1010px;
+}
+
+.move3list {
+  --radius: 0;
+  --baseFg: white;
+  --baseBg: #3A3A3A;
+  --accentFg: black;
+  --accentBg: #3A3A3A;
+  width:350px;
+  position: relative;
+  left: 1000px;
+  top: 85px;
+  padding-left: 60px;
+}
+.move3_div{
+position:relative;
+}
+.move3_div img{
+position:absolute;
+top:-5px;
+left:1010px;
+}
+
+.move4list {
+  --radius: 0;
+  --baseFg: white;
+  --baseBg: #3A3A3A;
+  --accentFg: black;
+  --accentBg: #3A3A3A;
+  width:350px;
+  position: relative;
+  left: 1000px;
+  top: 95px;
+  padding-left: 60px;
+}
+.move4_div{
+position:relative;
+}
+.move4_div img{
+position:absolute;
+top:50px;
+left:1010px;
+}
+
+.level_text{
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  color: white;
+  position: relative;
+  left: 1080px;
+  top: -280px;
+}
+.level {
+  width:80px;
+  top:-270px;
+  left:1080px;
+  font-size: 20px;
+  padding-left: 15px;
+}
+
+.hpEV {
+  top:-160px;
+  left:700px;
+}
+.atkEV {
+  top:-150px;
+  left:700px;
+}
+.defEV {
+  top:-140px;
+  left:700px;
+}
+.sp_atkEV {
+  top:-130px;
+  left:700px;
+}
+.sp_defEV {
+  top:-120px;
+  left:700px;
+}
+.spdEV {
+  top:-110px;
+  left:700px;
+}
+.hpIV {
+  top:-316px;
+  left:770px;
+}
+.atkIV {
+  top:-306px;
+  left:770px;
+}
+.defIV {
+  top:-296px;
+  left:770px;
+}
+.sp_atkIV {
+  top:-286px;
+  left:770px;
+}
+.sp_defIV {
+  top:-276px;
+  left:770px;
+}
+.spdIV {
+  top:-266px;
+  left:770px;
+}
+
+input{
+    --radius: 0;
+  --baseFg: white;
+  --baseBg: #3A3A3A;
+  --accentFg: black;
+  --accentBg: #3A3A3A;
+  width:60px;
+  position: relative;
+  color: var(--baseFg);
+  background-color: var(--baseBg);
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 1px 100%, 20px 22px, 20px 22px, 20px 100%;
+  border-radius:20px;border:1px solid #AAAAAA;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  display:inline-block;
+  padding-left: 15px;
+}
+
+select {
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  -webkit-appearance: none;
+  appearance: none;
+  color: var(--baseFg);
+  line-height: 1;
+  outline: 0;
+  overflow:hidden;
+  display:inline-block;
+  padding: 0.65em 2.5em 0.55em 0.75em;
+  border-radius:20px;border:1px solid #AAAAAA;
+  background-color: var(--baseBg);
+  background-image: linear-gradient(var(--baseFg), var(--baseFg)),
+    linear-gradient(-135deg, transparent 50%, var(--accentBg) 50%),
+    linear-gradient(-225deg, transparent 50%, var(--accentBg) 50%),
+    linear-gradient(var(--accentBg) 42%, var(--accentFg) 42%);
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 1px 100%, 20px 22px, 20px 22px, 20px 100%;
+  background-position: right 20px center, right bottom, right bottom, right bottom;
+}
+
+select:hover {
+  background-image: linear-gradient(var(--accentFg), var(--accentFg)),
+    linear-gradient(-135deg, transparent 50%, var(--accentFg) 50%),
+    linear-gradient(-225deg, transparent 50%, var(--accentFg) 50%),
+    linear-gradient(var(--accentFg) 42%, var(--accentBg) 42%);
+}
+
+.button1{
+  background:transparent;
+  background-image: url("/static/img/sprites/null.png");
+  background-size: 100% 100%;
+  cursor:pointer;
+  border: 2px solid white;
+  padding: 10px;
+  border-radius: 10px;
+  width:100px;
+  height:100px;
+  position: absolute;
+  left: 400px;
+  top: 130px;
+}
+.button2{
+  background:transparent;
+  background-image: url("/static/img/sprites/null.png");
+  background-size: 100% 100%;
+  cursor:pointer;
+  border: 2px solid white;
+  padding: 10px;
+  border-radius: 10px;
+  width:100px;
+  height:100px;
+  position: absolute;
+  left: 400px;
+  top: 240px;
+}
+.button3{
+  background:transparent;
+  background-image: url("/static/img/sprites/null.png");
+  background-size: 100% 100%;
+  cursor:pointer;
+  border: 2px solid white;
+  padding: 10px;
+  border-radius: 10px;
+  width:100px;
+  height:100px;
+  position: absolute;
+  left: 400px;
+  top: 350px;
+}
+
+
