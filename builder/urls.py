@@ -17,4 +17,6 @@ urlpatterns = [
     path('login/', views.user_login , name='login'),
     path('logout/', views.user_logout, name='logout'),
     path('signup/', views.signup , name='signup'),
+    path('request/<slug:username_slug>/', views.request_friend, name='request_friend')
+    path('accept/<slug:username_slug>/' views.accept_friend, name='accept_friend')
     ]
