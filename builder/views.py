@@ -11,11 +11,13 @@ def home(request):
     #create team lists for home page display
     #popular teams order by views and new teams order by most recently added
     #Homepage shows a list of the most liked teams of all time, more button to see an extended list on another page
-    
-    popular_team_list = Team.objects.order_by('-views')[:4]
+
+
+    #TODO teams either public or friends
+    popular_team_list = Team.objects.filter(public = true).order_by('-views')[:4]
     
     #Homepage shows a list of the newest added teams, more button to see an extended list on another page
-    new_team_list = Team.objects.order_by('-time')[:8]
+    new_team_list = Team.objects.filter(public = true).order_by('-time)
     
     context_dict = {}
     context_dict['popular_teams'] = popular_team_list
@@ -30,7 +32,9 @@ def home(request):
 
 def popular(request):
     #shown when more button clicked on  home page to the side of most popular teams
-    popular_team_list = Team.objects.order_by('-views')
+
+    popular_team_list = Team.objects.filter(public = true).order_by('-views')
+
     
     context_dict = {}
     context_dict['popular_teams'] = popular_team_list
@@ -44,7 +48,7 @@ def popular(request):
 
 def recent(request):
     #shown when more button clocked on the home page to the side of the most recent teams
-    new_team_list = Team.objects.order_by('-time')[:8]
+    new_team_list = Team.objects.filter(public=true).order_by('-time')[:4]
     
     context_dict = {}
     context_dict['new_teams'] = new_team_list
@@ -110,11 +114,21 @@ def share_username(request, username_slug):
 def friends(request):
 
     #get list of friends
-    #get list of each friend's teams
+
+    friend_list = UserProfile.objects.values_list('friends', flat=True)
+    #create dictionary of each friend and their teams
+    friend_team_dict = {}
+    for friend in friend_list:
+        teams = Team.objects.filter(userprofile = user)
+        friend_team_dict[friend]=teams
+    
+
     
     visitor_cookie_handler(request)
 
     context_dict = {}
+    context_dict[friend_teams] = friend_team_dict
+
     response = render(request, 'builder/friends.html', context = context_dict)
     return response
 
@@ -200,6 +214,28 @@ def signup(request):
 def user_logout(request):
     logout(request)
     return redirect(reverse('builder:home'))
+
+@login_required
+def request_friend(request, username_slug):
+    from_user = request.user
+    to_user = UserProfile.objects.get(slug = username_slug)
+    friendrequest, created = FriendRequest.objects.get_or_create(
+        from_user=from_user, to_user=to_user)
+    if created:
+        return HttpResponse('friend request sent')
+    else:
+        return HttpResponse('friend request was already sent)
+
+@login_required
+def accept_friend(request, requestID):
+    friend_request = FriendRequest.object.get(id=requestID)
+    if friend_request.to_user = request.user:
+        friend_request.to_user.friends.add(friend_request.from_user)
+        friend_request.from_user.friends.add(friend_request.to_user)
+        friend_request.delete()
+        return HttpRespone('friend request accepted')
+    else:
+        return HttpResponse('friend request not accepted')
 
 def get_server_side_cookie(request, cookie, default_val=None):
     val = request.session.get(cookie)
