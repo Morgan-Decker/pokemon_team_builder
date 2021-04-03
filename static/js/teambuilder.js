@@ -1,3 +1,4 @@
+//------------------------------------------------Element Changers----------------------------------------------------------------
 var changeSprite_1 = function () {
     document.getElementById('image1').src = "/static/img/sprites/" +
         this.options[this.selectedIndex].value.split("|")[0] + ".png"
@@ -262,6 +263,8 @@ var changemove4_6 = function () {
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
 }
 
+//------------------------------------------------Stat Calculations----------------------------------------------------------------
+
 var calculateStats_1 = function () {
     calculatestats("1")
 }
@@ -369,6 +372,8 @@ function calculateStat(base, IV, EV, level, nature){
     return Math.floor((Math.floor(0.01 * (2 * base + IV + Math.floor(0.25 * EV)) * level) + 5) * nature)
 }
 
+
+//------------------------------------------------Event Listeners----------------------------------------------------------------
 //pokemon 1 -------------------------------------------------------------------
 var selectpokemon1 = document.getElementById('selectpokemon1');
 var selectmove1_1 = document.getElementById('selectmove1_1');
@@ -562,6 +567,7 @@ document.getElementById('defIV6').addEventListener('change', calculateStats_6, f
 document.getElementById('spdIV6').addEventListener('change', calculateStats_6, false);
 
 
+//------------------------------------------------Team Member Selection----------------------------------------------------------------
 
 function showdiv(Id) {
     document.getElementById(Id).style.display = 'block';
@@ -622,4 +628,181 @@ function team_pokemon6(){
     hidediv('team_member_4');
     hidediv('team_member_5');
     showdiv('team_member_6');
+}
+
+//-----------------------------------------------Submit team--------------------------------------------------------
+function submit() {
+//------------------------pokemon1-------------------------
+    var name1 = document.getElementById("selectpokemon1").text;
+    var ability1 = document.getElementById("selectability1").text;
+    var nature1 = document.getElementById("selectnature1").text;
+    var item1 = document.getElementById("selectitem1").text;
+    var move1_1 = document.getElementById("selectmove1_1").text;
+    var move2_1 = document.getElementById("selectmove2_1").text;
+    var move3_1 = document.getElementById("selectmove3_1").text;
+    var move4_1 = document.getElementById("selectmove4_1").text;
+    var level1 = document.getElementById("level1").value;
+    var hp1 = document.getElementById("hp1").value;
+    var atk1 = document.getElementById("atk1").value;
+    var def1 = document.getElementById("def1").value;
+    var sp_atk1 = document.getElementById("sp_atk1").value;
+    var sp_def1 = document.getElementById("sp_def1").value;
+    var spd1 = document.getElementById("spd1").value;
+    var hpEV1 = document.getElementById("hpEV1").value;
+    var atkEV1 = document.getElementById("atkEV1").value;
+    var defEV1 = document.getElementById("defEV1").value;
+    var sp_atkEV1 = document.getElementById("sp_atkEV1").value;
+    var sp_defEV1 = document.getElementById("sp_defEV1").value;
+    var spdEV1 = document.getElementById("spdEV1").value;
+    var hpIV1 = document.getElementById("hpIV1").value;
+    var atkIV1 = document.getElementById("atkIV1").value;
+    var defIV1 = document.getElementById("defIV1").value;
+    var sp_atkIV1 = document.getElementById("sp_atkIV1").value;
+    var sp_defIV1 = document.getElementById("sp_defIV1").value;
+    var spdIV1 = document.getElementById("spdIV1").value;
+
+    //------------------------pokemon2-------------------------
+    var name2 = document.getElementById("selectpokemon2").text;
+    var ability2 = document.getElementById("selectability2").text;
+    var nature2 = document.getElementById("selectnature2").text;
+    var item2 = document.getElementById("selectitem2").text;
+    var move1_2 = document.getElementById("selectmove1_2").text;
+    var move2_2 = document.getElementById("selectmove2_2").text;
+    var move3_2 = document.getElementById("selectmove3_2").text;
+    var move4_2 = document.getElementById("selectmove4_2").text;
+    var level2 = document.getElementById("level2").value;
+    var hp2 = document.getElementById("hp2").value;
+    var atk2 = document.getElementById("atk2").value;
+    var def2 = document.getElementById("def2").value;
+    var sp_atk2 = document.getElementById("sp_atk2").value;
+    var sp_def2 = document.getElementById("sp_def2").value;
+    var spd2 = document.getElementById("spd2").value;
+    var hpEV2 = document.getElementById("hpEV2").value;
+    var atkEV2 = document.getElementById("atkEV2").value;
+    var defEV2 = document.getElementById("defEV2").value;
+    var sp_atkEV2 = document.getElementById("sp_atkEV2").value;
+    var sp_defEV2 = document.getElementById("sp_defEV2").value;
+    var spdEV2 = document.getElementById("spdEV2").value;
+    var hpIV2 = document.getElementById("hpIV2").value;
+    var atkIV2 = document.getElementById("atkIV2").value;
+    var defIV2 = document.getElementById("defIV2").value;
+    var sp_atkIV2 = document.getElementById("sp_atkIV2").value;
+    var sp_defIV2 = document.getElementById("sp_defIV2").value;
+    var spdIV2 = document.getElementById("spdIV2").value;
+
+    //------------------------pokemon3-------------------------
+    var name3 = document.getElementById("selectpokemon3").text;
+    var ability3 = document.getElementById("selectability3").text;
+    var nature3 = document.getElementById("selectnature3").text;
+    var item3 = document.getElementById("selectitem3").text;
+    var move1_3 = document.getElementById("selectmove1_3").text;
+    var move2_3 = document.getElementById("selectmove2_3").text;
+    var move3_3 = document.getElementById("selectmove3_3").text;
+    var move4_3 = document.getElementById("selectmove4_3").text;
+    var level3 = document.getElementById("level3").value;
+    var hp3 = document.getElementById("hp3").value;
+    var atk3 = document.getElementById("atk3").value;
+    var def3 = document.getElementById("def3").value;
+    var sp_atk3 = document.getElementById("sp_atk3").value;
+    var sp_def3 = document.getElementById("sp_def3").value;
+    var spd3 = document.getElementById("spd3").value;
+    var hpEV3 = document.getElementById("hpEV3").value;
+    var atkEV3 = document.getElementById("atkEV3").value;
+    var defEV3 = document.getElementById("defEV3").value;
+    var sp_atkEV3 = document.getElementById("sp_atkEV3").value;
+    var sp_defEV3 = document.getElementById("sp_defEV3").value;
+    var spdEV3 = document.getElementById("spdEV3").value;
+    var hpIV3 = document.getElementById("hpIV3").value;
+    var atkIV3 = document.getElementById("atkIV3").value;
+    var defIV3 = document.getElementById("defIV3").value;
+    var sp_atkIV3 = document.getElementById("sp_atkIV3").value;
+    var sp_defIV3 = document.getElementById("sp_defIV3").value;
+    var spdIV3 = document.getElementById("spdIV3").value;
+
+    //------------------------pokemon4-------------------------
+    var name4 = document.getElementById("selectpokemon4").text;
+    var ability4 = document.getElementById("selectability4").text;
+    var nature4 = document.getElementById("selectnature4").text;
+    var item4 = document.getElementById("selectitem4").text;
+    var move1_4 = document.getElementById("selectmove1_4").text;
+    var move2_4 = document.getElementById("selectmove2_4").text;
+    var move3_4 = document.getElementById("selectmove3_4").text;
+    var move4_4 = document.getElementById("selectmove4_4").text;
+    var level4 = document.getElementById("level4").value;
+    var hp4 = document.getElementById("hp4").value;
+    var atk4 = document.getElementById("atk4").value;
+    var def4 = document.getElementById("def4").value;
+    var sp_atk4 = document.getElementById("sp_atk4").value;
+    var sp_def4 = document.getElementById("sp_def4").value;
+    var spd4 = document.getElementById("spd4").value;
+    var hpEV4 = document.getElementById("hpEV4").value;
+    var atkEV4 = document.getElementById("atkEV4").value;
+    var defEV4 = document.getElementById("defEV4").value;
+    var sp_atkEV4 = document.getElementById("sp_atkEV4").value;
+    var sp_defEV4 = document.getElementById("sp_defEV4").value;
+    var spdEV4 = document.getElementById("spdEV4").value;
+    var hpIV4 = document.getElementById("hpIV4").value;
+    var atkIV4 = document.getElementById("atkIV4").value;
+    var defIV4 = document.getElementById("defIV4").value;
+    var sp_atkIV4 = document.getElementById("sp_atkIV4").value;
+    var sp_defIV4 = document.getElementById("sp_defIV4").value;
+    var spdIV4= document.getElementById("spdIV4").value;
+
+    //------------------------pokemon5-------------------------
+    var name5 = document.getElementById("selectpokemon5").text;
+    var ability5 = document.getElementById("selectability5").text;
+    var nature5 = document.getElementById("selectnature5").text;
+    var item5 = document.getElementById("selectitem5").text;
+    var move1_5 = document.getElementById("selectmove1_5").text;
+    var move2_5 = document.getElementById("selectmove2_5").text;
+    var move3_5 = document.getElementById("selectmove3_5").text;
+    var move4_5 = document.getElementById("selectmove4_5").text;
+    var level5 = document.getElementById("level5").value;
+    var hp5 = document.getElementById("hp5").value;
+    var atk5 = document.getElementById("atk5").value;
+    var def5 = document.getElementById("def5").value;
+    var sp_atk5 = document.getElementById("sp_atk5").value;
+    var sp_def5 = document.getElementById("sp_def5").value;
+    var spd5 = document.getElementById("spd5").value;
+    var hpEV5 = document.getElementById("hpEV5").value;
+    var atkEV5 = document.getElementById("atkEV5").value;
+    var defEV5 = document.getElementById("defEV5").value;
+    var sp_atkEV5 = document.getElementById("sp_atkEV5").value;
+    var sp_defEV5 = document.getElementById("sp_defEV5").value;
+    var spdEV5 = document.getElementById("spdEV5").value;
+    var hpIV5 = document.getElementById("hpIV5").value;
+    var atkIV5 = document.getElementById("atkIV5").value;
+    var defIV5 = document.getElementById("defIV5").value;
+    var sp_atkIV5 = document.getElementById("sp_atkIV5").value;
+    var sp_defIV5 = document.getElementById("sp_defIV5").value;
+    var spdIV5 = document.getElementById("spdIV5").value;
+
+    //------------------------pokemon6-------------------------
+    var name6 = document.getElementById("selectpokemon6").text;
+    var ability6 = document.getElementById("selectability6").text;
+    var nature6 = document.getElementById("selectnature6").text;
+    var item6 = document.getElementById("selectitem6").text;
+    var move1_6 = document.getElementById("selectmove1_6").text;
+    var move2_6 = document.getElementById("selectmove2_6").text;
+    var move3_6 = document.getElementById("selectmove3_6").text;
+    var move4_6 = document.getElementById("selectmove4_6").text;
+    var level6 = document.getElementById("level6").value;
+    var hp6 = document.getElementById("hp6").value;
+    var atk6 = document.getElementById("atk6").value;
+    var def6 = document.getElementById("def6").value;
+    var sp_atk6 = document.getElementById("sp_atk6").value;
+    var sp_def6 = document.getElementById("sp_def6").value;
+    var spd6 = document.getElementById("spd6").value;
+    var hpEV6 = document.getElementById("hpEV6").value;
+    var atkEV6 = document.getElementById("atkEV6").value;
+    var defEV6 = document.getElementById("defEV6").value;
+    var sp_atkEV6 = document.getElementById("sp_atkEV6").value;
+    var sp_defEV6 = document.getElementById("sp_defEV6").value;
+    var spdEV6 = document.getElementById("spdEV6").value;
+    var hpIV6 = document.getElementById("hpIV6").value;
+    var atkIV6 = document.getElementById("atkIV6").value;
+    var defIV6 = document.getElementById("defIV6").value;
+    var sp_atkIV6 = document.getElementById("sp_atkIV6").value;
+    var sp_defIV6 = document.getElementById("sp_defIV6").value;
+    var spdIV6 = document.getElementById("spdIV6").value;
 }

@@ -8,6 +8,8 @@
 </head>
 {% include "base.html" %}
 <hr/>
+<body>
+<div class="submit_text"><h1>Submit:</h1></div>
 {#---------------------------------------------------------Pokemon 1-----------------------------------------------------------------#}
 <div class="team_member" id="team_member_1">
 
@@ -1040,6 +1042,7 @@
     <input class="button5" id="team_image5" type="button" onclick="team_pokemon5()"></input>
     <input class="button6" id="team_image6" type="button" onclick="team_pokemon6()"></input>
 
-    <script src="{% static 'js/teambuilder.js' %}"></script>
+    <input class="submit" id="submit_team" type="button" onclick="submit()">Submit</input>
+<script src="{% static 'js/teambuilder.js' %}"></script>
 </body>
 </html>

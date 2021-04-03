@@ -1,19 +1,21 @@
 .pokemon_sprite{
-position:relative;
+  position:relative;
+  z-index: 1;
 }
 .pokemon_sprite img{
-position:absolute;
-top:-520px;
-left:1050px;
+  position:absolute;
+  top:-520px;
+  left:1050px;
 }
 
 .gigantamax_factor{
-position:relative;
+  position:relative;
+  z-index: 1;
 }
 .gigantamax_factor img{
-position:absolute;
-top:-290px;
-left:1165px;
+  position:absolute;
+  top:-290px;
+  left:1165px;
 }
 
 .type1_div{
@@ -41,6 +43,7 @@ left:1170px;
   position: relative;
   left: 600px;
   top: 20px;
+  z-index: 1;
 }
 .pokemonlist {
   --radius: 0;
@@ -52,11 +55,13 @@ left:1170px;
   position: relative;
   left: 600px;
   top: 20px;
+  z-index: 1;
 }
 
 .ability_text{
   left: 600px;
   top: 30px;
+  z-index: 1;
 }
 .abilitylist {
   --radius: 0;
@@ -68,11 +73,13 @@ left:1170px;
   position: relative;
   left: 600px;
   top: 30px;
+  z-index: 1;
 }
 
 .nature_text{
   left: 600px;
   top: 40px;
+  z-index: 1;
 }
 .naturelist {
   --radius: 0;
@@ -84,11 +91,13 @@ left:1170px;
   position: relative;
   left: 600px;
   top: 40px;
+  z-index: 1;
 }
 
 .item_text{
   left: 600px;
   top: 50px;
+  z-index: 1;
 }
 .itemlist {
   --radius: 0;
@@ -100,6 +109,7 @@ left:1170px;
   position: relative;
   left: 600px;
   top: 50px;
+  z-index: 1;
 }
 
 .move_text{
@@ -204,7 +214,7 @@ position:relative;
 
 .hp_text, .atk_text, .def_text, .sp_atk_text, .sp_def_text, .spd_text,
 .EV_text, .IV_text, .stats_text, .level_text, .move_text, .ability_text,
-.nature_text, .item_text {
+.nature_text, .item_text, .submit_text{
   font-family: 'Oswald', sans-serif;
   font-size: 12px;
   color: white;
@@ -352,6 +362,10 @@ position:relative;
   top:-411px;
   left:840px;
 }
+.submit_text{
+  left: 1400px;
+  top: 570px;
+}
 
 input{
   z-index: 0;
@@ -402,7 +416,7 @@ select:hover {
     linear-gradient(var(--accentFg) 42%, var(--accentBg) 42%);
 }
 
-.button1, .button2, .button3, .button4, .button5, .button6 {
+.button1, .button2, .button3, .button4, .button5, .button6, .submit {
   background:transparent;
   background-size: 100% 100%;
   cursor:pointer;
@@ -444,5 +458,9 @@ select:hover {
   left: 400px;
   top: 660px;
 }
-
+.submit {
+  background-image: url("/static/img/battle.png");
+  left: 1400px;
+  top: 700px;
+}
 

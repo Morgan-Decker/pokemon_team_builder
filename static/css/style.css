@@ -10,12 +10,14 @@ body, html {
     top: 3px;
     font-size: 50px;
     color: #8E8E8E;
+      z-index: 4;
   }
 
   .teamlist {
     position: relative;
     left: 20px;
     bottom: 5px;
+      z-index: 4;
   }
 
   .login_link {
@@ -27,6 +29,7 @@ body, html {
     font-size: 28px;
     opacity: 1;
     text-align: center;
+      z-index: 4;
   }
 
   .signup_link, .logout_link {
@@ -38,6 +41,7 @@ body, html {
     font-size: 28px;
     opacity: 1;
     text-align: center;
+      z-index: 4;
   }
 
 * {
@@ -45,12 +49,14 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
+    z-index: 3;
 }
 
 hr {
     background-color: #464646;
     height: 1px;
     border: none;
+    z-index: 3;
 }
 
 #navbar {
@@ -59,12 +65,14 @@ hr {
     display: flex;
     justify-content: start;
     align-items: center;
+    z-index: 3;
 }
 
 .menu-bars {
     margin-left: 2rem;
     font-size: 2rem;
     color: #fff;
+    z-index: 3;
 }
 
 #nav-menu {
@@ -77,11 +85,13 @@ hr {
     top: 0;
     left: 0%;
     transition : 350ms;
+    z-index: 3;
 }
 
 #nav-menu.active {
     left: -100%;
     transition: 850ms;
+    z-index: 3;
 }
 
 .nav-text {
@@ -90,6 +100,7 @@ hr {
     list-style: none;
     height: 50px;
     padding: 1rem;
+    z-index: 4;
 }
 
 .nav-text a{
@@ -101,25 +112,30 @@ hr {
     left: 50%;
     transform: translateX(-50%);
     bottom: 22px;
+    z-index: 4;
 }
 
 .gym {
     position: relative;
     bottom: -12px;
+    z-index: 4;
 }
 
 .nav-text:hover {
     background-color: rgba(144,144,144, 0.219);
     cursor: pointer;
+    z-index: 4;
 }
 
 .nav-menu-items {
     width: 100%;
+    z-index: 4;
 }
 
 .nav-icon {
     padding-right: 1rem;
     color: #909090;
+    z-index: 4;
 }
 
 #navbar-toggle {
@@ -129,20 +145,24 @@ hr {
     display: flex;
     justify-content: start;
     align-items: center;
+    z-index: 3;
 }
 
 #navbar-toggle h1 {
     color: #fff;
     font-family: 'Oswald', sans-serif;
     font-size: 28px;
+    z-index: 4;
 }
 
 #navbar-toggle a {
     text-decoration: none;
+    z-index: 3;
 }
 
 .fa-bars {
     color: #fff;
+    z-index: 3;
 }
 
 .nav-section {
@@ -150,11 +170,13 @@ hr {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    z-index: 3;
 }
 
 .nav-section2 {
     height: 200px;
     display: flex;
     flex-direction: column;
+    z-index: 3;
 
 }
