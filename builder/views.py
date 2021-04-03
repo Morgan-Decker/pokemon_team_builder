@@ -10,8 +10,13 @@ from datetime import datetime
 def home(request):
     #create team lists for home page display
     #popular teams order by views and new teams order by most recently added
-    popular_team_list = Team.objects.order_by('-views')[:4]
-    new_team_list = Team.objects.order_by('-time')[:8]
+    #Homepage shows a list of the most liked teams of all time, more button to see an extended list on another page
+
+    #TODO teams either public or friends
+    popular_team_list = Team.objects.filter(public = true).order_by('-views')[:4]
+    
+    #Homepage shows a list of the newest added teams, more button to see an extended list on another page
+    new_team_list = Team.objects.filter(public = true).order_by('-time')[:8]
     
     context_dict = {}
     context_dict['popular_teams'] = popular_team_list
@@ -25,7 +30,8 @@ def home(request):
     return response
 
 def popular(request):
-    popular_team_list = Team.objects.order_by('-views')
+    #shown when more button clicked on  home page to the side of most popular teams
+    popular_team_list = Team.objects.filter(public = true).order_by('-views')
     
     context_dict = {}
     context_dict['popular_teams'] = popular_team_list
@@ -34,11 +40,12 @@ def popular(request):
 
     #find out html address!!
 
-    reponse = render(request, 'builder/popular_teams.html', context=context_dict)
+    reponse = render(request, 'builder/popular.html', context=context_dict)
     return response
 
 def recent(request):
-    new_team_list = Team.objects.order_by('-time')[:8]
+    #shown when more button clocked on the home page to the side of the most recent teams
+    new_team_list = Team.objects.filter(public=true).order_by('-time')[:8]
     
     context_dict = {}
     context_dict['new_teams'] = new_team_list
@@ -47,17 +54,26 @@ def recent(request):
 
     #find out html address!!
 
-    reponse = render(request, 'builder/recent_teams.html', context=context_dict)
+    reponse = render(request, 'builder/recent.html', context=context_dict)
     return response
 
 #@login_required
 def share(request):
-    if not request.user.is_authenticated():
+    if request.user.is_authenticated():
 
-    #list of public teams
-    #list of private teams
-    
-    context_dict = {}
+        #list  of public teams
+        public_team_list = Team.objects.filter(userprofile = request.user, public = true)
+        #list of private teams
+        private_team_list = Team.objects.filter(userprofile = request.user, public = false)
+
+        context_dict = {}
+        context_dict['public_teams'] = public_team_list
+        context_dict['private_teams'] = private_team_list
+        
+        visitor_cookie_handler(request)
+        
+        response = render(request, 'builder/share.html', context = context_dict)
+        return response
 
     else:
         return HttpResponse("You are not logged in.")
@@ -66,36 +82,76 @@ def share(request):
 def share_priv_username(request, username_private_slug):
 
     #list of private teams
+    user = UserProfile.objects.get(slug = username_private_slug)
+    private_team_list = Team.objects.filter(userprofile = user, public = false)
+    
+    visitor_cookie_handler(request)
     
     context_dict = {}
+    context_dict['private_teams'] = private_team_list
+    response = render(request, 'builder/share.html', context = context_dict)
+    return response
 
 #@login_required
 def share_username(request, username_slug):
 
     #list of public teams
+    user = UserProfile.objects.get(slug = username_slug)
+    public_team_list = Team.objects.filter(userprofile = user, public = true)
+    
+    visitor_cookie_handler(request)
     
     context_dict = {}
+    context_dict['public_teams'] = public_team_list
+    
+    response = render(request, 'builder/share.html', context = context_dict)
+    return response
 
 #@login_required
 def friends(request):
 
     #get list of friends
-    #get list of each friend's teams
+    friend_list = UserProfile.objects.values_list('friends', flat=True)
+    #create dictionary of each friend and their teams
+    friend_team_dict = {}
+    for friend in friend_list:
+        teams = Team.objects.filter(userprofile = user)
+        friend_team_dict[friend]=teams
+    
+    
+    visitor_cookie_handler(request)
 
     context_dict = {}
+    context_dict[friend_teams] = friend_team_dict
+    response = render(request, 'builder/friends.html', context = context_dict)
+    return response
 
 #@login_required
 def viewfriend(request, friendname_slug):
 
     #get list of friendname_slug's teams
     
+    user = UserProfile.objects.get(slug = friendname_slug)
+    team_list = Team.objects.filter(user_profile=user)
+    
     context_dict = {}
+    context_dixt['friend_teams'] = team_list
+    
+    response = render(request, '', context = context_dict)
+    return response
 
 def builder(request):
+    
+    
     context_dict = {}
+    
+    response = render(request, 'builder/builder.html', context = context_dict)
+    return response
 
 def buildteam(request, teamname_slug):
     context_dict = {}
+    response = render(request, '', context = context_dict)
+    return response
 
 def user_login(request):
     if request.method == 'POST':
@@ -143,7 +199,7 @@ def signup(request):
         profile_form = UserProfileForm()
     
     return render(request,
-                  'builder/register.html',
+                  'builder/signup.html',
                   context={'user_form': user_form,
                            'profile_form': profile_form,
                            'registered': registered})
@@ -152,6 +208,28 @@ def signup(request):
 def user_logout(request):
     logout(request)
     return redirect(reverse('builder:home'))
+
+@login_required
+def request_friend(request, username_slug):
+    from_user = request.user
+    to_user = UserProfile.objects.get(slug = username_slug)
+    friendrequest, created = FriendRequest.objects.get_or_create(
+        from_user=from_user, to_user=to_user)
+    if created:
+        return HttpResponse('friend request sent')
+    else:
+        return HttpResponse('friend request was already sent)
+
+@login_required
+def accept_friend(request, requestID):
+    friend_request = FriendRequest.object.get(id=requestID)
+    if friend_request.to_user = request.user:
+        friend_request.to_user.friends.add(friend_request.from_user)
+        friend_request.from_user.friends.add(friend_request.to_user)
+        friend_request.delete()
+        return HttpRespone('friend request accepted')
+    else:
+        return HttpResponse('friend request not accepted')
 
 def get_server_side_cookie(request, cookie, default_val=None):
     val = request.session.get(cookie)
