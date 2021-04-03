@@ -29,7 +29,7 @@ body, html {
     text-align: center;
   }
 
-  .signup_link {
+  .signup_link, .logout_link {
     width: 108px;
     color: rgba(255,255,255,1);
     position: absolute;
@@ -75,13 +75,13 @@ hr {
     justify-content: center;
     position: fixed;
     top: 0;
-    left: -100%;
-    transition : 850ms;
+    left: 0%;
+    transition : 350ms;
 }
 
 #nav-menu.active {
-    left: 0;
-    transition: 350ms;
+    left: -100%;
+    transition: 850ms;
 }
 
 .nav-text {
@@ -156,5 +156,5 @@ hr {
     height: 200px;
     display: flex;
     flex-direction: column;
-    justify-content: top;
+
 }

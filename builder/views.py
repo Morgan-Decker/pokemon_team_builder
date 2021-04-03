@@ -95,11 +95,11 @@ def builder(request):
     nature_database = Nature.objects.all()
     ability_database = Ability.objects.all()
     item_database = Item.objects.all()
-    return render(request, 'builder.html', {"showpokemon":pokemon_database,
-                                            "showmove":move_database,
-                                            "shownature":nature_database,
-                                            "showability":ability_database,
-                                            "showitem":item_database
+    return render(request, 'builder.html', {"showpokemon": pokemon_database,
+                                            "showmove": move_database,
+                                            "shownature": nature_database,
+                                            "showability": ability_database,
+                                            "showitem": item_database
                                             })
 
 

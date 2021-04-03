@@ -1,9 +1,9 @@
-from django.urls import path, include
+from django.urls import path
 from builder import views
 
-app_name='builder'
+app_name = 'builder'
 
-urlpatterns=[
+urlpatterns = [
     path('home/', views.home, name='home'),
     path('home/popular/', views.popular, name='popular'),
     path('home/recent/', views.recent, name='recent'),

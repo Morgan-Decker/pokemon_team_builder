@@ -11,14 +11,14 @@
 </head>
 <body>
 	<div id="navbar">
-		<a href="#" class="menu-bars" id="show-menu">
+		<a href="#" class="menu-bars" id="hide-menu">
 			<i class="fas fa-bars"></i>
 		</a>
 	</div>
 	<nav id="nav-menu">
 		<ul class="nav-menu-items">
 			<div id="navbar-toggle">
-				<a href="#" class="menu-bars" id="hide-menu">
+				<a href="#" class="menu-bars" id="show-menu">
 					<i class="fas fa-bars nav-icon"></i>
 				</a>
 
@@ -384,9 +384,17 @@
 			</div>
 		</ul>
 	</nav>
-	<a href="login"><span fill="#FFFFFF" stroke="#000000" stroke-width="0.5" class="login_link"><u>Log In</u></span></a>
-	<a href="signup"><span fill="#FFFFFF" stroke="#000000" stroke-width="0.5" class="signup_link"><u>Sign Up</u></span></a>
-	<script src="{% static 'js/app.js' %}"></script>
+    <div>
+        <ul>
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}"><span fill="#FFFFFF" stroke="#000000" stroke-width="0.5" class="logout_link"><u>Log out</u></span></a>
+	        {% else %}
+                <a href="{% url 'login' %}"><span fill="#FFFFFF" stroke="#000000" stroke-width="0.5" class="login_link"><u>Log In</u></span></a>
+	            <a href="{% url 'signup' %}"><span fill="#FFFFFF" stroke="#000000" stroke-width="0.5" class="signup_link"><u>Sign Up</u></span></a>
+            {% endif %}
+        </ul>
+    </div>
+        <script src="{% static 'js/app.js' %}"></script>
 </body>
 <body bgcolor=#181818>
     {% block content %}

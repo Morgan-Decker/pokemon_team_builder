@@ -1,4 +1,25 @@
 <!Doctype html>
-<head><title>Login</title></head>
+{% load static %}
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
 {% include "base.html" %}
+<div class="login_div">
+    <form id="login_form" method="post" action="{% url 'builder:login' %}">
+        {% csrf_token %}
+        Username:
+        <br />
+        <input type="text" name="username" value="" size="50" class="username"/>
+        <br />
+        <br />
+        Password:
+        <br />
+        <input type="password" name="password" value="" size="50" class="password" />
+        <br />
+        <br />
+        <input type="submit" value="Submit" class="submit"/>
+    </form>
+    </div>
 </html>
