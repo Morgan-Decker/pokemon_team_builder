@@ -12,11 +12,12 @@ def home(request):
     #popular teams order by views and new teams order by most recently added
     #Homepage shows a list of the most liked teams of all time, more button to see an extended list on another page
 
+
     #TODO teams either public or friends
     popular_team_list = Team.objects.filter(public = true).order_by('-views')[:4]
     
     #Homepage shows a list of the newest added teams, more button to see an extended list on another page
-    new_team_list = Team.objects.filter(public = true).order_by('-time')[:8]
+    new_team_list = Team.objects.filter(public = true).order_by('-time)
     
     context_dict = {}
     context_dict['popular_teams'] = popular_team_list
@@ -31,7 +32,9 @@ def home(request):
 
 def popular(request):
     #shown when more button clicked on  home page to the side of most popular teams
+
     popular_team_list = Team.objects.filter(public = true).order_by('-views')
+
     
     context_dict = {}
     context_dict['popular_teams'] = popular_team_list
@@ -45,7 +48,7 @@ def popular(request):
 
 def recent(request):
     #shown when more button clocked on the home page to the side of the most recent teams
-    new_team_list = Team.objects.filter(public=true).order_by('-time')[:8]
+    new_team_list = Team.objects.filter(public=true).order_by('-time')[:4]
     
     context_dict = {}
     context_dict['new_teams'] = new_team_list
@@ -111,6 +114,7 @@ def share_username(request, username_slug):
 def friends(request):
 
     #get list of friends
+
     friend_list = UserProfile.objects.values_list('friends', flat=True)
     #create dictionary of each friend and their teams
     friend_team_dict = {}
@@ -118,11 +122,13 @@ def friends(request):
         teams = Team.objects.filter(userprofile = user)
         friend_team_dict[friend]=teams
     
+
     
     visitor_cookie_handler(request)
 
     context_dict = {}
     context_dict[friend_teams] = friend_team_dict
+
     response = render(request, 'builder/friends.html', context = context_dict)
     return response
 
