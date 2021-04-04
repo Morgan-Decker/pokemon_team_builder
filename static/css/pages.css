@@ -24,7 +24,7 @@
   z-index: 0;
 }
 
-.popular_text, .no_popular_teams, .recent_text {
+.popular_text, .no_popular_teams, .recent_text, .recent_more {
   font-family: 'Oswald', sans-serif;
   color: white;
   z-index: 0;

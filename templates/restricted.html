@@ -1,0 +1,16 @@
+<!Doctype html>
+{% load static %}
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+{% include "base.html" %}
+<div class="login_div" style="font-size:180%">
+    You must
+    <a href="{% url 'login' %}" style="color:white;"><u>Log In</u></a>
+     or
+    <a href="{% url 'signup' %}" style="color:white;"><span><u>Sign Up</u></span></a>
+     to use this feature.
+</div>
+</html>

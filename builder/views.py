@@ -47,7 +47,7 @@ def recent(request):
     return response
 
 
-# @login_required
+@login_required(login_url='/login/')
 def Your_Teams(request):
     # if not request.user.is_authenticated():
 
@@ -58,21 +58,21 @@ def Your_Teams(request):
     return render(request, 'share.html', context=context_dict)
 
 
-# @login_required
+@login_required
 def share_priv_username(request, username_private_slug):
     # list of private teams
 
     context_dict = {}
 
 
-# @login_required
+@login_required
 def share_username(request, username_slug):
     # list of public teams
 
     context_dict = {}
 
 
-# @login_required
+@login_required
 def friends(request):
     # get list of friends
     # get list of each friend's teams
@@ -81,13 +81,13 @@ def friends(request):
     return render(request, 'friends.html', context=context_dict)
 
 
-# @login_required
+@login_required
 def viewfriend(request, friendname_slug):
     # get list of friendname_slug's teams
 
     context_dict = {}
 
-
+@login_required(login_url='/restricted/')
 def builder(request):
     context_dict = {}
     context_dict['pokemon'] = Pokemon()
@@ -165,6 +165,10 @@ def signup(request):
 def user_logout(request):
     logout(request)
     return redirect(reverse('builder:home'))
+
+def restricted(request):
+    context_dict = {}
+    return render(request, 'restricted.html', context=context_dict)
 
 
 def get_server_side_cookie(request, cookie, default_val=None):

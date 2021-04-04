@@ -8,20 +8,14 @@
 {% include "base.html" %}
 {% if registered %}
 Rango says: <strong>thank you for registering!</strong>
-<a href="{% url 'builder:index' %}">Return to the homepage.</a><br />
+<a href="{% url 'builder:home' %}">Return to the homepage.</a><br />
 {% else %}
 <div class="signup_div">
     <form id="signup_form" method="post" action="{% url 'builder:signup' %}">
         {% csrf_token %}
-        Username:
-        <br />
-        <input type="text" name="username" value="" size="50" class="username"/>
-        <br />
-        <br />
-        Password:
-        <br />
-        <input type="password" name="password" value="" size="50" class="password" />
-        <br />
+        {{ user_form.as_p|linebreaks }}
+        <br/>
+        {{ profile_form.as_p }}
         <br />
         <input type="submit" value="Submit" class="submit"/>
     </form>
