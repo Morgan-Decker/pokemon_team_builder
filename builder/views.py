@@ -254,32 +254,6 @@ def accept_friend(request, requestID):
     else:
         return HttpResponse('friend request not accepted')
     
-@login_required
-def team_like(request, pk):
-    team = get_object_or_404(Team, id=request.POST.get('id'))
-    if team.likes.filter(id=request.user.id).exists:
-        team.likes.remove(request.user)
-    else:
-        team.likes.add(request.user)
-        
-    return HttpResponseRedirect(reverse('builder/team_detail.html', args=[str(pk)]))
-
-@login_required
-class team_detail_view(DetailView):
-    model = Team
-    #template name = team_detail.html
-    #context object name = 'object'
-    
-    def get_context_data(self, **kwargs):
-        data = super().get_context_data(**kwargs)
-        
-        likes_connected = get_object_or_404(Team, id=self.kwargs['pk'])
-        liked = False
-        if likes_connected.likes.filter(id=self.request.user.id).exists():
-            liked = True
-        data['number_of_likes'] = likes_connected.number_of_likes()
-        data['post_is_liked'] = liked
-        return data
 
 def get_server_side_cookie(request, cookie, default_val=None):
     val = request.session.get(cookie)

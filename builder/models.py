@@ -27,7 +27,7 @@ class FriendRequest(models.Model):
 class Team(models.Model):
     userprofile = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
-    likes = models.ManyToManyField(UserProfile, related_name='team_like')
+    likes = models.IntegerField(default=0)
     slug = AutoSlugField(populate_from='teamname')
 
 
