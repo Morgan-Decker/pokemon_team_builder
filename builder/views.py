@@ -41,30 +41,13 @@ def create_new_team(request):
     Team.objects.get_or_create(userprofile=user_id, teamname=teamname)
 
 def popular(request):
-    popular_team_list = Team.objects.order_by('-id')
-
-    context_dict = {}
-    context_dict['popular_teams'] = popular_team_list
-
-    visitor_cookie_handler(request)
-
-    # find out html address!!
-
-    return render(request, 'popular_teams.html', context=context_dict)
+    popular_team_list = Team.objects.order_by('-likes')
+    return render(request, 'popular.html', context={'popularteams':popular_team_list})
 
 
 def recent(request):
-    new_team_list = Team.objects.order_by('-id')[:8]
-
-    context_dict = {}
-    context_dict['new_teams'] = new_team_list
-
-    visitor_cookie_handler(request)
-
-    # find out html address!!
-
-    response = render(request, 'recent_teams.html', context=context_dict)
-    return response
+    recent_team_list = Team.objects.all()[::-1]
+    return render(request, 'recent.html', context={'recentteams':recent_team_list})
 
 
 @login_required(login_url='/restricted/')

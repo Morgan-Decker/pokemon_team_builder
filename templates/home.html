@@ -4,8 +4,13 @@
 <head><title>Homepage</title></head>
 {% include "base.html" %}
 <link rel="stylesheet" href="{% static 'css/pages.css' %}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
 
 <body>
+    <div>
+        <a href="{% url 'popular' %}" class="popular_text1"><u>more</u></a>
+        <a href="{% url 'recent' %}" class="recent_text1"><u>more</u></a>
+    </div>
     <div class="popular">
     <h1 class="popular_text">Popular:</h1>
     <br />

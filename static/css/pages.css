@@ -31,10 +31,30 @@
   z-index: 0;
 }
 
-.popular_text, .no_popular_teams, .recent_text, .recent_more {
+.popular_text, .no_popular_teams, .recent_text, .recent_more{
   font-family: 'Oswald', sans-serif;
   color: white;
   z-index: 0;
+}
+
+.popular_text1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 30px;
+  color: white;
+  z-index: 0;
+  position: relative;
+  top: 180px;
+  left: 1670px;
+}
+
+.recent_text1 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 30px;
+  color: white;
+  z-index: 0;
+  position: relative;
+  top: 480px;
+  left: 1600px;
 }
 
 .no_popular_teams {

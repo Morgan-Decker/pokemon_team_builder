@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5d109643-5a31-4c58-a4b1-a6e8e170d9b0" name="Default Changelist" comment="first commit" />
+    <list default="true" id="5d109643-5a31-4c58-a4b1-a6e8e170d9b0" name="Default Changelist" comment="first commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/builder/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/builder/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/builder/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/builder/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pokemon_team_builder/populate.py" beforeDir="false" afterPath="$PROJECT_DIR$/pokemon_team_builder/populate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pokemon_team_builder/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/pokemon_team_builder/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/pages.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/pages.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/builder.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/builder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/popular.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/popular.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/recent.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/recent.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,7 +120,7 @@
       <workItem from="1617038747628" duration="36340000" />
       <workItem from="1617332870958" duration="547000" />
       <workItem from="1617402770200" duration="201000" />
-      <workItem from="1617500265569" duration="39534000" />
+      <workItem from="1617500265569" duration="42535000" />
     </task>
     <task id="LOCAL-00005" summary="third commit">
       <created>1617288135191</created>
@@ -174,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617571565174</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="eleventh commit">
+      <created>1617571573666</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1617571573666</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,6 +223,7 @@
     <MESSAGE value="eighth commit" />
     <MESSAGE value="ninth commit" />
     <MESSAGE value="tenth commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="tenth commit" />
+    <MESSAGE value="eleventh commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="eleventh commit" />
   </component>
 </project>

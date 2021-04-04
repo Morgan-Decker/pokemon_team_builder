@@ -6,8 +6,8 @@ app_name = 'builder'
 
 urlpatterns = [
     path('home/', views.home, name='home'),
-    path('home/popular/', views.popular, name='popular'),
-    path('home/recent/', views.recent, name='recent'),
+    path('popular/', views.popular, name='popular'),
+    path('recent/', views.recent, name='recent'),
     path('your_teams/', views.Your_Teams, name='your_teams'),
     path('share/<slug:username_private_slug>/', views.share_priv_username, name=''),
     path('share/<slug:username_slug>/', views.share_username, name=''),
