@@ -18,7 +18,8 @@ def user_add_data(user):
 def Team_add_data(pokedex1, teamname, likes, name1, ability1, nature1, item1,
                   move1_1, move2_1, move3_1, move4_1, level1, hp1, atk1, def1, sp_atk1,
                   sp_def1, spd1, hpEV1, atkEV1, defEV1, sp_atkEV1, sp_defEV1, spdEV1,
-                  hpIV1, atkIV1, defIV1, sp_atkIV1, sp_defIV1, spdIV1):
+                  hpIV1, atkIV1, defIV1, sp_atkIV1, sp_defIV1, spdIV1, gmax1,
+                  movetype1_1, movetype2_1, movetype3_1, movetype4_1, type1_1, type2_1):
     d, created = Team.objects.get_or_create(teamname=teamname,
                                             likes=likes,
                                             pokedex1=pokedex1,
@@ -30,6 +31,10 @@ def Team_add_data(pokedex1, teamname, likes, name1, ability1, nature1, item1,
                                             move2_1=move2_1,
                                             move3_1=move3_1,
                                             move4_1=move4_1,
+                                            movetype1_1=movetype1_1,
+                                            movetype2_1=movetype2_1,
+                                            movetype3_1=movetype3_1,
+                                            movetype4_1=movetype4_1,
                                             level1=level1,
                                             hp1=hp1,
                                             atk1=atk1,
@@ -49,6 +54,9 @@ def Team_add_data(pokedex1, teamname, likes, name1, ability1, nature1, item1,
                                             sp_atkIV1=sp_atkIV1,
                                             sp_defIV1=sp_defIV1,
                                             spdIV1=spdIV1,
+                                            gmax1=gmax1,
+                                            type1_1=type1_1,
+                                            type2_1=type2_1
                                             )
     print("- Data: {0}, Created: {1}".format(str(d), str(created)))
     return d
@@ -95,37 +103,37 @@ def populate():
                     ]
     move_data = [["Flare Blitz", "fire"], ["Crunch", "dark"], ["Extreme Speed", "normal"], ["Roost", "flying"]]
     nature_data = [["Jolly", "speed", "sp_atk"], ["Modest", "sp_atk", "attack"], ["Relaxed", "defence", "speed"]]
-    ability_data = [["Speed Boost", "Intrepid Sword", "Solar Power"]]
+    ability_data = [["Speed Boost"], ["Intrepid Sword"], ["Solar Power"]]
     item_data = [["Focus Sash"]]
     user_data = [["Craig"]]
     team_data = [
         [888, "Single Pokemon Tester Team", 1024, "Zacian", "Intrepid Sword", "jolly", "Focus Sash",
         "Flare Blitz", "Crunch", "Extreme Speed", "Roost", 100, 325, 296, 266, 196, 266, 312,
-        0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31],
+        0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, 1, "fire", "dark", "normal", "flying", "fairy", None],
         [6, "Charizard Team", 197, "Charizard", "Solar Power", "jolly", "Focus Sash",
         "Flare Blitz", "Crunch", "Extreme Speed", "Roost", 100, 78, 84, 78, 100, 109, 85,
-        0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31],
+        0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, 2, "fire", "dark", "normal", "flying", "fire", "flying"],
         [6, "Charizard Team2", 3, "Charizard", "Solar Power", "jolly", "Focus Sash",
          "Flare Blitz", "Crunch", "Extreme Speed", "Roost", 100, 78, 84, 78, 100, 109, 85,
-         0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31],
+         0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, 2, "fire", "dark", "normal", "flying", "fire", "flying"],
         [6, "Charizard Team3", 565, "Charizard", "Solar Power", "jolly", "Focus Sash",
          "Flare Blitz", "Crunch", "Extreme Speed", "Roost", 100, 78, 84, 78, 100, 109, 85,
-         0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31],
+         0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, 2, "fire", "dark", "normal", "flying", "fire", "flying"],
         [6, "Charizard Team4", 12, "Charizard", "Solar Power", "jolly", "Focus Sash",
          "Flare Blitz", "Crunch", "Extreme Speed", "Roost", 100, 78, 84, 78, 100, 109, 85,
-         0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31],
+         0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, 2, "fire", "dark", "normal", "flying", "fire", "flying"],
         [6, "Charizard Team5", 123, "Charizard", "Solar Power", "jolly", "Focus Sash",
          "Flare Blitz", "Crunch", "Extreme Speed", "Roost", 100, 78, 84, 78, 100, 109, 85,
-         0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31],
+         0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, 2, "fire", "dark", "normal", "flying", "fire", "flying"],
         [6, "Charizard Team6", 987, "Charizard", "Solar Power", "jolly", "Focus Sash",
          "Flare Blitz", "Crunch", "Extreme Speed", "Roost", 100, 78, 84, 78, 100, 109, 85,
-         0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31],
+         0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, 2, "fire", "dark", "normal", "flying", "fire", "flying"],
         [6, "Charizard Team7", 986, "Charizard", "Solar Power", "jolly", "Focus Sash",
          "Flare Blitz", "Crunch", "Extreme Speed", "Roost", 100, 78, 84, 78, 100, 109, 85,
-         0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31],
+         0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, 2, "fire", "dark", "normal", "flying", "fire", "flying"],
         [6, "Charizard Team8", 1, "Charizard", "Solar Power", "jolly", "Focus Sash",
          "Flare Blitz", "Crunch", "Extreme Speed", "Roost", 100, 78, 84, 78, 100, 109, 85,
-         0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31],
+         0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, 2, "fire", "dark", "normal", "flying", "fire", "flying"],
     ]
     # data is a list of lists
     for row in user_data:
@@ -135,7 +143,8 @@ def populate():
     for row in team_data:
         Team_add_data(row[0], row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10], row[11],
                       row[12], row[13], row[14], row[15], row[16], row[17], row[18], row[19], row[20], row[21], row[22],
-                      row[23], row[24], row[25], row[26], row[27], row[28], row[29])
+                      row[23], row[24], row[25], row[26], row[27], row[28], row[29], row[30], row[31], row[32], row[33],
+                      row[34], row[35], row[36])
 
 
     for row in pokemon_data:

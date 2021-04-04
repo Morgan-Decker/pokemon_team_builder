@@ -1,22 +1,25 @@
 .teamname {
-  height: 40px;
+  height: 50px;
   width: 400px;
   left: 600px;
   top: 40px;
-  z-index: 1;
+  z-index: -1;
 }
 .teamname_text {
   left: 600px;
   top: 40px;
   font-family: 'Oswald', sans-serif;
-  font-size: 17px;
+  font-size: 16px;
   color: white;
   position: relative;
-  z-index: 1;
+  z-index: -1;
+}
+br {
+  line-height: 10px;
 }
 .pokemon_sprite{
   position:relative;
-  z-index: 1;
+  z-index: -1;
 }
 .pokemon_sprite img{
   position:absolute;
@@ -26,30 +29,35 @@
 
 .gigantamax_factor{
   position:relative;
-  z-index: 1;
+  z-index: -1;
 }
 .gigantamax_factor img{
   position:absolute;
   top:-290px;
   left:1165px;
+  z-index: -1;
 }
 
 .type1_div{
 position:relative;
+  z-index: -1;
 }
 .type1_div img{
 position:absolute;
 top:-190px;
 left:1070px;
+  z-index: -1;
 }
 
 .type2_div{
 position:relative;
+  z-index: -1;
 }
 .type2_div img{
 position:absolute;
 top:-190px;
 left:1170px;
+  z-index: -1;
 }
 
 .pokemon_text{
@@ -59,7 +67,7 @@ left:1170px;
   position: relative;
   left: 600px;
   top: 20px;
-  z-index: 1;
+  z-index: -1;
 }
 .pokemonlist {
   --radius: 0;
@@ -71,13 +79,13 @@ left:1170px;
   position: relative;
   left: 600px;
   top: 20px;
-  z-index: 1;
+  z-index: -1;
 }
 
 .ability_text{
   left: 600px;
   top: 30px;
-  z-index: 1;
+  z-index: -1;
 }
 .abilitylist {
   --radius: 0;
@@ -89,13 +97,13 @@ left:1170px;
   position: relative;
   left: 600px;
   top: 30px;
-  z-index: 1;
+  z-index: -1;
 }
 
 .nature_text{
   left: 600px;
   top: 40px;
-  z-index: 1;
+  z-index: -1;
 }
 .naturelist {
   --radius: 0;
@@ -107,13 +115,13 @@ left:1170px;
   position: relative;
   left: 600px;
   top: 40px;
-  z-index: 1;
+  z-index: -1;
 }
 
 .item_text{
   left: 600px;
   top: 50px;
-  z-index: 1;
+  z-index: -1;
 }
 .itemlist {
   --radius: 0;
@@ -125,12 +133,12 @@ left:1170px;
   position: relative;
   left: 600px;
   top: 50px;
-  z-index: 1;
+  z-index: -1;
 }
 
 .move_text{
   left: 1020px;
-  top: 60px;
+  top: 75px;
 }
 .move1list {
   --radius: 0;
@@ -141,9 +149,9 @@ left:1170px;
   width:350px;
   position: relative;
   left: 1000px;
-  top: 65px;
+  top: 80px;
   padding-left: 60px;
-  z-index: 1;
+  z-index: -1;
 }
 .move1_div{
   position:relative;
@@ -152,7 +160,7 @@ left:1170px;
   position:absolute;
   top:-117px;
   left:1010px;
-  z-index: 1;
+  z-index: -1;
   pointer-events: none;
 }
 
@@ -165,18 +173,18 @@ left:1170px;
   width:350px;
   position: relative;
   left: 1000px;
-  top: 75px;
+  top: 90px;
   padding-left: 60px;
-  z-index: 1;
+  z-index: -1;
 }
 .move2_div{
 position:relative;
 }
 .move2_div img{
   position:absolute;
-  top:-62px;
+  top:-54px;
   left:1010px;
-  z-index: 1;
+  z-index: -1;
   pointer-events: none;
 }
 
@@ -189,18 +197,18 @@ position:relative;
   width:350px;
   position: relative;
   left: 1000px;
-  top: 85px;
+  top: 100px;
   padding-left: 60px;
-  z-index: 1;
+  z-index: -1;
 }
 .move3_div{
   position:relative;
 }
 .move3_div img{
   position:absolute;
-  top:-5px;
+  top:6px;
   left:1010px;
-  z-index: 1;
+  z-index: -1;
   pointer-events: none;
 }
 
@@ -213,18 +221,18 @@ position:relative;
   width:350px;
   position: relative;
   left: 1000px;
-  top: 95px;
+  top: 110px;
   padding-left: 60px;
-  z-index: 1;
+  z-index: -1;
 }
 .move4_div{
 position:relative;
 }
 .move4_div img{
   position:absolute;
-  top:50px;
+  top:63px;
   left:1010px;
-  z-index: 1;
+  z-index: -1;
   pointer-events: none;
 }
 
@@ -235,7 +243,7 @@ position:relative;
   font-size: 12px;
   color: white;
   position: relative;
-  z-index: 0;
+  z-index: -2;
 }
 
 .level_text {
@@ -248,55 +256,68 @@ position:relative;
   left:1080px;
   font-size: 20px;
   padding-left: 15px;
+  z-index: -2;
 }
 
 .hpEV {
   top:-430px;
   left:700px;
+  z-index: -1;
 }
 .atkEV {
   top:-420px;
   left:700px;
+  z-index: -1;
 }
 .defEV {
   top:-410px;
   left:700px;
+  z-index: -1;
 }
 .sp_atkEV {
   top:-400px;
   left:700px;
+  z-index: -1;
 }
 .sp_defEV {
   top:-390px;
   left:700px;
+  z-index: -1;
 }
 .spdEV {
   top:-380px;
   left:700px;
+  z-index: -1;
 }
 .hpIV {
   top:-586px;
   left:770px;
+  z-index: -1;
 }
 .atkIV {
   top:-576px;
   left:770px;
+  z-index: -1;
 }
 .defIV {
   top:-566px;
   left:770px;
+  z-index: -1;
 }
 .sp_atkIV {
   top:-556px;
   left:770px;
+  z-index: -1;
 }
 .sp_defIV {
   top:-546px;
   left:770px;
+  z-index: -1;
 }
 .spdIV {
   top:-536px;
   left:770px;
+  z-index: -1;
 }
 .hp, .atk, .def, .sp_atk, .sp_def, .spd {
   text-align: center;
@@ -316,7 +337,7 @@ position:relative;
   font-size: 10px;
   display:inline-block;
   padding: 0px;
-  z-index: 0;
+  z-index: -2;
 }
 .hp {
   top:-405px;
@@ -409,31 +430,27 @@ select {
   -webkit-appearance: none;
   appearance: none;
   color: var(--baseFg);
-  line-height: 1;
+  line-height: 1.2;
   outline: 0;
   overflow:hidden;
   display:inline-block;
   padding: 0.65em 2.5em 0.55em 0.75em;
   border-radius:20px;border:1px solid #AAAAAA;
   background-color: var(--baseBg);
-  background-image: linear-gradient(var(--baseFg), var(--baseFg)),
-    linear-gradient(-135deg, transparent 50%, var(--accentBg) 50%),
-    linear-gradient(-225deg, transparent 50%, var(--accentBg) 50%),
-    linear-gradient(var(--accentBg) 42%, var(--accentFg) 42%);
   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
   background-size: 1px 100%, 20px 22px, 20px 22px, 20px 100%;
   background-position: right 20px center, right bottom, right bottom, right bottom;
 }
 
-select:hover {
-  background-image: linear-gradient(var(--accentFg), var(--accentFg)),
-    linear-gradient(-135deg, transparent 50%, var(--accentFg) 50%),
-    linear-gradient(-225deg, transparent 50%, var(--accentFg) 50%),
-    linear-gradient(var(--accentFg) 42%, var(--accentBg) 42%);
-}
+/*select:hover {*/
+/*  background-image: linear-gradient(var(--accentFg), var(--accentFg)),*/
+/*    linear-gradient(-135deg, transparent 50%, var(--accentFg) 50%),*/
+/*    linear-gradient(-225deg, transparent 50%, var(--accentFg) 50%),*/
+/*    linear-gradient(var(--accentFg) 42%, var(--accentBg) 42%);*/
+/*}*/
 
-.button1, .button2, .button3, .button4, .button5, .button6, .submit {
-  background:transparent;
+.button1, .button2, .button3, .button4, .button5, .button6 {
+  background-color:#181818;
   background-size: 100% 100%;
   cursor:pointer;
   border: 2px solid white;
@@ -445,38 +462,26 @@ select:hover {
 
 }
 .button1 {
-  background-image: url("/static/img/sprites/null.png");
   left: 400px;
   top: 110px;
 }
 .button2 {
-  background-image: url("/static/img/sprites/null.png");
   left: 400px;
   top: 220px;
 }
 .button3 {
-  background-image: url("/static/img/sprites/null.png");
   left: 400px;
   top: 330px;
 }
 .button4 {
-  background-image: url("/static/img/sprites/null.png");
   left: 400px;
   top: 440px;
 }
 .button5{
-  background-image: url("/static/img/sprites/null.png");
   left: 400px;
   top: 550px;
 }
 .button6 {
-  background-image: url("/static/img/sprites/null.png");
   left: 400px;
   top: 660px;
 }
-.submit {
-  background-image: url("/static/img/battle.png");
-  left: 1400px;
-  top: 700px;
-}
-

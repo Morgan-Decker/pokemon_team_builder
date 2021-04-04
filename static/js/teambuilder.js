@@ -632,9 +632,14 @@ function team_pokemon6(){
 
 //-----------------------------------------------Submit team--------------------------------------------------------
 function submit() {
+
+    const user_id = JSON.parse(document.getElementById('user_id').textContent);
 //------------------------pokemon1-------------------------
     var pokedex1 = document.getElementById("selectpokemon1").value.split("|")[0];
     var name1 = document.getElementById("selectpokemon1").text;
+    var gmax1 = document.getElementById("selectpokemon1").value.split("|")[1];
+    var type1_1 = document.getElementById("selectpokemon1").value.split("|")[2];
+    var type2_1 = document.getElementById("selectpokemon1").value.split("|")[3];
     var ability1 = document.getElementById("selectability1").text;
     var nature1 = document.getElementById("selectnature1").text;
     var item1 = document.getElementById("selectitem1").text;
@@ -642,7 +647,11 @@ function submit() {
     var move2_1 = document.getElementById("selectmove2_1").text;
     var move3_1 = document.getElementById("selectmove3_1").text;
     var move4_1 = document.getElementById("selectmove4_1").text;
-    var level1 = document.getElementById("level1").value;
+    var movetype1_1 = document.getElementById('selectmove1_1').value.split("|")[1];
+    var movetype2_1 = document.getElementById('selectmove2_1').value.split("|")[1];
+    var movetype3_1 = document.getElementById('selectmove3_1').value.split("|")[1];
+    var movetype4_1 = document.getElementById('selectmove4_1').value.split("|")[1];
+    var leveltype1 = document.getElementById("level1").value;
     var hp1 = document.getElementById("hp1").value;
     var atk1 = document.getElementById("atk1").value;
     var def1 = document.getElementById("def1").value;
@@ -665,6 +674,9 @@ function submit() {
     //------------------------pokemon2-------------------------
     var pokedex2 = document.getElementById("selectpokemon2").value.split("|")[0];
     var name2 = document.getElementById("selectpokemon2").text;
+    var gmax2 = document.getElementById("selectpokemon2").value.split("|")[1];
+    var type1_2 = document.getElementById("selectpokemon2").value.split("|")[2];
+    var type2_2 = document.getElementById("selectpokemon2").value.split("|")[3];
     var ability2 = document.getElementById("selectability2").text;
     var nature2 = document.getElementById("selectnature2").text;
     var item2 = document.getElementById("selectitem2").text;
@@ -672,6 +684,10 @@ function submit() {
     var move2_2 = document.getElementById("selectmove2_2").text;
     var move3_2 = document.getElementById("selectmove3_2").text;
     var move4_2 = document.getElementById("selectmove4_2").text;
+    var movetype1_2 = document.getElementById('selectmove1_2').value.split("|")[1];
+    var movetype2_2 = document.getElementById('selectmove2_2').value.split("|")[1];
+    var movetype3_2 = document.getElementById('selectmove3_2').value.split("|")[1];
+    var movetype4_2 = document.getElementById('selectmove4_2').value.split("|")[1];
     var level2 = document.getElementById("level2").value;
     var hp2 = document.getElementById("hp2").value;
     var atk2 = document.getElementById("atk2").value;
@@ -695,6 +711,9 @@ function submit() {
     //------------------------pokemon3-------------------------
     var pokedex3 = document.getElementById("selectpokemon3").value.split("|")[0];
     var name3 = document.getElementById("selectpokemon3").text;
+    var gmax3 = document.getElementById("selectpokemon3").value.split("|")[1];
+    var type1_3 = document.getElementById("selectpokemon3").value.split("|")[2];
+    var type2_3 = document.getElementById("selectpokemon3").value.split("|")[3];
     var ability3 = document.getElementById("selectability3").text;
     var nature3 = document.getElementById("selectnature3").text;
     var item3 = document.getElementById("selectitem3").text;
@@ -702,6 +721,10 @@ function submit() {
     var move2_3 = document.getElementById("selectmove2_3").text;
     var move3_3 = document.getElementById("selectmove3_3").text;
     var move4_3 = document.getElementById("selectmove4_3").text;
+    var movetype1_3 = document.getElementById('selectmove1_3').value.split("|")[1];
+    var movetype2_3 = document.getElementById('selectmove2_3').value.split("|")[1];
+    var movetype3_3 = document.getElementById('selectmove3_3').value.split("|")[1];
+    var movetype4_3 = document.getElementById('selectmove4_3').value.split("|")[1];
     var level3 = document.getElementById("level3").value;
     var hp3 = document.getElementById("hp3").value;
     var atk3 = document.getElementById("atk3").value;
@@ -725,6 +748,9 @@ function submit() {
     //------------------------pokemon4-------------------------
     var pokedex4 = document.getElementById("selectpokemon4").value.split("|")[0];
     var name4 = document.getElementById("selectpokemon4").text;
+    var gmax4 = document.getElementById("selectpokemon4").value.split("|")[1];
+    var type1_4 = document.getElementById("selectpokemon4").value.split("|")[2];
+    var type2_4 = document.getElementById("selectpokemon4").value.split("|")[3];
     var ability4 = document.getElementById("selectability4").text;
     var nature4 = document.getElementById("selectnature4").text;
     var item4 = document.getElementById("selectitem4").text;
@@ -732,6 +758,10 @@ function submit() {
     var move2_4 = document.getElementById("selectmove2_4").text;
     var move3_4 = document.getElementById("selectmove3_4").text;
     var move4_4 = document.getElementById("selectmove4_4").text;
+    var movetype1_4 = document.getElementById('selectmove1_4').value.split("|")[1];
+    var movetype2_4 = document.getElementById('selectmove2_4').value.split("|")[1];
+    var movetype3_4 = document.getElementById('selectmove3_4').value.split("|")[1];
+    var movetype4_4 = document.getElementById('selectmove4_4').value.split("|")[1];
     var level4 = document.getElementById("level4").value;
     var hp4 = document.getElementById("hp4").value;
     var atk4 = document.getElementById("atk4").value;
@@ -755,6 +785,9 @@ function submit() {
     //------------------------pokemon5-------------------------
     var pokedex5 = document.getElementById("selectpokemon5").value.split("|")[0];
     var name5 = document.getElementById("selectpokemon5").text;
+    var gmax5 = document.getElementById("selectpokemon5").value.split("|")[1];
+    var type1_5 = document.getElementById("selectpokemon5").value.split("|")[2];
+    var type2_5 = document.getElementById("selectpokemon5").value.split("|")[3];
     var ability5 = document.getElementById("selectability5").text;
     var nature5 = document.getElementById("selectnature5").text;
     var item5 = document.getElementById("selectitem5").text;
@@ -762,6 +795,10 @@ function submit() {
     var move2_5 = document.getElementById("selectmove2_5").text;
     var move3_5 = document.getElementById("selectmove3_5").text;
     var move4_5 = document.getElementById("selectmove4_5").text;
+    var movetype1_5 = document.getElementById('selectmove1_5').value.split("|")[1];
+    var movetype2_5 = document.getElementById('selectmove2_5').value.split("|")[1];
+    var movetype3_5 = document.getElementById('selectmove3_5').value.split("|")[1];
+    var movetype4_5 = document.getElementById('selectmove4_5').value.split("|")[1];
     var level5 = document.getElementById("level5").value;
     var hp5 = document.getElementById("hp5").value;
     var atk5 = document.getElementById("atk5").value;
@@ -785,6 +822,9 @@ function submit() {
     //------------------------pokemon6-------------------------
     var pokedex6 = document.getElementById("selectpokemon6").value.split("|")[0];
     var name6 = document.getElementById("selectpokemon6").text;
+    var gmax6 = document.getElementById("selectpokemon6").value.split("|")[1];
+    var type1_6 = document.getElementById("selectpokemon6").value.split("|")[2];
+    var type2_6 = document.getElementById("selectpokemon6").value.split("|")[3];
     var ability6 = document.getElementById("selectability6").text;
     var nature6 = document.getElementById("selectnature6").text;
     var item6 = document.getElementById("selectitem6").text;
@@ -792,6 +832,10 @@ function submit() {
     var move2_6 = document.getElementById("selectmove2_6").text;
     var move3_6 = document.getElementById("selectmove3_6").text;
     var move4_6 = document.getElementById("selectmove4_6").text;
+    var movetype1_6 = document.getElementById('selectmove1_6').value.split("|")[1];
+    var movetype2_6 = document.getElementById('selectmove2_6').value.split("|")[1];
+    var movetype3_6 = document.getElementById('selectmove3_6').value.split("|")[1];
+    var movetype4_6 = document.getElementById('selectmove4_6').value.split("|")[1];
     var level6 = document.getElementById("level6").value;
     var hp6 = document.getElementById("hp6").value;
     var atk6 = document.getElementById("atk6").value;

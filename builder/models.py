@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
+from autoslug import AutoSlugField
 
 # Create your models here.
 
@@ -13,12 +14,16 @@ class Team(models.Model):
     # userprofile = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     teamname = models.CharField(max_length=30)
     likes = models.IntegerField()
+    slug = AutoSlugField(populate_from='teamname')
 
     # note - other tables hold data to be read so the user can
     # make selections and cannot hold this data for teams that
     # have already been submitted
     name1 = models.CharField(max_length=100, default=None, blank=True, null=True)
     pokedex1 = models.IntegerField(default=None, blank=True, null=True)
+    gmax1 = models.IntegerField(default=None, blank=True, null=True)
+    type1_1 = models.CharField(max_length=10, default=None, blank=True, null=True)
+    type2_1 = models.CharField(max_length=10, default=None, blank=True, null=True)
     ability1 = models.CharField(max_length=100, default=None, blank=True, null=True)
     nature1 = models.CharField(max_length=100, default=None, blank=True, null=True)
     item1 = models.CharField(max_length=100, default=None, blank=True, null=True)
@@ -26,6 +31,10 @@ class Team(models.Model):
     move2_1 = models.CharField(max_length=100, default=None, blank=True, null=True)
     move3_1 = models.CharField(max_length=100, default=None, blank=True, null=True)
     move4_1 = models.CharField(max_length=100, default=None, blank=True, null=True)
+    movetype1_1 = models.CharField(max_length=100, default=None, blank=True, null=True)
+    movetype2_1 = models.CharField(max_length=100, default=None, blank=True, null=True)
+    movetype3_1 = models.CharField(max_length=100, default=None, blank=True, null=True)
+    movetype4_1 = models.CharField(max_length=100, default=None, blank=True, null=True)
     level1 = models.IntegerField(default=None, blank=True, null=True)
     hp1 = models.IntegerField(default=None, blank=True, null=True)
     atk1 = models.IntegerField(default=None, blank=True, null=True)
@@ -48,6 +57,9 @@ class Team(models.Model):
 
     name2 = models.CharField(max_length=100, default=None, blank=True, null=True)
     pokedex2 = models.IntegerField(default=None, blank=True, null=True)
+    gmax2 = models.IntegerField(default=None, blank=True, null=True)
+    type1_2 = models.CharField(max_length=10, default=None, blank=True, null=True)
+    type2_2 = models.CharField(max_length=10, default=None, blank=True, null=True)
     ability2 = models.CharField(max_length=100, default=None, blank=True, null=True)
     nature2 = models.CharField(max_length=100, default=None, blank=True, null=True)
     item2 = models.CharField(max_length=100, default=None, blank=True, null=True)
@@ -55,6 +67,10 @@ class Team(models.Model):
     move2_2 = models.CharField(max_length=100, default=None, blank=True, null=True)
     move3_2 = models.CharField(max_length=100, default=None, blank=True, null=True)
     move4_2 = models.CharField(max_length=100, default=None, blank=True, null=True)
+    movetype1_2 = models.CharField(max_length=100, default=None, blank=True, null=True)
+    movetype2_2 = models.CharField(max_length=100, default=None, blank=True, null=True)
+    movetype3_2 = models.CharField(max_length=100, default=None, blank=True, null=True)
+    movetype4_2 = models.CharField(max_length=100, default=None, blank=True, null=True)
     level2 = models.IntegerField(default=None, blank=True, null=True)
     hp2 = models.IntegerField(default=None, blank=True, null=True)
     atk2 = models.IntegerField(default=None, blank=True, null=True)
@@ -77,6 +93,9 @@ class Team(models.Model):
 
     name3 = models.CharField(max_length=100, default=None, blank=True, null=True)
     pokedex3 = models.IntegerField(default=None, blank=True, null=True)
+    gmax3 = models.IntegerField(default=None, blank=True, null=True)
+    type1_3 = models.CharField(max_length=10, default=None, blank=True, null=True)
+    type2_3 = models.CharField(max_length=10, default=None, blank=True, null=True)
     ability3 = models.CharField(max_length=100, default=None, blank=True, null=True)
     nature3 = models.CharField(max_length=100, default=None, blank=True, null=True)
     item3 = models.CharField(max_length=100, default=None, blank=True, null=True)
@@ -84,6 +103,10 @@ class Team(models.Model):
     move2_3 = models.CharField(max_length=100, default=None, blank=True, null=True)
     move3_3 = models.CharField(max_length=100, default=None, blank=True, null=True)
     move4_3 = models.CharField(max_length=100, default=None, blank=True, null=True)
+    movetype1_3 = models.CharField(max_length=100, default=None, blank=True, null=True)
+    movetype2_3 = models.CharField(max_length=100, default=None, blank=True, null=True)
+    movetype3_3 = models.CharField(max_length=100, default=None, blank=True, null=True)
+    movetype4_3 = models.CharField(max_length=100, default=None, blank=True, null=True)
     level3 = models.IntegerField(default=None, blank=True, null=True)
     hp3 = models.IntegerField(default=None, blank=True, null=True)
     atk3 = models.IntegerField(default=None, blank=True, null=True)
@@ -106,6 +129,9 @@ class Team(models.Model):
 
     name4 = models.CharField(max_length=100, default=None, blank=True, null=True)
     pokedex4 = models.IntegerField(default=None, blank=True, null=True)
+    gmax4 = models.IntegerField(default=None, blank=True, null=True)
+    type1_4 = models.CharField(max_length=10, default=None, blank=True, null=True)
+    type2_4 = models.CharField(max_length=10, default=None, blank=True, null=True)
     ability4 = models.CharField(max_length=100, default=None, blank=True, null=True)
     nature4 = models.CharField(max_length=100, default=None, blank=True, null=True)
     item4 = models.CharField(max_length=100, default=None, blank=True, null=True)
@@ -113,6 +139,10 @@ class Team(models.Model):
     move2_4 = models.CharField(max_length=100, default=None, blank=True, null=True)
     move3_4 = models.CharField(max_length=100, default=None, blank=True, null=True)
     move4_4 = models.CharField(max_length=100, default=None, blank=True, null=True)
+    movetype1_4 = models.CharField(max_length=100, default=None, blank=True, null=True)
+    movetype2_4 = models.CharField(max_length=100, default=None, blank=True, null=True)
+    movetype3_4 = models.CharField(max_length=100, default=None, blank=True, null=True)
+    movetype4_4 = models.CharField(max_length=100, default=None, blank=True, null=True)
     level4 = models.IntegerField(default=None, blank=True, null=True)
     hp4 = models.IntegerField(default=None, blank=True, null=True)
     atk4 = models.IntegerField(default=None, blank=True, null=True)
@@ -135,6 +165,9 @@ class Team(models.Model):
 
     name5 = models.CharField(max_length=100, default=None, blank=True, null=True)
     pokedex5 = models.IntegerField(default=None, blank=True, null=True)
+    gmax5 = models.IntegerField(default=None, blank=True, null=True)
+    type1_5 = models.CharField(max_length=10, default=None, blank=True, null=True)
+    type2_5 = models.CharField(max_length=10, default=None, blank=True, null=True)
     ability5 = models.CharField(max_length=100, default=None, blank=True, null=True)
     nature5 = models.CharField(max_length=100, default=None, blank=True, null=True)
     item5 = models.CharField(max_length=100, default=None, blank=True, null=True)
@@ -142,6 +175,10 @@ class Team(models.Model):
     move2_5 = models.CharField(max_length=100, default=None, blank=True, null=True)
     move3_5 = models.CharField(max_length=100, default=None, blank=True, null=True)
     move4_5 = models.CharField(max_length=100, default=None, blank=True, null=True)
+    movetype1_5 = models.CharField(max_length=100, default=None, blank=True, null=True)
+    movetype2_5 = models.CharField(max_length=100, default=None, blank=True, null=True)
+    movetype3_5 = models.CharField(max_length=100, default=None, blank=True, null=True)
+    movetype4_5 = models.CharField(max_length=100, default=None, blank=True, null=True)
     level5 = models.IntegerField(default=None, blank=True, null=True)
     hp5 = models.IntegerField(default=None, blank=True, null=True)
     atk5 = models.IntegerField(default=None, blank=True, null=True)
@@ -164,6 +201,9 @@ class Team(models.Model):
 
     name6 = models.CharField(max_length=100, default=None, blank=True, null=True)
     pokedex6 = models.IntegerField(default=None, blank=True, null=True)
+    gmax6 = models.IntegerField(default=None, blank=True, null=True)
+    type1_6 = models.CharField(max_length=10, default=None, blank=True, null=True)
+    type2_6 = models.CharField(max_length=10, default=None, blank=True, null=True)
     ability6 = models.CharField(max_length=100, default=None, blank=True, null=True)
     nature6 = models.CharField(max_length=100, default=None, blank=True, null=True)
     item6 = models.CharField(max_length=100, default=None, blank=True, null=True)
@@ -171,6 +211,10 @@ class Team(models.Model):
     move2_6 = models.CharField(max_length=100, default=None, blank=True, null=True)
     move3_6 = models.CharField(max_length=100, default=None, blank=True, null=True)
     move4_6 = models.CharField(max_length=100, default=None, blank=True, null=True)
+    movetype1_6 = models.CharField(max_length=100, default=None, blank=True, null=True)
+    movetype2_6 = models.CharField(max_length=100, default=None, blank=True, null=True)
+    movetype3_6 = models.CharField(max_length=100, default=None, blank=True, null=True)
+    movetype4_6 = models.CharField(max_length=100, default=None, blank=True, null=True)
     level6 = models.IntegerField(default=None, blank=True, null=True)
     hp6 = models.IntegerField(default=None, blank=True, null=True)
     atk6 = models.IntegerField(default=None, blank=True, null=True)

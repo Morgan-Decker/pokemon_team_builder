@@ -19,6 +19,17 @@ def home(request):
     response = render(request, 'home.html', context_dict)
     return response
 
+def team_view(request, slug):
+    team_view = get_object_or_404(Team, slug=slug)
+    team_database = Team.objects.all()
+    pokemon_database = Pokemon.objects.all()
+    move_database = Move.objects.all()
+    return render(request, 'add_team.html', {'teamview' : team_view,
+                                             'Team_database': team_database,
+                                             "showpokemon": pokemon_database,
+                                             "showmove": move_database
+                                             })
+
 
 def popular(request):
     popular_team_list = Team.objects.order_by('-id')
@@ -47,7 +58,7 @@ def recent(request):
     return response
 
 
-@login_required(login_url='/login/')
+@login_required(login_url='/restricted/')
 def Your_Teams(request):
     # if not request.user.is_authenticated():
 
@@ -58,21 +69,21 @@ def Your_Teams(request):
     return render(request, 'share.html', context=context_dict)
 
 
-@login_required
+@login_required(login_url='/restricted/')
 def share_priv_username(request, username_private_slug):
     # list of private teams
 
     context_dict = {}
 
 
-@login_required
+@login_required(login_url='/restricted/')
 def share_username(request, username_slug):
     # list of public teams
 
     context_dict = {}
 
 
-@login_required
+@login_required(login_url='/restricted/')
 def friends(request):
     # get list of friends
     # get list of each friend's teams
@@ -81,7 +92,7 @@ def friends(request):
     return render(request, 'friends.html', context=context_dict)
 
 
-@login_required
+@login_required(login_url='/restricted/')
 def viewfriend(request, friendname_slug):
     # get list of friendname_slug's teams
 
