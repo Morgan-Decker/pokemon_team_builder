@@ -13,11 +13,10 @@ def home(request):
     #Homepage shows a list of the most liked teams of all time, more button to see an extended list on another page
 
 
-    #TODO teams either public or friends
     popular_team_list = Team.objects.filter(public = true).order_by('-views')[:4]
     
     #Homepage shows a list of the newest added teams, more button to see an extended list on another page
-    new_team_list = Team.objects.filter(public = true).order_by('-time)
+    new_team_list = Team.objects.filter(public = true).order_by('id')
     
     context_dict = {}
     context_dict['popular_teams'] = popular_team_list
@@ -48,7 +47,7 @@ def popular(request):
 
 def recent(request):
     #shown when more button clocked on the home page to the side of the most recent teams
-    new_team_list = Team.objects.filter(public=true).order_by('-time')[:4]
+    new_team_list = Team.objects.filter(public=true).order_by('id')[:4]
     
     context_dict = {}
     context_dict['new_teams'] = new_team_list
@@ -236,6 +235,33 @@ def accept_friend(request, requestID):
         return HttpRespone('friend request accepted')
     else:
         return HttpResponse('friend request not accepted')
+    
+@login_required
+def team_like(request, pk):
+    team = get_object_or_404(Team, id=request.POST.get('id'))
+    if team.likes.filter(id=request.user.id).exists:
+        team.likes.remove(request.user)
+    else:
+        team.likes.add(request.user)
+        
+    return HttpResponseRedirect(reverse('blogpost-detail', args=[str(pk)]))
+
+@login_required
+class team_detail_view(DetailView):
+    model = Team
+    #template nam = team_detail.html
+    #context object name = 'object'
+    
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        
+        likes_connected = get_object_or_404(Team, id=self.kwargs['pk'])
+        liked = False
+        if likes_connected.likes.filter(id=self.request.user.id).exists():
+            liked = True
+        data['number_of_likes'] = likes_connected.number_of_likes()
+        data['post_is_liked'] = liked
+        return data
 
 def get_server_side_cookie(request, cookie, default_val=None):
     val = request.session.get(cookie)
