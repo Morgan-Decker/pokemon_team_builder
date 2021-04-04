@@ -174,7 +174,7 @@ position:relative;
 }
 .move2_div img{
   position:absolute;
-  top:-62px;
+  top:-60px;
   left:1010px;
   z-index: 1;
   pointer-events: none;
