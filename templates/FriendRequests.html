@@ -1,0 +1,6 @@
+{% for FriendRequest in allFriendRequests %}
+<h1> {{friend_request.from_user}}
+	<a href="/accept/{{FriendRequest.from_user}}/">
+	accept friend request </a>
+</h1>
+{% endfor %}
