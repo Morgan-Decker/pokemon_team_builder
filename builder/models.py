@@ -11,9 +11,9 @@ class UserProfile(models.Model):
 
 
 class Team(models.Model):
-    # userprofile = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    userprofile = models.CharField(max_length=100)
     teamname = models.CharField(max_length=30)
-    likes = models.IntegerField()
+    likes = models.IntegerField(default=None, blank=True, null=True)
     slug = AutoSlugField(populate_from='teamname')
 
     # note - other tables hold data to be read so the user can

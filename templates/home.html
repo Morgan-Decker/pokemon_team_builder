@@ -10,8 +10,9 @@
     <h1 class="popular_text">Popular:</h1>
     <br />
         {% if popularteamlist %}
-            <ul id="ul_popular">
+            <ul class="displayteams" id="ul_popular">
                 {% for team in popularteamlist %}
+                    <a href="{% url 'team' team.slug %}" class="recent_a">
                     <li class="thumbnails">
                         {{ team.teamname }}
                         <br />
@@ -35,6 +36,7 @@
                              style="background-color:#3A3A3A; border:1px solid #AAAAAA; margin: 1px 1px 1px 1px;"
                              onerror="if (this.src != 'error.jpg') this.src = '{% static 'img/sprites/null.png' %}';"/>
                     </li>
+                    </a>
                 {% endfor %}
             </ul>
         {% else %}
@@ -46,7 +48,7 @@
     <h1 class="recent_text">Recent:</h1>
     <br />
         {% if recentteamlist %}
-            <ul id="ul_recent">
+            <ul class="displayteams" id="ul_recent">
                 {% for team in recentteamlist %}
                     <a href="{% url 'team' team.slug %}" class="recent_a">
                     <li class="thumbnails">

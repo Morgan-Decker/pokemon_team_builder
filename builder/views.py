@@ -6,6 +6,8 @@ from django.contrib.auth.decorators import login_required
 from datetime import datetime
 from builder.forms import UserForm, UserProfileForm, Pokemon
 from builder.models import Team, Pokemon, Move, Ability, Item, Nature
+import json
+from django.template.loader import render_to_string
 
 
 # Create your views here.
@@ -13,7 +15,7 @@ from builder.models import Team, Pokemon, Move, Ability, Item, Nature
 def home(request):
     team_database = Team.objects.all()
     popular_team_list = Team.objects.order_by('-likes')[:6]
-    recent_team_list = Team.objects.all()[:6]
+    recent_team_list = Team.objects.all()[::-1][:6]
     context_dict = {'popularteamlist': popular_team_list, 'recentteamlist':recent_team_list, 'Team_database': team_database}
 
     response = render(request, 'home.html', context_dict)
@@ -30,6 +32,13 @@ def team_view(request, slug):
                                              "showmove": move_database
                                              })
 
+def create_new_team(request):
+    print("can't create new team")
+    user_id = request.POST.get('user_id')
+    print(user_id)
+    teamname = request.POST.get('teamname')
+    print(teamname)
+    Team.objects.get_or_create(userprofile=user_id, teamname=teamname)
 
 def popular(request):
     popular_team_list = Team.objects.order_by('-id')
@@ -60,13 +69,9 @@ def recent(request):
 
 @login_required(login_url='/restricted/')
 def Your_Teams(request):
-    # if not request.user.is_authenticated():
-
-    # list of public teams
-    # list of private teams
-
-    context_dict = {}
-    return render(request, 'share.html', context=context_dict)
+    user = request.user
+    team_database = Team.objects.filter(userprofile=user)
+    return render(request, 'your_teams.html', {'teamview':team_database})
 
 
 @login_required(login_url='/restricted/')

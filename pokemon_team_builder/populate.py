@@ -56,7 +56,8 @@ def Team_add_data(pokedex1, teamname, likes, name1, ability1, nature1, item1,
                                             spdIV1=spdIV1,
                                             gmax1=gmax1,
                                             type1_1=type1_1,
-                                            type2_1=type2_1
+                                            type2_1=type2_1,
+                                            userprofile="hi"
                                             )
     print("- Data: {0}, Created: {1}".format(str(d), str(created)))
     return d

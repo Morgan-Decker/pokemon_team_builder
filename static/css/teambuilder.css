@@ -2,12 +2,12 @@
   height: 40px;
   width: 400px;
   left: 600px;
-  top: 40px;
+  top: 15px;
   z-index: 1;
 }
 .teamname_text {
   left: 600px;
-  top: 40px;
+  top: 15px;
   font-family: 'Oswald', sans-serif;
   font-size: 17px;
   color: white;
@@ -230,7 +230,7 @@ position:relative;
 
 .hp_text, .atk_text, .def_text, .sp_atk_text, .sp_def_text, .spd_text,
 .EV_text, .IV_text, .stats_text, .level_text, .move_text, .ability_text,
-.nature_text, .item_text, .submit_text{
+.nature_text, .item_text, .submit_text {
   font-family: 'Oswald', sans-serif;
   font-size: 12px;
   color: white;
@@ -380,7 +380,7 @@ position:relative;
 }
 .submit_text{
   left: 1400px;
-  top: 570px;
+  top: -670px;
 }
 
 input{
