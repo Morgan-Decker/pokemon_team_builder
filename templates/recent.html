@@ -1,10 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<!Doctype html>
+<html>
+{% load static %}
+<head><title>Homepage</title></head>
+{% include "base.html" %}
+<link rel="stylesheet" href="{% static 'css/pages.css' %}">
 
+<body>
+    <div class="recent">
+    <h1 class="recent_text">Recent:</h1>
+    <br />
+        {% if recentteamlist %}
+            <ul id="ul_recent">
+                {% for team in recentteamlist %}
+                    <a href="{% url 'team' team.slug %}" class="recent_a">
+                    <li class="thumbnails">
+                    {{ team.teamname }}
+                        <br />
+                        <img src="/static/img/sprites/{{ team.pokedex1 }}.png" width="40px" height="40px"
+                             style="background-color:#3A3A3A; border:1px solid #AAAAAA; margin: 1px 1px 1px 1px;"
+                             onerror="if (this.src != 'error.jpg') this.src = '{% static 'img/sprites/null.png' %}';"/>
+                        <img src="/static/img/sprites/{{ team.pokedex2 }}.png" width="40px" height="40px"
+                             style="background-color:#3A3A3A; border:1px solid #AAAAAA; margin: 1px 1px 1px 1px;"
+                             onerror="if (this.src != 'error.jpg') this.src = '{% static 'img/sprites/null.png' %}';"/>
+                        <img src="/static/img/sprites/{{ team.pokedex3 }}.png" width="40px" height="40px"
+                             style="background-color:#3A3A3A; border:1px solid #AAAAAA; margin: 1px 1px 1px 1px;"
+                             onerror="if (this.src != 'error.jpg') this.src = '{% static 'img/sprites/null.png' %}';"/>
+                        <br />
+                        <img src="/static/img/sprites/{{ team.pokedex4 }}.png" width="40px" height="40px"
+                             style="background-color:#3A3A3A; border:1px solid #AAAAAA; margin: 1px 1px 1px 1px;"
+                             onerror="if (this.src != 'error.jpg') this.src = '{% static 'img/sprites/null.png' %}';"/>
+                        <img src="/static/img/sprites/{{ team.pokedex5 }}.png" width="40px" height="40px"
+                             style="background-color:#3A3A3A; border:1px solid #AAAAAA; margin: 1px 1px 1px 1px;"
+                             onerror="if (this.src != 'error.jpg') this.src = '{% static 'img/sprites/null.png' %}';"/>
+                        <img src="/static/img/sprites/{{ team.pokedex6 }}.png" width="40px" height="40px"
+                             style="background-color:#3A3A3A; border:1px solid #AAAAAA; margin: 1px 1px 1px 1px;"
+                             onerror="if (this.src != 'error.jpg') this.src = '{% static 'img/sprites/null.png' %}';"/>
+                    </li>
+                    </a>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong class="no_popular_teams">--- There are no teams yet, better get building! ---</strong>
+        {% endif %}
+    </div>
 </body>
 </html>

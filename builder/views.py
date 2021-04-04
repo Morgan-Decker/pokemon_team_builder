@@ -47,7 +47,7 @@ def popular(request):
     popular_team_list = Team.objects.order_by('likes.count()')
     
     context_dict = {}
-    context_dict['popular_teams'] = popular_team_list
+    context_dict['popularteamlist'] = popular_team_list
 
     visitor_cookie_handler(request)
 
@@ -61,7 +61,7 @@ def recent(request):
     new_team_list = Team.objects.order_by('id')[:4]
     
     context_dict = {}
-    context_dict['new_teams'] = new_team_list
+    context_dict['recentteamlist'] = new_team_list
 
     visitor_cookie_handler(request)
 
