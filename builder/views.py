@@ -1,9 +1,11 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
+from builder.forms import UserForm, UserProfileForm
+from builder.models import UserProfile, Team, FriendRequest, Pokemon, Move, Ability, Item, Nature
 
 # Create your views here.
 
@@ -13,27 +15,36 @@ def home(request):
     #Homepage shows a list of the most liked teams of all time, more button to see an extended list on another page
 
 
-    popular_team_list = Team.objects.filter(public = true).order_by('-views')[:4]
-    
-    #Homepage shows a list of the newest added teams, more button to see an extended list on another page
-    new_team_list = Team.objects.filter(public = true).order_by('id')
-    
-    context_dict = {}
-    context_dict['popular_teams'] = popular_team_list
-    context_dict['new_teams'] = new_team_list 
-
     visitor_cookie_handler(request)
 
     #find out html address!!
 
-    response = render(request, 'builder/home.html', context=context_dict)
+    team_database = Team.objects.all()
+    popular_team_list = Team.objects.order_by('likes.count()')[:6]
+    recent_team_list = Team.objects.all()[:6]
+    context_dict = {'popularteamlist': popular_team_list, 'recentteamlist':recent_team_list, 'Team_database': team_database}
+
+    response = render(request, 'home.html', context_dict)
     return response
+
+def team_view(request, slug):
+    team_view = get_object_or_404(Team, slug=slug)
+    team_database = Team.objects.all()
+    pokemon_database = Pokemon.objects.all()
+    move_database = Move.objects.all()
+    
+    visitor_cookie_handler(request)
+    
+    return render(request, 'add_team.html', {'teamview' : team_view,
+                                             'Team_database': team_database,
+                                             "showpokemon": pokemon_database,
+                                             "showmove": move_database
+                                             })
 
 def popular(request):
     #shown when more button clicked on  home page to the side of most popular teams
 
-    popular_team_list = Team.objects.filter(public = true).order_by('-views')
-
+    popular_team_list = Team.objects.order_by('likes.count()')
     
     context_dict = {}
     context_dict['popular_teams'] = popular_team_list
@@ -42,12 +53,12 @@ def popular(request):
 
     #find out html address!!
 
-    reponse = render(request, 'builder/popular.html', context=context_dict)
+    response = render(request, 'builder/popular.html', context=context_dict)
     return response
 
 def recent(request):
     #shown when more button clocked on the home page to the side of the most recent teams
-    new_team_list = Team.objects.filter(public=true).order_by('id')[:4]
+    new_team_list = Team.objects.order_by('id')[:4]
     
     context_dict = {}
     context_dict['new_teams'] = new_team_list
@@ -56,60 +67,54 @@ def recent(request):
 
     #find out html address!!
 
-    reponse = render(request, 'builder/recent.html', context=context_dict)
+    response = render(request, 'builder/recent.html', context=context_dict)
     return response
 
-#@login_required
-def share(request):
-    if request.user.is_authenticated():
+@login_required(login_url='/restricted/')
+def Your_teams(request):
 
         #list  of public teams
-        public_team_list = Team.objects.filter(userprofile = request.user, public = true)
+        team_list = Team.objects.filter(userprofile = request.user)
         #list of private teams
-        private_team_list = Team.objects.filter(userprofile = request.user, public = false)
 
         context_dict = {}
-        context_dict['public_teams'] = public_team_list
-        context_dict['private_teams'] = private_team_list
+        context_dict['teams'] = team_list
         
         visitor_cookie_handler(request)
         
         response = render(request, 'builder/share.html', context = context_dict)
         return response
-
-    else:
-        return HttpResponse("You are not logged in.")
     
-#@login_required
+
 def share_priv_username(request, username_private_slug):
 
     #list of private teams
     user = UserProfile.objects.get(slug = username_private_slug)
-    private_team_list = Team.objects.filter(userprofile = user, public = false)
+    team_list = Team.objects.filter(userprofile = user)
     
     visitor_cookie_handler(request)
     
     context_dict = {}
-    context_dict['private_teams'] = private_team_list
+    context_dict['teams'] = team_list
     response = render(request, 'builder/share.html', context = context_dict)
     return response
 
-#@login_required
+
 def share_username(request, username_slug):
 
     #list of public teams
     user = UserProfile.objects.get(slug = username_slug)
-    public_team_list = Team.objects.filter(userprofile = user, public = true)
+    team_list = Team.objects.filter(userprofile = user)
     
     visitor_cookie_handler(request)
     
     context_dict = {}
-    context_dict['public_teams'] = public_team_list
+    context_dict['teams'] = team_list
     
     response = render(request, 'builder/share.html', context = context_dict)
     return response
 
-#@login_required
+
 def friends(request):
 
     #get list of friends
@@ -118,20 +123,19 @@ def friends(request):
     #create dictionary of each friend and their teams
     friend_team_dict = {}
     for friend in friend_list:
-        teams = Team.objects.filter(userprofile = user)
-        friend_team_dict[friend]=teams
-    
+        teams = Team.objects.filter(userprofile = friend)
+        friend_team_dict[friend]=teams 
 
     
     visitor_cookie_handler(request)
 
     context_dict = {}
-    context_dict[friend_teams] = friend_team_dict
+    context_dict['friend_teams'] = friend_team_dict
 
     response = render(request, 'builder/friends.html', context = context_dict)
     return response
 
-#@login_required
+
 def viewfriend(request, friendname_slug):
 
     #get list of friendname_slug's teams
@@ -140,18 +144,26 @@ def viewfriend(request, friendname_slug):
     team_list = Team.objects.filter(user_profile=user)
     
     context_dict = {}
-    context_dixt['friend_teams'] = team_list
+    context_dict['friend_teams'] = team_list
     
     response = render(request, '', context = context_dict)
     return response
 
 def builder(request):
     
-    
     context_dict = {}
-    
-    response = render(request, 'builder/builder.html', context = context_dict)
-    return response
+    context_dict['pokemon'] = Pokemon()
+    pokemon_database = Pokemon.objects.all()
+    move_database = Move.objects.all()
+    nature_database = Nature.objects.all()
+    ability_database = Ability.objects.all()
+    item_database = Item.objects.all()
+    return render(request, 'builder.html', {"showpokemon": pokemon_database,
+                                            "showmove": move_database,
+                                            "shownature": nature_database,
+                                            "showability": ability_database,
+                                            "showitem": item_database
+                                            })
 
 def buildteam(request, teamname_slug):
     context_dict = {}
@@ -214,6 +226,10 @@ def user_logout(request):
     logout(request)
     return redirect(reverse('builder:home'))
 
+def restricted(request):
+    context_dict = {}
+    return render(request, 'restricted.html', context=context_dict)
+
 @login_required
 def request_friend(request, username_slug):
     from_user = request.user
@@ -223,16 +239,18 @@ def request_friend(request, username_slug):
     if created:
         return HttpResponse('friend request sent')
     else:
-        return HttpResponse('friend request was already sent)
+        return HttpResponse('friend request was already sent')
 
 @login_required
 def accept_friend(request, requestID):
     friend_request = FriendRequest.object.get(id=requestID)
-    if friend_request.to_user = request.user:
-        friend_request.to_user.friends.add(friend_request.from_user)
-        friend_request.from_user.friends.add(friend_request.to_user)
+    to_user = friend_request.to_user
+    from_user = friend_request.from_user
+    if to_user == request.user:
+        to_user.friends.add(from_user)
+        from_user.friends.add(to_user)
         friend_request.delete()
-        return HttpRespone('friend request accepted')
+        return HttpResponse('friend request accepted')
     else:
         return HttpResponse('friend request not accepted')
     
@@ -244,12 +262,12 @@ def team_like(request, pk):
     else:
         team.likes.add(request.user)
         
-    return HttpResponseRedirect(reverse('blogpost-detail', args=[str(pk)]))
+    return HttpResponseRedirect(reverse('builder/team_detail.html', args=[str(pk)]))
 
 @login_required
 class team_detail_view(DetailView):
     model = Team
-    #template nam = team_detail.html
+    #template name = team_detail.html
     #context object name = 'object'
     
     def get_context_data(self, **kwargs):
