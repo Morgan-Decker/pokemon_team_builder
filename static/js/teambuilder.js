@@ -634,6 +634,7 @@ function team_pokemon6(){
 function submit() {
 
     const user_id = JSON.parse(document.getElementById('user_id').textContent);
+    var teamname = document.getElementById("teamname").text;
 //------------------------pokemon1-------------------------
     var pokedex1 = document.getElementById("selectpokemon1").value.split("|")[0];
     var name1 = document.getElementById("selectpokemon1").text;

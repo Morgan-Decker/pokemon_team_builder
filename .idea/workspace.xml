@@ -2,32 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d109643-5a31-4c58-a4b1-a6e8e170d9b0" name="Default Changelist" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/builder/migrations/0002_auto_20210404_1614.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/builder/migrations/0003_auto_20210404_1623.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/builder/migrations/0004_auto_20210404_1633.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/teamviewer.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/gigantamax/None.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/sprites/None.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/teamviewer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Lib/site-packages/django/contrib/admin/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/Lib/site-packages/django/contrib/admin/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/builder/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/builder/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/builder/migrations/0002_auto_20210403_2318.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/builder/migrations/0003_auto_20210403_2335.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/builder/migrations/0004_remove_team_userprofile.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/builder/migrations/0005_auto_20210403_2350.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/builder/migrations/0006_auto_20210404_0115.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/builder/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/builder/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/builder/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/builder/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/builder/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/builder/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pokemon_team_builder/populate.py" beforeDir="false" afterPath="$PROJECT_DIR$/pokemon_team_builder/populate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pokemon_team_builder/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/pokemon_team_builder/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/pages.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/pages.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/teambuilder.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/teambuilder.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/teambuilder.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/teambuilder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/add_team.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_team.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/builder.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/builder.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +111,7 @@
       <workItem from="1617038747628" duration="36340000" />
       <workItem from="1617332870958" duration="547000" />
       <workItem from="1617402770200" duration="201000" />
-      <workItem from="1617500265569" duration="24224000" />
+      <workItem from="1617500265569" duration="24587000" />
     </task>
     <task id="LOCAL-00005" summary="third commit">
       <created>1617288135191</created>
@@ -180,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617535570819</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="tenth commit">
+      <created>1617555856872</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1617555856872</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -210,6 +192,7 @@
     <MESSAGE value="seventh commit" />
     <MESSAGE value="eighth commit" />
     <MESSAGE value="ninth commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="ninth commit" />
+    <MESSAGE value="tenth commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="tenth commit" />
   </component>
 </project>
