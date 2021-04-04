@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
@@ -11,8 +11,10 @@ from builder.models import Team, Pokemon, Move, Ability, Item, Nature
 # Create your views here.
 
 def home(request):
-    context_dict = {}
-    # find out html address!!
+    team_database = Team.objects.all()
+    popular_team_list = Team.objects.order_by('-likes')[:6]
+    recent_team_list = Team.objects.all()[:6]
+    context_dict = {'popularteamlist': popular_team_list, 'recentteamlist':recent_team_list, 'Team_database': team_database}
 
     response = render(request, 'home.html', context_dict)
     return response
@@ -28,8 +30,7 @@ def popular(request):
 
     # find out html address!!
 
-    response = render(request, 'popular_teams.html', context=context_dict)
-    return response
+    return render(request, 'popular_teams.html', context=context_dict)
 
 
 def recent(request):
@@ -47,7 +48,7 @@ def recent(request):
 
 
 # @login_required
-def share(request):
+def Your_Teams(request):
     # if not request.user.is_authenticated():
 
     # list of public teams

@@ -633,6 +633,7 @@ function team_pokemon6(){
 //-----------------------------------------------Submit team--------------------------------------------------------
 function submit() {
 //------------------------pokemon1-------------------------
+    var pokedex1 = document.getElementById("selectpokemon1").value.split("|")[0];
     var name1 = document.getElementById("selectpokemon1").text;
     var ability1 = document.getElementById("selectability1").text;
     var nature1 = document.getElementById("selectnature1").text;
@@ -662,6 +663,7 @@ function submit() {
     var spdIV1 = document.getElementById("spdIV1").value;
 
     //------------------------pokemon2-------------------------
+    var pokedex2 = document.getElementById("selectpokemon2").value.split("|")[0];
     var name2 = document.getElementById("selectpokemon2").text;
     var ability2 = document.getElementById("selectability2").text;
     var nature2 = document.getElementById("selectnature2").text;
@@ -691,6 +693,7 @@ function submit() {
     var spdIV2 = document.getElementById("spdIV2").value;
 
     //------------------------pokemon3-------------------------
+    var pokedex3 = document.getElementById("selectpokemon3").value.split("|")[0];
     var name3 = document.getElementById("selectpokemon3").text;
     var ability3 = document.getElementById("selectability3").text;
     var nature3 = document.getElementById("selectnature3").text;
@@ -720,6 +723,7 @@ function submit() {
     var spdIV3 = document.getElementById("spdIV3").value;
 
     //------------------------pokemon4-------------------------
+    var pokedex4 = document.getElementById("selectpokemon4").value.split("|")[0];
     var name4 = document.getElementById("selectpokemon4").text;
     var ability4 = document.getElementById("selectability4").text;
     var nature4 = document.getElementById("selectnature4").text;
@@ -749,6 +753,7 @@ function submit() {
     var spdIV4= document.getElementById("spdIV4").value;
 
     //------------------------pokemon5-------------------------
+    var pokedex5 = document.getElementById("selectpokemon5").value.split("|")[0];
     var name5 = document.getElementById("selectpokemon5").text;
     var ability5 = document.getElementById("selectability5").text;
     var nature5 = document.getElementById("selectnature5").text;
@@ -778,6 +783,7 @@ function submit() {
     var spdIV5 = document.getElementById("spdIV5").value;
 
     //------------------------pokemon6-------------------------
+    var pokedex6 = document.getElementById("selectpokemon6").value.split("|")[0];
     var name6 = document.getElementById("selectpokemon6").text;
     var ability6 = document.getElementById("selectability6").text;
     var nature6 = document.getElementById("selectnature6").text;

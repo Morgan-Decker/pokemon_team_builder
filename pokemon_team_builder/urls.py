@@ -19,7 +19,7 @@ from builder import views
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('share/', views.share, name='share'),
+    path('your_teams/', views.Your_Teams, name='your_teams'),
     path('friends/', views.friends, name='friends'),
     path('builder/', views.builder, name='builder'),
     path('login/', views.user_login, name='login'),
