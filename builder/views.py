@@ -254,6 +254,19 @@ def accept_friend(request, requestID):
     else:
         return HttpResponse('friend request not accepted')
     
+class LikeTeamView(View):
+    @login_required
+    def get(self, request):
+        team_id = request.GET['team_id']
+        try:
+            team = Team.objects.get(id=int(team_id))
+        except Team.DoesNotExist:
+            return HttpResponse(-1)
+        except ValueError:
+            return HttpResponse(-1)
+        team.likes = team.likes + 1
+        team.save()
+        return HttpResponse(team.likes)
 
 def get_server_side_cookie(request, cookie, default_val=None):
     val = request.session.get(cookie)

@@ -19,5 +19,5 @@ urlpatterns = [
     path('signup/', views.signup , name='signup'),
     path('request/<slug:username_slug>/', views.request_friend, name='request_friend'),
     path('accept/<slug:username_slug>/', views.accept_friend, name='accept_friend'),
-    path('team-like/<int:pk>', views.team_like, name="team_like")
+    path('like_team/', views.LikeTeamView.as_view(), name='like_team')
     ]
