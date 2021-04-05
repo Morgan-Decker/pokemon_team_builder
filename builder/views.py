@@ -125,13 +125,16 @@ def friends(request):
     friend_team_dict = {}
     for friend in friend_list:
         teams = Team.objects.filter(userprofile = friend)
-        friend_team_dict[friend]=teams 
+        friend_team_dict[friend]=teams
+        
+    friend_requests = FriendRequest.object.filter(to_user=request.user)
 
     
     visitor_cookie_handler(request)
 
     context_dict = {}
     context_dict['friend_teams'] = friend_team_dict
+    context_dict['friend_requests'] = friend_requests
 
     response = render(request, 'builder/friends.html', context = context_dict)
     return response
