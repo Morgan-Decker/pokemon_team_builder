@@ -2,20 +2,25 @@
 var changeSprite_1 = function () {
     document.getElementById('image1').src = "/static/img/sprites/" +
         this.options[this.selectedIndex].value.split("|")[0] + ".png"
+    document.getElementById('submitname1').value = this.options[this.selectedIndex].value.split("|")[10]
+    document.getElementById('submitpokedex1').value = this.options[this.selectedIndex].value.split("|")[0]
 }
 var changeGigantamax_1 = function () {
     document.getElementById('gigantamax_image1').src = "/static/img/gigantamax/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById('gmaxsubmit1').value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changeType1_1 = function () {
     document.getElementById('type1_image1').src = "/static/img/typelogo/" +
         this.options[this.selectedIndex].value.split("|")[2] + ".png"
+    document.getElementById('type1_1').value = this.options[this.selectedIndex].value.split("|")[2]
 }
 
 var changeType2_1 = function () {
     document.getElementById('type2_image1').src = "/static/img/typelogo/" +
         this.options[this.selectedIndex].value.split("|")[3] + ".png"
+    document.getElementById('type2_1').value = this.options[this.selectedIndex].value.split("|")[3]
 }
 
 var changebutton_1 = function () {
@@ -26,40 +31,54 @@ var changebutton_1 = function () {
 var changemove1_1 = function () {
     document.getElementById('move1_image1').src = "/static/img/types/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById("submitmove1_1").value = this.options[this.selectedIndex].value.split("|")[0]
+    document.getElementById("movetype1_1").value = this.options[this.selectedIndex].value.split("|")[1]
+
 }
 
 var changemove2_1 = function () {
     document.getElementById('move2_image1').src = "/static/img/types/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById("submitmove2_1").value = this.options[this.selectedIndex].value.split("|")[0]
+    document.getElementById("movetype2_1").value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changemove3_1 = function () {
     document.getElementById('move3_image1').src = "/static/img/types/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById("submitmove3_1").value = this.options[this.selectedIndex].value.split("|")[0]
+    document.getElementById("movetype3_1").value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changemove4_1 = function () {
     document.getElementById('move4_image1').src = "/static/img/types/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById("submitmove4_1").value = this.options[this.selectedIndex].value.split("|")[0]
+    document.getElementById("movetype4_1").value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changeSprite_2 = function () {
     document.getElementById('image2').src = "/static/img/sprites/" +
         this.options[this.selectedIndex].value.split("|")[0] + ".png"
+    document.getElementById('submitname2').value = this.options[this.selectedIndex].value.split("|")[10]
+    document.getElementById('submitpokedex2').value = this.options[this.selectedIndex].value.split("|")[0]
 }
 var changeGigantamax_2 = function () {
     document.getElementById('gigantamax_image2').src = "/static/img/gigantamax/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById('gmaxsubmit2').value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changeType1_2 = function () {
     document.getElementById('type1_image2').src = "/static/img/typelogo/" +
         this.options[this.selectedIndex].value.split("|")[2] + ".png"
+    document.getElementById('type1_2').value = this.options[this.selectedIndex].value.split("|")[2]
 }
 
 var changeType2_2 = function () {
     document.getElementById('type2_image2').src = "/static/img/typelogo/" +
         this.options[this.selectedIndex].value.split("|")[3] + ".png"
+    document.getElementById('type2_2').value = this.options[this.selectedIndex].value.split("|")[3]
 }
 
 var changebutton_2 = function () {
@@ -70,40 +89,53 @@ var changebutton_2 = function () {
 var changemove1_2 = function () {
     document.getElementById('move1_image2').src = "/static/img/types/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById("submitmove1_2").value = this.options[this.selectedIndex].value.split("|")[0]
+    document.getElementById("movetype1_2").value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changemove2_2 = function () {
     document.getElementById('move2_image2').src = "/static/img/types/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById("submitmove2_2").value = this.options[this.selectedIndex].value.split("|")[0]
+    document.getElementById("movetype2_2").value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changemove3_2 = function () {
     document.getElementById('move3_image2').src = "/static/img/types/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById("submitmove3_2").value = this.options[this.selectedIndex].value.split("|")[0]
+    document.getElementById("movetype3_2").value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changemove4_2 = function () {
     document.getElementById('move4_image2').src = "/static/img/types/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById("submitmove4_2").value = this.options[this.selectedIndex].value.split("|")[0]
+    document.getElementById("movetype4_2").value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changeSprite_3 = function () {
     document.getElementById('image3').src = "/static/img/sprites/" +
         this.options[this.selectedIndex].value.split("|")[0] + ".png"
+    document.getElementById('submitname3').value = this.options[this.selectedIndex].value.split("|")[10]
+    document.getElementById('submitpokedex3').value = this.options[this.selectedIndex].value.split("|")[0]
 }
 var changeGigantamax_3 = function () {
     document.getElementById('gigantamax_image3').src = "/static/img/gigantamax/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById('gmaxsubmit3').value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changeType1_3 = function () {
     document.getElementById('type1_image3').src = "/static/img/typelogo/" +
         this.options[this.selectedIndex].value.split("|")[2] + ".png"
+    document.getElementById('type1_3').value = this.options[this.selectedIndex].value.split("|")[2]
 }
 
 var changeType2_3 = function () {
     document.getElementById('type2_image3').src = "/static/img/typelogo/" +
         this.options[this.selectedIndex].value.split("|")[3] + ".png"
+    document.getElementById('type2_3').value = this.options[this.selectedIndex].value.split("|")[3]
 }
 
 var changebutton_3 = function () {
@@ -114,40 +146,53 @@ var changebutton_3 = function () {
 var changemove1_3 = function () {
     document.getElementById('move1_image3').src = "/static/img/types/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById("submitmove1_3").value = this.options[this.selectedIndex].value.split("|")[0]
+    document.getElementById("movetype1_3").value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changemove2_3 = function () {
     document.getElementById('move2_image3').src = "/static/img/types/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById("submitmove2_3").value = this.options[this.selectedIndex].value.split("|")[0]
+    document.getElementById("movetype2_3").value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changemove3_3 = function () {
     document.getElementById('move3_image3').src = "/static/img/types/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById("submitmove3_3").value = this.options[this.selectedIndex].value.split("|")[0]
+    document.getElementById("movetype3_3").value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changemove4_3 = function () {
     document.getElementById('move4_image3').src = "/static/img/types/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById("submitmove4_3").value = this.options[this.selectedIndex].value.split("|")[0]
+    document.getElementById("movetype4_3").value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changeSprite_4 = function () {
     document.getElementById('image4').src = "/static/img/sprites/" +
         this.options[this.selectedIndex].value.split("|")[0] + ".png"
+    document.getElementById('submitname4').value = this.options[this.selectedIndex].value.split("|")[10]
+    document.getElementById('submitpokedex4').value = this.options[this.selectedIndex].value.split("|")[0]
 }
 var changeGigantamax_4 = function () {
     document.getElementById('gigantamax_image4').src = "/static/img/gigantamax/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById('gmaxsubmit4').value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changeType1_4 = function () {
     document.getElementById('type1_image4').src = "/static/img/typelogo/" +
         this.options[this.selectedIndex].value.split("|")[2] + ".png"
+    document.getElementById('type1_4').value = this.options[this.selectedIndex].value.split("|")[2]
 }
 
 var changeType2_4 = function () {
     document.getElementById('type2_image4').src = "/static/img/typelogo/" +
         this.options[this.selectedIndex].value.split("|")[3] + ".png"
+    document.getElementById('type2_4').value = this.options[this.selectedIndex].value.split("|")[3]
 }
 
 var changebutton_4 = function () {
@@ -158,40 +203,53 @@ var changebutton_4 = function () {
 var changemove1_4 = function () {
     document.getElementById('move1_image4').src = "/static/img/types/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById("submitmove1_4").value = this.options[this.selectedIndex].value.split("|")[0]
+    document.getElementById("movetype1_4").value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changemove2_4 = function () {
     document.getElementById('move2_image4').src = "/static/img/types/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById("submitmove2_4").value = this.options[this.selectedIndex].value.split("|")[0]
+    document.getElementById("movetype2_4").value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changemove3_4 = function () {
     document.getElementById('move3_image4').src = "/static/img/types/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById("submitmove3_4").value = this.options[this.selectedIndex].value.split("|")[0]
+    document.getElementById("movetype3_4").value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changemove4_4 = function () {
     document.getElementById('move4_image4').src = "/static/img/types/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById("submitmove4_4").value = this.options[this.selectedIndex].value.split("|")[0]
+    document.getElementById("movetype4_4").value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changeSprite_5 = function () {
     document.getElementById('image5').src = "/static/img/sprites/" +
         this.options[this.selectedIndex].value.split("|")[0] + ".png"
+    document.getElementById('submitname5').value = this.options[this.selectedIndex].value.split("|")[10]
+    document.getElementById('submitpokedex5').value = this.options[this.selectedIndex].value.split("|")[0]
 }
 var changeGigantamax_5 = function () {
     document.getElementById('gigantamax_image5').src = "/static/img/gigantamax/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById('gmaxsubmit5').value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changeType1_5 = function () {
     document.getElementById('type1_image5').src = "/static/img/typelogo/" +
         this.options[this.selectedIndex].value.split("|")[2] + ".png"
+    document.getElementById('type1_5').value = this.options[this.selectedIndex].value.split("|")[2]
 }
 
 var changeType2_5 = function () {
     document.getElementById('type2_image5').src = "/static/img/typelogo/" +
         this.options[this.selectedIndex].value.split("|")[3] + ".png"
+    document.getElementById('type2_5').value = this.options[this.selectedIndex].value.split("|")[3]
 }
 
 var changebutton_5 = function () {
@@ -202,40 +260,53 @@ var changebutton_5 = function () {
 var changemove1_5 = function () {
     document.getElementById('move1_image5').src = "/static/img/types/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById("submitmove1_5").value = this.options[this.selectedIndex].value.split("|")[0]
+    document.getElementById("movetype1_5").value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changemove2_5 = function () {
     document.getElementById('move2_image5').src = "/static/img/types/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById("submitmove2_5").value = this.options[this.selectedIndex].value.split("|")[0]
+    document.getElementById("movetype2_5").value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changemove3_5 = function () {
     document.getElementById('move3_image5').src = "/static/img/types/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById("submitmove3_5").value = this.options[this.selectedIndex].value.split("|")[0]
+    document.getElementById("movetype3_5").value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changemove4_5 = function () {
     document.getElementById('move4_image5').src = "/static/img/types/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById("submitmove4_5").value = this.options[this.selectedIndex].value.split("|")[0]
+    document.getElementById("movetype4_5").value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changeSprite_6 = function () {
     document.getElementById('image6').src = "/static/img/sprites/" +
         this.options[this.selectedIndex].value.split("|")[0] + ".png"
+    document.getElementById('submitname6').value = this.options[this.selectedIndex].value.split("|")[10]
+    document.getElementById('submitpokedex6').value = this.options[this.selectedIndex].value.split("|")[0]
 }
 var changeGigantamax_6 = function () {
     document.getElementById('gigantamax_image6').src = "/static/img/gigantamax/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById('gmaxsubmit6').value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changeType1_6 = function () {
     document.getElementById('type1_image6').src = "/static/img/typelogo/" +
         this.options[this.selectedIndex].value.split("|")[2] + ".png"
+    document.getElementById('type1_6').value = this.options[this.selectedIndex].value.split("|")[2]
 }
 
 var changeType2_6 = function () {
     document.getElementById('type2_image6').src = "/static/img/typelogo/" +
         this.options[this.selectedIndex].value.split("|")[3] + ".png"
+    document.getElementById('type2_6').value = this.options[this.selectedIndex].value.split("|")[3]
 }
 
 var changebutton_6 = function () {
@@ -246,21 +317,29 @@ var changebutton_6 = function () {
 var changemove1_6 = function () {
     document.getElementById('move1_image6').src = "/static/img/types/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById("submitmove1_6").value = this.options[this.selectedIndex].value.split("|")[0]
+    document.getElementById("movetype1_6").value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changemove2_6 = function () {
     document.getElementById('move2_image6').src = "/static/img/types/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById("submitmove2_6").value = this.options[this.selectedIndex].value.split("|")[0]
+    document.getElementById("movetype2_6").value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changemove3_6 = function () {
     document.getElementById('move3_image6').src = "/static/img/types/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById("submitmove3_6").value = this.options[this.selectedIndex].value.split("|")[0]
+    document.getElementById("movetype3_6").value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 var changemove4_6 = function () {
     document.getElementById('move4_image6').src = "/static/img/types/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
+    document.getElementById("submitmove4_6").value = this.options[this.selectedIndex].value.split("|")[0]
+    document.getElementById("movetype4_6").value = this.options[this.selectedIndex].value.split("|")[1]
 }
 
 //------------------------------------------------Stat Calculations----------------------------------------------------------------
@@ -367,6 +446,15 @@ function calculatestats(i){
     document.getElementById('sp_atk'+i).innerHTML = sp_atk;
     document.getElementById('sp_def'+i).innerHTML = sp_def;
     document.getElementById('spd'+i).innerHTML = spd;
+
+    document.getElementById('hpsubmit'+i).value = hp;
+    document.getElementById('atksubmit'+i).value = atk;
+    document.getElementById('defsubmit'+i).value = def;
+    document.getElementById('sp_atksubmit'+i).value = sp_atk;
+    document.getElementById('sp_defsubmit'+i).value = sp_def;
+    document.getElementById('spdsubmit'+i).value = spd;
+
+    document.getElementById('submitnature'+i).value = document.getElementById('selectnature'+i).value.split("|")[0]
 }
 function calculateStat(base, IV, EV, level, nature){
     return Math.floor((Math.floor(0.01 * (2 * base + IV + Math.floor(0.25 * EV)) * level) + 5) * nature)

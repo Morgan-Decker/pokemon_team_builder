@@ -32,5 +32,4 @@ urlpatterns = [
     path('builder/', include('builder.urls')),
     path('admin/', admin.site.urls),
     url(r'^teams/(?P<slug>[-\w]+)/$', views.team_view, name='team'),
-    path('create_new_team', views.create_new_team, name='create_new_team')
 ]

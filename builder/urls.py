@@ -20,5 +20,4 @@ urlpatterns = [
     path('signup/', views.signup, name='signup'),
     path('restricted/', views.restricted, name='restricted'),
     url(r'^teams/(?P<slug>[-\w]+)/$', views.team_view, name='team'),
-    path('create_new_team', views.create_new_team, name='create_new_team')
 ]

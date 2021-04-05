@@ -235,6 +235,8 @@ class Team(models.Model):
     sp_defIV6 = models.IntegerField(default=None, blank=True, null=True)
     spdIV6 = models.IntegerField(default=None, blank=True, null=True)
 
+    class Meta:
+        db_table = "team_table"
     def __str__(self):
         return self.teamname
 

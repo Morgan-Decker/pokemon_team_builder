@@ -251,52 +251,52 @@ position:relative;
 }
 
 .hpEV {
-  top:-430px;
-  left:700px;
+  top:-405px;
+  left:312px;
 }
 .atkEV {
-  top:-420px;
-  left:700px;
+  top:-369px;
+  left:248px;
 }
 .defEV {
-  top:-410px;
-  left:700px;
+  top:-333px;
+  left:184px;
 }
 .sp_atkEV {
-  top:-400px;
-  left:700px;
+  top:-297px;
+  left:120px;
 }
 .sp_defEV {
-  top:-390px;
-  left:700px;
+  top:-261px;
+  left:56px;
 }
 .spdEV {
-  top:-380px;
-  left:700px;
+  top:-225px;
+  left:-8px;
 }
 .hpIV {
-  top:-586px;
-  left:770px;
+  top:-405px;
+  left:-5px;
 }
 .atkIV {
-  top:-576px;
-  left:770px;
+  top:-369px;
+  left:-69px;
 }
 .defIV {
-  top:-566px;
-  left:770px;
+  top:-333px;
+  left:-133px;
 }
 .sp_atkIV {
-  top:-556px;
-  left:770px;
+  top:-297px;
+  left:-197px;
 }
 .sp_defIV {
-  top:-546px;
-  left:770px;
+  top:-261px;
+  left:-261px;
 }
 .spdIV {
-  top:-536px;
-  left:770px;
+  top:-225px;
+  left:-325px;
 }
 .hp, .atk, .def, .sp_atk, .sp_def, .spd {
   text-align: center;
@@ -380,7 +380,7 @@ position:relative;
 }
 .submit_text{
   left: 1400px;
-  top: -670px;
+  top: -365px;
 }
 
 input{

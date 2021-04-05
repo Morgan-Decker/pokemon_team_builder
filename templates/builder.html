@@ -9,10 +9,13 @@
 {% include "base.html" %}
 <hr/>
 <body>
+
+<form method="POST">
+    {% csrf_token %}
+
 <div class="teamname_text" style="color:white;"><h1>Team Name:</h1></div>
-    <form onSubmit="return false;">
-        <input type="text" id="teamname" name="teamname" class="teamname" minlength="1" maxlength="26">
-    </form>
+<input type="text" id="teamname" name="teamname" class="teamname" minlength="1" maxlength="26" required></input>
+<input id="user_id" type="hidden" name="user_id" value='{{ user.get_username }}' required></input>
 
 {#---------------------------------------------------------Pokemon 1-----------------------------------------------------------------#}
 <div class="team_member" id="team_member_1">
@@ -24,7 +27,7 @@
             {% for results in showpokemon %}
             <option value="{{ results.pokedex }}|{{ results.gigantamax_factor }}|
 {{ results.type1 }}|{{ results.type2 }}|{{ results.hp }}|{{ results.attack }}|
-{{ results.defence }}|{{ results.sp_atk }}|{{ results.sp_def }}|{{ results.speed }}
+{{ results.defence }}|{{ results.sp_atk }}|{{ results.sp_def }}|{{ results.speed }}|{{ results.name }}
 ">{{ results.name }}</option>
             {% endfor %}
         </select>
@@ -32,7 +35,7 @@
 
     <div class="ability_text"><h1>Ability:</h1></div>
     <div class="ability_selector">
-        <select class="abilitylist" id="selectability1">
+        <select class="abilitylist" id="selectability1" name="ability1">
             <option value="null">Select Ability</option>
             {% for results in showability %}
             <option>{{ results.name }}</option>
@@ -53,7 +56,7 @@
 
     <div class="item_text"><h1>Item:</h1></div>
     <div class="item_selector">
-        <select class="itemlist" id="selectitem1">
+        <select class="itemlist" id="selectitem1" name="item1">
             <option value="null">Select Item</option>
             {% for results in showitem %}
             <option value="{{ results.name }}">{{ results.name }}</option>
@@ -124,9 +127,8 @@
     </div>
 
     <div class="level_text"><h1>Level:</h1></div>
-        <form onSubmit="return false;">
-            <input type="number" id="level1" name="level" class="level" value=100 min=1 max=100>
-        </form>
+    <input type="number" id="level1" name="level1" class="level" value=100 min=1 max=100>
+
 
     <div class="hp_text"><h1>Hp:</h1></div>
     <div class="atk_text"><h1>Attack:</h1></div>
@@ -145,48 +147,44 @@
     <div class="sp_def"><h1 id="sp_def1">-</h1></div>
     <div class="spd"><h1 id="spd1">-</h1></div>
 
-    <form onSubmit="return false;">
-        <input type="number" id="hpEV1" name="hpEV" class="hpEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="atkEV1" name="atkEV" class="atkEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="defEV1" name="defEV" class="defEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="sp_atkEV1" name="sp_atkEV" class="sp_atkEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="sp_defEV1" name="sp_defEV" class="sp_defEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="spdEV1" name="spdEV" class="spdEV" value=0 min=0 max=252>
-    </form>
+    <input type="number" id="hpEV1" class="hpEV" value=0 min=0 max=252 name="hpEV1">
+    <input type="number" id="atkEV1" class="atkEV" value=0 min=0 max=252 name="atkEV1">
+    <input type="number" id="defEV1" class="defEV" value=0 min=0 max=252 name="defEV1">
+    <input type="number" id="sp_atkEV1" class="sp_atkEV" value=0 min=0 max=252 name="sp_atkEV1">
+    <input type="number" id="sp_defEV1" class="sp_defEV" value=0 min=0 max=252 name="sp_defEV1">
+    <input type="number" id="spdEV1" class="spdEV" value=0 min=0 max=252 name="spdEV1">
 
-    <form onSubmit="return false;">
-        <input type="number" id="hpIV1" name="hpIV" class="hpIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="atkIV1" name="atkIV" class="atkIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="defIV1" name="defIV" class="defIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="sp_atkIV1" name="sp_atkIV" class="sp_atkIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="sp_defIV1" name="sp_defIV" class="sp_defIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="spdIV1" name="spdIV" class="spdIV" value=31 min=0 max=31>
-    </form>
+    <input type="number" id="hpIV1" class="hpIV" value=31 min=0 max=31 name="hpIV1">
+    <input type="number" id="atkIV1" class="atkIV" value=31 min=0 max=31 name="atkIV1">
+    <input type="number" id="defIV1" class="defIV" value=31 min=0 max=31 name="defIV1">
+    <input type="number" id="sp_atkIV1" class="sp_atkIV" value=31 min=0 max=31 name="sp_atkIV1">
+    <input type="number" id="sp_defIV1" class="sp_defIV" value=31 min=0 max=31 name="sp_defIV1">
+    <input type="number" id="spdIV1" class="spdIV" value=31 min=0 max=31 name="spdIV1">
+
+    <input id="submitname1" name="name1" type="hidden"></input>
+    <input id="submitpokedex1" name="pokedex1" type="hidden"></input>
+    <input id="submitnature1" name="nature1" type="hidden"></input>
+    <input id="submitmove1_1" name="move1_1" type="hidden"></input>
+    <input id="submitmove2_1" name="move2_1" type="hidden"></input>
+    <input id="submitmove3_1" name="move3_1" type="hidden"></input>
+    <input id="submitmove4_1" name="move4_1" type="hidden"></input>
+    <input id="movetype1_1" name="movetype1_1" type="hidden"></input>
+    <input id="movetype2_1" name="movetype2_1" type="hidden"></input>
+    <input id="movetype3_1" name="movetype3_1" type="hidden"></input>
+    <input id="movetype4_1" name="movetype4_1" type="hidden"></input>
+    <input id="type1_1" name="type1_1" type="hidden"></input>
+    <input id="type2_1" name="type2_1" type="hidden"></input>
+    <input id="hpsubmit1" name="hp1" type="hidden"></input>
+    <input id="atksubmit1" name="atk1" type="hidden"></input>
+    <input id="defsubmit1" name="def1" type="hidden"></input>
+    <input id="sp_atksubmit1" name="sp_atk1" type="hidden"></input>
+    <input id="sp_defsubmit1" name="sp_def1" type="hidden"></input>
+    <input id="spdsubmit1" name="spd1" type="hidden"></input>
+    <input id="gmaxsubmit1" name="gmax1" type="hidden"></input>
 </div>
 
 {#---------------------------------------------------------Pokemon 2-----------------------------------------------------------------#}
-
-<div class="team_member" id="team_member_2" style="display:none">
+<div class="team_member" id="team_member_2">
 
     <div class="pokemon_text"><h1>Pokemon:</h1></div>
     <div class="pokemon_selector">
@@ -195,7 +193,7 @@
             {% for results in showpokemon %}
             <option value="{{ results.pokedex }}|{{ results.gigantamax_factor }}|
 {{ results.type1 }}|{{ results.type2 }}|{{ results.hp }}|{{ results.attack }}|
-{{ results.defence }}|{{ results.sp_atk }}|{{ results.sp_def }}|{{ results.speed }}
+{{ results.defence }}|{{ results.sp_atk }}|{{ results.sp_def }}|{{ results.speed }}|{{ results.name }}
 ">{{ results.name }}</option>
             {% endfor %}
         </select>
@@ -203,7 +201,7 @@
 
     <div class="ability_text"><h1>Ability:</h1></div>
     <div class="ability_selector">
-        <select class="abilitylist" id="selectability2">
+        <select class="abilitylist" id="selectability2" name="ability2">
             <option value="null">Select Ability</option>
             {% for results in showability %}
             <option>{{ results.name }}</option>
@@ -224,7 +222,7 @@
 
     <div class="item_text"><h1>Item:</h1></div>
     <div class="item_selector">
-        <select class="itemlist" id="selectitem2">
+        <select class="itemlist" id="selectitem2" name="item2">
             <option value="null">Select Item</option>
             {% for results in showitem %}
             <option value="{{ results.name }}">{{ results.name }}</option>
@@ -295,9 +293,8 @@
     </div>
 
     <div class="level_text"><h1>Level:</h1></div>
-        <form onSubmit="return false;">
-            <input type="number" id="level2" name="level" class="level" value=100 min=1 max=100>
-        </form>
+    <input type="number" id="level2" name="level2" class="level" value=100 min=1 max=100>
+
 
     <div class="hp_text"><h1>Hp:</h1></div>
     <div class="atk_text"><h1>Attack:</h1></div>
@@ -316,48 +313,44 @@
     <div class="sp_def"><h1 id="sp_def2">-</h1></div>
     <div class="spd"><h1 id="spd2">-</h1></div>
 
-    <form onSubmit="return false;">
-        <input type="number" id="hpEV2" name="hpEV" class="hpEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="atkEV2" name="atkEV" class="atkEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="defEV2" name="defEV" class="defEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="sp_atkEV2" name="sp_atkEV" class="sp_atkEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="sp_defEV2" name="sp_defEV" class="sp_defEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="spdEV2" name="spdEV" class="spdEV" value=0 min=0 max=252>
-    </form>
+    <input type="number" id="hpEV2" class="hpEV" value=0 min=0 max=252 name="hpEV2">
+    <input type="number" id="atkEV2" class="atkEV" value=0 min=0 max=252 name="atkEV2">
+    <input type="number" id="defEV2" class="defEV" value=0 min=0 max=252 name="defEV2">
+    <input type="number" id="sp_atkEV2" class="sp_atkEV" value=0 min=0 max=252 name="sp_atkEV2">
+    <input type="number" id="sp_defEV2" class="sp_defEV" value=0 min=0 max=252 name="sp_defEV2">
+    <input type="number" id="spdEV2" class="spdEV" value=0 min=0 max=252 name="spdEV2">
 
-    <form onSubmit="return false;">
-        <input type="number" id="hpIV2" name="hpIV" class="hpIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="atkIV2" name="atkIV" class="atkIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="defIV2" name="defIV" class="defIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="sp_atkIV2" name="sp_atkIV" class="sp_atkIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="sp_defIV2" name="sp_defIV" class="sp_defIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="spdIV2" name="spdIV" class="spdIV" value=31 min=0 max=31>
-    </form>
+    <input type="number" id="hpIV2" class="hpIV" value=31 min=0 max=31 name="hpIV2">
+    <input type="number" id="atkIV2" class="atkIV" value=31 min=0 max=31 name="atkIV2">
+    <input type="number" id="defIV2" class="defIV" value=31 min=0 max=31 name="defIV2">
+    <input type="number" id="sp_atkIV2" class="sp_atkIV" value=31 min=0 max=31 name="sp_atkIV2">
+    <input type="number" id="sp_defIV2" class="sp_defIV" value=31 min=0 max=31 name="sp_defIV2">
+    <input type="number" id="spdIV2" class="spdIV" value=31 min=0 max=31 name="spdIV2">
+
+    <input id="submitname2" name="name2" type="hidden"></input>
+    <input id="submitpokedex2" name="pokedex2" type="hidden"></input>
+    <input id="submitnature2" name="nature2" type="hidden"></input>
+    <input id="submitmove1_2" name="move1_2" type="hidden"></input>
+    <input id="submitmove2_2" name="move2_2" type="hidden"></input>
+    <input id="submitmove3_2" name="move3_2" type="hidden"></input>
+    <input id="submitmove4_2" name="move4_2" type="hidden"></input>
+    <input id="movetype1_2" name="movetype1_2" type="hidden"></input>
+    <input id="movetype2_2" name="movetype2_2" type="hidden"></input>
+    <input id="movetype3_2" name="movetype3_2" type="hidden"></input>
+    <input id="movetype4_2" name="movetype4_2" type="hidden"></input>
+    <input id="type1_2" name="type1_2" type="hidden"></input>
+    <input id="type2_2" name="type2_2" type="hidden"></input>
+    <input id="hpsubmit2" name="hp2" type="hidden"></input>
+    <input id="atksubmit2" name="atk2" type="hidden"></input>
+    <input id="defsubmit2" name="def2" type="hidden"></input>
+    <input id="sp_atksubmit2" name="sp_atk2" type="hidden"></input>
+    <input id="sp_defsubmit2" name="sp_def2" type="hidden"></input>
+    <input id="spdsubmit2" name="spd2" type="hidden"></input>
+    <input id="gmaxsubmit2" name="gmax2" type="hidden"></input>
 </div>
 
-{#---------------------------------------------------------Pokemon 3-----------------------------------------------------------------#}
-
-<div class="team_member" id="team_member_3" style="display:none">
+---------------------------------------------------------Pokemon 3-----------------------------------------------------------------
+<div class="team_member" id="team_member_3">
 
     <div class="pokemon_text"><h1>Pokemon:</h1></div>
     <div class="pokemon_selector">
@@ -366,7 +359,7 @@
             {% for results in showpokemon %}
             <option value="{{ results.pokedex }}|{{ results.gigantamax_factor }}|
 {{ results.type1 }}|{{ results.type2 }}|{{ results.hp }}|{{ results.attack }}|
-{{ results.defence }}|{{ results.sp_atk }}|{{ results.sp_def }}|{{ results.speed }}
+{{ results.defence }}|{{ results.sp_atk }}|{{ results.sp_def }}|{{ results.speed }}|{{ results.name }}
 ">{{ results.name }}</option>
             {% endfor %}
         </select>
@@ -374,7 +367,7 @@
 
     <div class="ability_text"><h1>Ability:</h1></div>
     <div class="ability_selector">
-        <select class="abilitylist" id="selectability3">
+        <select class="abilitylist" id="selectability3" name="ability3">
             <option value="null">Select Ability</option>
             {% for results in showability %}
             <option>{{ results.name }}</option>
@@ -395,7 +388,7 @@
 
     <div class="item_text"><h1>Item:</h1></div>
     <div class="item_selector">
-        <select class="itemlist" id="selectitem3">
+        <select class="itemlist" id="selectitem3" name="item3">
             <option value="null">Select Item</option>
             {% for results in showitem %}
             <option value="{{ results.name }}">{{ results.name }}</option>
@@ -466,9 +459,8 @@
     </div>
 
     <div class="level_text"><h1>Level:</h1></div>
-        <form onSubmit="return false;">
-            <input type="number" id="level3" name="level" class="level" value=100 min=1 max=100>
-        </form>
+    <input type="number" id="level3" name="level3" class="level" value=100 min=1 max=100>
+
 
     <div class="hp_text"><h1>Hp:</h1></div>
     <div class="atk_text"><h1>Attack:</h1></div>
@@ -487,48 +479,44 @@
     <div class="sp_def"><h1 id="sp_def3">-</h1></div>
     <div class="spd"><h1 id="spd3">-</h1></div>
 
-    <form onSubmit="return false;">
-        <input type="number" id="hpEV3" name="hpEV" class="hpEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="atkEV3" name="atkEV" class="atkEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="defEV3" name="defEV" class="defEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="sp_atkEV3" name="sp_atkEV" class="sp_atkEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="sp_defEV3" name="sp_defEV" class="sp_defEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="spdEV3" name="spdEV" class="spdEV" value=0 min=0 max=252>
-    </form>
+    <input type="number" id="hpEV3" class="hpEV" value=0 min=0 max=252 name="hpEV3">
+    <input type="number" id="atkEV3" class="atkEV" value=0 min=0 max=252 name="atkEV3">
+    <input type="number" id="defEV3" class="defEV" value=0 min=0 max=252 name="defEV3">
+    <input type="number" id="sp_atkEV3" class="sp_atkEV" value=0 min=0 max=252 name="sp_atkEV3">
+    <input type="number" id="sp_defEV3" class="sp_defEV" value=0 min=0 max=252 name="sp_defEV3">
+    <input type="number" id="spdEV3" class="spdEV" value=0 min=0 max=252 name="spdEV3">
 
-    <form onSubmit="return false;">
-        <input type="number" id="hpIV3" name="hpIV" class="hpIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="atkIV3" name="atkIV" class="atkIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="defIV3" name="defIV" class="defIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="sp_atkIV3" name="sp_atkIV" class="sp_atkIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="sp_defIV3" name="sp_defIV" class="sp_defIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="spdIV3" name="spdIV" class="spdIV" value=31 min=0 max=31>
-    </form>
+    <input type="number" id="hpIV3" class="hpIV" value=31 min=0 max=31 name="hpIV3">
+    <input type="number" id="atkIV3" class="atkIV" value=31 min=0 max=31 name="atkIV3">
+    <input type="number" id="defIV3" class="defIV" value=31 min=0 max=31 name="defIV3">
+    <input type="number" id="sp_atkIV3" class="sp_atkIV" value=31 min=0 max=31 name="sp_atkIV3">
+    <input type="number" id="sp_defIV3" class="sp_defIV" value=31 min=0 max=31 name="sp_defIV3">
+    <input type="number" id="spdIV3" class="spdIV" value=31 min=0 max=31 name="spdIV3">
+
+    <input id="submitname3" name="name3" type="hidden"></input>
+    <input id="submitpokedex3" name="pokedex3" type="hidden"></input>
+    <input id="submitnature3" name="nature3" type="hidden"></input>
+    <input id="submitmove1_3" name="move1_3" type="hidden"></input>
+    <input id="submitmove2_3" name="move2_3" type="hidden"></input>
+    <input id="submitmove3_3" name="move3_3" type="hidden"></input>
+    <input id="submitmove4_3" name="move4_3" type="hidden"></input>
+    <input id="movetype1_3" name="movetype1_3" type="hidden"></input>
+    <input id="movetype2_3" name="movetype2_3" type="hidden"></input>
+    <input id="movetype3_3" name="movetype3_3" type="hidden"></input>
+    <input id="movetype4_3" name="movetype4_3" type="hidden"></input>
+    <input id="type1_3" name="type1_3" type="hidden"></input>
+    <input id="type2_3" name="type2_3" type="hidden"></input>
+    <input id="hpsubmit3" name="hp3" type="hidden"></input>
+    <input id="atksubmit3" name="atk3" type="hidden"></input>
+    <input id="defsubmit3" name="def3" type="hidden"></input>
+    <input id="sp_atksubmit3" name="sp_atk3" type="hidden"></input>
+    <input id="sp_defsubmit3" name="sp_def3" type="hidden"></input>
+    <input id="spdsubmit3" name="spd3" type="hidden"></input>
+    <input id="gmaxsubmit3" name="gmax3" type="hidden"></input>
 </div>
 
 {#---------------------------------------------------------Pokemon 4-----------------------------------------------------------------#}
-
-<div class="team_member" id="team_member_4" style="display:none">
+<div class="team_member" id="team_member_4">
 
     <div class="pokemon_text"><h1>Pokemon:</h1></div>
     <div class="pokemon_selector">
@@ -537,7 +525,7 @@
             {% for results in showpokemon %}
             <option value="{{ results.pokedex }}|{{ results.gigantamax_factor }}|
 {{ results.type1 }}|{{ results.type2 }}|{{ results.hp }}|{{ results.attack }}|
-{{ results.defence }}|{{ results.sp_atk }}|{{ results.sp_def }}|{{ results.speed }}
+{{ results.defence }}|{{ results.sp_atk }}|{{ results.sp_def }}|{{ results.speed }}|{{ results.name }}
 ">{{ results.name }}</option>
             {% endfor %}
         </select>
@@ -545,7 +533,7 @@
 
     <div class="ability_text"><h1>Ability:</h1></div>
     <div class="ability_selector">
-        <select class="abilitylist" id="selectability4">
+        <select class="abilitylist" id="selectability4" name="ability4">
             <option value="null">Select Ability</option>
             {% for results in showability %}
             <option>{{ results.name }}</option>
@@ -566,7 +554,7 @@
 
     <div class="item_text"><h1>Item:</h1></div>
     <div class="item_selector">
-        <select class="itemlist" id="selectitem4">
+        <select class="itemlist" id="selectitem4" name="item4">
             <option value="null">Select Item</option>
             {% for results in showitem %}
             <option value="{{ results.name }}">{{ results.name }}</option>
@@ -637,9 +625,8 @@
     </div>
 
     <div class="level_text"><h1>Level:</h1></div>
-        <form onSubmit="return false;">
-            <input type="number" id="level4" name="level" class="level" value=100 min=1 max=100>
-        </form>
+    <input type="number" id="level4" name="level4" class="level" value=100 min=1 max=100>
+
 
     <div class="hp_text"><h1>Hp:</h1></div>
     <div class="atk_text"><h1>Attack:</h1></div>
@@ -658,48 +645,44 @@
     <div class="sp_def"><h1 id="sp_def4">-</h1></div>
     <div class="spd"><h1 id="spd4">-</h1></div>
 
-    <form onSubmit="return false;">
-        <input type="number" id="hpEV4" name="hpEV" class="hpEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="atkEV4" name="atkEV" class="atkEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="defEV4" name="defEV" class="defEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="sp_atkEV4" name="sp_atkEV" class="sp_atkEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="sp_defEV4" name="sp_defEV" class="sp_defEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="spdEV4" name="spdEV" class="spdEV" value=0 min=0 max=252>
-    </form>
+    <input type="number" id="hpEV4" class="hpEV" value=0 min=0 max=252 name="hpEV4">
+    <input type="number" id="atkEV4" class="atkEV" value=0 min=0 max=252 name="atkEV4">
+    <input type="number" id="defEV4" class="defEV" value=0 min=0 max=252 name="defEV4">
+    <input type="number" id="sp_atkEV4" class="sp_atkEV" value=0 min=0 max=252 name="sp_atkEV4">
+    <input type="number" id="sp_defEV4" class="sp_defEV" value=0 min=0 max=252 name="sp_defEV4">
+    <input type="number" id="spdEV4" class="spdEV" value=0 min=0 max=252 name="spdEV4">
 
-    <form onSubmit="return false;">
-        <input type="number" id="hpIV4" name="hpIV" class="hpIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="atkIV4" name="atkIV" class="atkIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="defIV4" name="defIV" class="defIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="sp_atkIV4" name="sp_atkIV" class="sp_atkIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="sp_defIV4" name="sp_defIV" class="sp_defIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="spdIV4" name="spdIV" class="spdIV" value=31 min=0 max=31>
-    </form>
+    <input type="number" id="hpIV4" class="hpIV" value=31 min=0 max=31 name="hpIV4">
+    <input type="number" id="atkIV4" class="atkIV" value=31 min=0 max=31 name="atkIV4">
+    <input type="number" id="defIV4" class="defIV" value=31 min=0 max=31 name="defIV4">
+    <input type="number" id="sp_atkIV4" class="sp_atkIV" value=31 min=0 max=31 name="sp_atkIV4">
+    <input type="number" id="sp_defIV4" class="sp_defIV" value=31 min=0 max=31 name="sp_defIV4">
+    <input type="number" id="spdIV4" class="spdIV" value=31 min=0 max=31 name="spdIV4">
+
+    <input id="submitname4" name="name4" type="hidden"></input>
+    <input id="submitpokedex4" name="pokedex4" type="hidden"></input>
+    <input id="submitnature4" name="nature4" type="hidden"></input>
+    <input id="submitmove1_4" name="move1_4" type="hidden"></input>
+    <input id="submitmove2_4" name="move2_4" type="hidden"></input>
+    <input id="submitmove3_4" name="move3_4" type="hidden"></input>
+    <input id="submitmove4_4" name="move4_4" type="hidden"></input>
+    <input id="movetype1_4" name="movetype1_4" type="hidden"></input>
+    <input id="movetype2_4" name="movetype2_4" type="hidden"></input>
+    <input id="movetype3_4" name="movetype3_4" type="hidden"></input>
+    <input id="movetype4_4" name="movetype4_4" type="hidden"></input>
+    <input id="type1_4" name="type1_4" type="hidden"></input>
+    <input id="type2_4" name="type2_4" type="hidden"></input>
+    <input id="hpsubmit4" name="hp4" type="hidden"></input>
+    <input id="atksubmit4" name="atk4" type="hidden"></input>
+    <input id="defsubmit4" name="def4" type="hidden"></input>
+    <input id="sp_atksubmit4" name="sp_atk4" type="hidden"></input>
+    <input id="sp_defsubmit4" name="sp_def4" type="hidden"></input>
+    <input id="spdsubmit4" name="spd4" type="hidden"></input>
+    <input id="gmaxsubmit4" name="gmax4" type="hidden"></input>
 </div>
 
 {#---------------------------------------------------------Pokemon 5-----------------------------------------------------------------#}
-
-<div class="team_member" id="team_member_5" style="display:none">
+<div class="team_member" id="team_member_5">
 
     <div class="pokemon_text"><h1>Pokemon:</h1></div>
     <div class="pokemon_selector">
@@ -708,7 +691,7 @@
             {% for results in showpokemon %}
             <option value="{{ results.pokedex }}|{{ results.gigantamax_factor }}|
 {{ results.type1 }}|{{ results.type2 }}|{{ results.hp }}|{{ results.attack }}|
-{{ results.defence }}|{{ results.sp_atk }}|{{ results.sp_def }}|{{ results.speed }}
+{{ results.defence }}|{{ results.sp_atk }}|{{ results.sp_def }}|{{ results.speed }}|{{ results.name }}
 ">{{ results.name }}</option>
             {% endfor %}
         </select>
@@ -716,7 +699,7 @@
 
     <div class="ability_text"><h1>Ability:</h1></div>
     <div class="ability_selector">
-        <select class="abilitylist" id="selectability5">
+        <select class="abilitylist" id="selectability5" name="ability5">
             <option value="null">Select Ability</option>
             {% for results in showability %}
             <option>{{ results.name }}</option>
@@ -737,7 +720,7 @@
 
     <div class="item_text"><h1>Item:</h1></div>
     <div class="item_selector">
-        <select class="itemlist" id="selectitem5">
+        <select class="itemlist" id="selectitem5" name="item5">
             <option value="null">Select Item</option>
             {% for results in showitem %}
             <option value="{{ results.name }}">{{ results.name }}</option>
@@ -808,9 +791,8 @@
     </div>
 
     <div class="level_text"><h1>Level:</h1></div>
-        <form onSubmit="return false;">
-            <input type="number" id="level5" name="level" class="level" value=100 min=1 max=100>
-        </form>
+    <input type="number" id="level5" name="level5" class="level" value=100 min=1 max=100>
+
 
     <div class="hp_text"><h1>Hp:</h1></div>
     <div class="atk_text"><h1>Attack:</h1></div>
@@ -829,48 +811,44 @@
     <div class="sp_def"><h1 id="sp_def5">-</h1></div>
     <div class="spd"><h1 id="spd5">-</h1></div>
 
-    <form onSubmit="return false;">
-        <input type="number" id="hpEV5" name="hpEV" class="hpEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="atkEV5" name="atkEV" class="atkEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="defEV5" name="defEV" class="defEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="sp_atkEV5" name="sp_atkEV" class="sp_atkEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="sp_defEV5" name="sp_defEV" class="sp_defEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="spdEV5" name="spdEV" class="spdEV" value=0 min=0 max=252>
-    </form>
+    <input type="number" id="hpEV5" class="hpEV" value=0 min=0 max=252 name="hpEV5">
+    <input type="number" id="atkEV5" class="atkEV" value=0 min=0 max=252 name="atkEV5">
+    <input type="number" id="defEV5" class="defEV" value=0 min=0 max=252 name="defEV5">
+    <input type="number" id="sp_atkEV5" class="sp_atkEV" value=0 min=0 max=252 name="sp_atkEV5">
+    <input type="number" id="sp_defEV5" class="sp_defEV" value=0 min=0 max=252 name="sp_defEV5">
+    <input type="number" id="spdEV5" class="spdEV" value=0 min=0 max=252 name="spdEV5">
 
-    <form onSubmit="return false;">
-        <input type="number" id="hpIV5" name="hpIV" class="hpIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="atkIV5" name="atkIV" class="atkIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="defIV5" name="defIV" class="defIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="sp_atkIV5" name="sp_atkIV" class="sp_atkIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="sp_defIV5" name="sp_defIV" class="sp_defIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="spdIV5" name="spdIV" class="spdIV" value=31 min=0 max=31>
-    </form>
+    <input type="number" id="hpIV5" class="hpIV" value=31 min=0 max=31 name="hpIV5">
+    <input type="number" id="atkIV5" class="atkIV" value=31 min=0 max=31 name="atkIV5">
+    <input type="number" id="defIV5" class="defIV" value=31 min=0 max=31 name="defIV5">
+    <input type="number" id="sp_atkIV5" class="sp_atkIV" value=31 min=0 max=31 name="sp_atkIV5">
+    <input type="number" id="sp_defIV5" class="sp_defIV" value=31 min=0 max=31 name="sp_defIV5">
+    <input type="number" id="spdIV5" class="spdIV" value=31 min=0 max=31 name="spdIV5">
+
+    <input id="submitname5" name="name5" type="hidden"></input>
+    <input id="submitpokedex5" name="pokedex5" type="hidden"></input>
+    <input id="submitnature5" name="nature5" type="hidden"></input>
+    <input id="submitmove1_5" name="move1_5" type="hidden"></input>
+    <input id="submitmove2_5" name="move2_5" type="hidden"></input>
+    <input id="submitmove3_5" name="move3_5" type="hidden"></input>
+    <input id="submitmove4_5" name="move4_5" type="hidden"></input>
+    <input id="movetype1_5" name="movetype1_5" type="hidden"></input>
+    <input id="movetype2_5" name="movetype2_5" type="hidden"></input>
+    <input id="movetype3_5" name="movetype3_5" type="hidden"></input>
+    <input id="movetype4_5" name="movetype4_5" type="hidden"></input>
+    <input id="type1_5" name="type1_5" type="hidden"></input>
+    <input id="type2_5" name="type2_5" type="hidden"></input>
+    <input id="hpsubmit5" name="hp5" type="hidden"></input>
+    <input id="atksubmit5" name="atk5" type="hidden"></input>
+    <input id="defsubmit5" name="def5" type="hidden"></input>
+    <input id="sp_atksubmit5" name="sp_atk5" type="hidden"></input>
+    <input id="sp_defsubmit5" name="sp_def5" type="hidden"></input>
+    <input id="spdsubmit5" name="spd5" type="hidden"></input>
+    <input id="gmaxsubmit5" name="gmax5" type="hidden"></input>
 </div>
 
 {#---------------------------------------------------------Pokemon 6-----------------------------------------------------------------#}
-
-<div class="team_member" id="team_member_6" style="display:none">
+<div class="team_member" id="team_member_6">
 
     <div class="pokemon_text"><h1>Pokemon:</h1></div>
     <div class="pokemon_selector">
@@ -879,7 +857,7 @@
             {% for results in showpokemon %}
             <option value="{{ results.pokedex }}|{{ results.gigantamax_factor }}|
 {{ results.type1 }}|{{ results.type2 }}|{{ results.hp }}|{{ results.attack }}|
-{{ results.defence }}|{{ results.sp_atk }}|{{ results.sp_def }}|{{ results.speed }}
+{{ results.defence }}|{{ results.sp_atk }}|{{ results.sp_def }}|{{ results.speed }}|{{ results.name }}
 ">{{ results.name }}</option>
             {% endfor %}
         </select>
@@ -887,7 +865,7 @@
 
     <div class="ability_text"><h1>Ability:</h1></div>
     <div class="ability_selector">
-        <select class="abilitylist" id="selectability6">
+        <select class="abilitylist" id="selectability6" name="ability6">
             <option value="null">Select Ability</option>
             {% for results in showability %}
             <option>{{ results.name }}</option>
@@ -908,7 +886,7 @@
 
     <div class="item_text"><h1>Item:</h1></div>
     <div class="item_selector">
-        <select class="itemlist" id="selectitem6">
+        <select class="itemlist" id="selectitem6" name="item6">
             <option value="null">Select Item</option>
             {% for results in showitem %}
             <option value="{{ results.name }}">{{ results.name }}</option>
@@ -979,9 +957,8 @@
     </div>
 
     <div class="level_text"><h1>Level:</h1></div>
-        <form onSubmit="return false;">
-            <input type="number" id="level6" name="level" class="level" value=100 min=1 max=100>
-        </form>
+    <input type="number" id="level6" name="level6" class="level" value=100 min=1 max=100>
+
 
     <div class="hp_text"><h1>Hp:</h1></div>
     <div class="atk_text"><h1>Attack:</h1></div>
@@ -1000,44 +977,43 @@
     <div class="sp_def"><h1 id="sp_def6">-</h1></div>
     <div class="spd"><h1 id="spd6">-</h1></div>
 
-    <form onSubmit="return false;">
-        <input type="number" id="hpEV6" name="hpEV" class="hpEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="atkEV6" name="atkEV" class="atkEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="defEV6" name="defEV" class="defEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="sp_atkEV6" name="sp_atkEV" class="sp_atkEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="sp_defEV6" name="sp_defEV" class="sp_defEV" value=0 min=0 max=252>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="spdEV6" name="spdEV" class="spdEV" value=0 min=0 max=252>
-    </form>
+    <input type="number" id="hpEV6" class="hpEV" value=0 min=0 max=252 name="hpEV6">
+    <input type="number" id="atkEV6" class="atkEV" value=0 min=0 max=252 name="atkEV6">
+    <input type="number" id="defEV6" class="defEV" value=0 min=0 max=252 name="defEV6">
+    <input type="number" id="sp_atkEV6" class="sp_atkEV" value=0 min=0 max=252 name="sp_atkEV6">
+    <input type="number" id="sp_defEV6" class="sp_defEV" value=0 min=0 max=252 name="sp_defEV6">
+    <input type="number" id="spdEV6" class="spdEV" value=0 min=0 max=252 name="spdEV6">
 
-    <form onSubmit="return false;">
-        <input type="number" id="hpIV6" name="hpIV" class="hpIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="atkIV6" name="atkIV" class="atkIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="defIV6" name="defIV" class="defIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="sp_atkIV6" name="sp_atkIV" class="sp_atkIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="sp_defIV6" name="sp_defIV" class="sp_defIV" value=31 min=0 max=31>
-    </form>
-    <form onSubmit="return false;">
-        <input type="number" id="spdIV6" name="spdIV" class="spdIV" value=31 min=0 max=31>
-    </form>
+    <input type="number" id="hpIV6" class="hpIV" value=31 min=0 max=31 name="hpIV6">
+    <input type="number" id="atkIV6" class="atkIV" value=31 min=0 max=31 name="atkIV6">
+    <input type="number" id="defIV6" class="defIV" value=31 min=0 max=31 name="defIV6">
+    <input type="number" id="sp_atkIV6" class="sp_atkIV" value=31 min=0 max=31 name="sp_atkIV6">
+    <input type="number" id="sp_defIV6" class="sp_defIV" value=31 min=0 max=31 name="sp_defIV6">
+    <input type="number" id="spdIV6" class="spdIV" value=31 min=0 max=31 name="spdIV6">
+
+    <input id="submitname6" name="name6" type="hidden"></input>
+    <input id="submitpokedex6" name="pokedex6" type="hidden"></input>
+    <input id="submitnature6" name="nature6" type="hidden"></input>
+    <input id="submitmove1_6" name="move1_6" type="hidden"></input>
+    <input id="submitmove2_6" name="move2_6" type="hidden"></input>
+    <input id="submitmove3_6" name="move3_6" type="hidden"></input>
+    <input id="submitmove4_6" name="move4_6" type="hidden"></input>
+    <input id="movetype1_6" name="movetype1_6" type="hidden"></input>
+    <input id="movetype2_6" name="movetype2_6" type="hidden"></input>
+    <input id="movetype3_6" name="movetype3_6" type="hidden"></input>
+    <input id="movetype4_6" name="movetype4_6" type="hidden"></input>
+    <input id="type1_6" name="type1_6" type="hidden"></input>
+    <input id="type2_6" name="type2_6" type="hidden"></input>
+    <input id="hpsubmit6" name="hp6" type="hidden"></input>
+    <input id="atksubmit6" name="atk6" type="hidden"></input>
+    <input id="defsubmit6" name="def6" type="hidden"></input>
+    <input id="sp_atksubmit6" name="sp_atk6" type="hidden"></input>
+    <input id="sp_defsubmit6" name="sp_def6" type="hidden"></input>
+    <input id="spdsubmit6" name="spd6" type="hidden"></input>
+    <input id="gmaxsubmit6" name="gmax6" type="hidden"></input>
 </div>
+
+{#---------------------------------------------------------------------------------------------------#}
 
     <input class="button1" id="team_image1" type="button" onclick="team_pokemon1()"></input>
     <input class="button2" id="team_image2" type="button" onclick="team_pokemon2()"></input>
@@ -1047,265 +1023,15 @@
     <input class="button6" id="team_image6" type="button" onclick="team_pokemon6()"></input>
 
     <div class="submit_text"><h1>Submit:</h1></div>
-    <input class="submit" id="submit_team" type="button" onclick="submit()"></input>
+    <input class="submit" id="submit_team" type="submit" value=""></input>
 
-    <input id="user_id" type="hidden" value='{{ user.get_username }}'></input>
-    <input id="csrf" type="hidden" value='{% csrf_token %}'></input>
-    <input id="newteamurl" type="hidden" value='{% url 'create_new_team' %}'></input>
+</form>
+{% if messages  %}
+    {% for message in messagees %}
+        <h2 style="color: white;">{{ message }}</h2>
+    {% endfor %}
+{% endif %}
 
-<script type="text/javascript">
-    //-----------------------------------------------Submit team--------------------------------------------------------
-    function submit(){
-
-        var user_id = document.getElementById('user_id').value;
-        var teamname = document.getElementById("teamname").text;
-        var pokedex1 = document.getElementById("teamname").src="this button works"
-//------------------------pokemon1-------------------------
-        var pokedex1 = document.getElementById("selectpokemon1").value.split("|")[0];
-        var name1 = document.getElementById("selectpokemon1").text;
-        var gmax1 = document.getElementById("selectpokemon1").value.split("|")[1];
-        var type1_1 = document.getElementById("selectpokemon1").value.split("|")[2];
-        var type2_1 = document.getElementById("selectpokemon1").value.split("|")[3];
-        var ability1 = document.getElementById("selectability1").text;
-        var nature1 = document.getElementById("selectnature1").text;
-        var item1 = document.getElementById("selectitem1").text;
-        var move1_1 = document.getElementById("selectmove1_1").text;
-        var move2_1 = document.getElementById("selectmove2_1").text;
-        var move3_1 = document.getElementById("selectmove3_1").text;
-        var move4_1 = document.getElementById("selectmove4_1").text;
-        var movetype1_1 = document.getElementById('selectmove1_1').value.split("|")[1];
-        var movetype2_1 = document.getElementById('selectmove2_1').value.split("|")[1];
-        var movetype3_1 = document.getElementById('selectmove3_1').value.split("|")[1];
-        var movetype4_1 = document.getElementById('selectmove4_1').value.split("|")[1];
-        var leveltype1 = document.getElementById("level1").value;
-        var hp1 = document.getElementById("hp1").value;
-        var atk1 = document.getElementById("atk1").value;
-        var def1 = document.getElementById("def1").value;
-        var sp_atk1 = document.getElementById("sp_atk1").value;
-        var sp_def1 = document.getElementById("sp_def1").value;
-        var spd1 = document.getElementById("spd1").value;
-        var hpEV1 = document.getElementById("hpEV1").value;
-        var atkEV1 = document.getElementById("atkEV1").value;
-        var defEV1 = document.getElementById("defEV1").value;
-        var sp_atkEV1 = document.getElementById("sp_atkEV1").value;
-        var sp_defEV1 = document.getElementById("sp_defEV1").value;
-        var spdEV1 = document.getElementById("spdEV1").value;
-        var hpIV1 = document.getElementById("hpIV1").value;
-        var atkIV1 = document.getElementById("atkIV1").value;
-        var defIV1 = document.getElementById("defIV1").value;
-        var sp_atkIV1 = document.getElementById("sp_atkIV1").value;
-        var sp_defIV1 = document.getElementById("sp_defIV1").value;
-        var spdIV1 = document.getElementById("spdIV1").value;
-
-        //------------------------pokemon2-------------------------
-        var pokedex2 = document.getElementById("selectpokemon2").value.split("|")[0];
-        var name2 = document.getElementById("selectpokemon2").text;
-        var gmax2 = document.getElementById("selectpokemon2").value.split("|")[1];
-        var type1_2 = document.getElementById("selectpokemon2").value.split("|")[2];
-        var type2_2 = document.getElementById("selectpokemon2").value.split("|")[3];
-        var ability2 = document.getElementById("selectability2").text;
-        var nature2 = document.getElementById("selectnature2").text;
-        var item2 = document.getElementById("selectitem2").text;
-        var move1_2 = document.getElementById("selectmove1_2").text;
-        var move2_2 = document.getElementById("selectmove2_2").text;
-        var move3_2 = document.getElementById("selectmove3_2").text;
-        var move4_2 = document.getElementById("selectmove4_2").text;
-        var movetype1_2 = document.getElementById('selectmove1_2').value.split("|")[1];
-        var movetype2_2 = document.getElementById('selectmove2_2').value.split("|")[1];
-        var movetype3_2 = document.getElementById('selectmove3_2').value.split("|")[1];
-        var movetype4_2 = document.getElementById('selectmove4_2').value.split("|")[1];
-        var level2 = document.getElementById("level2").value;
-        var hp2 = document.getElementById("hp2").value;
-        var atk2 = document.getElementById("atk2").value;
-        var def2 = document.getElementById("def2").value;
-        var sp_atk2 = document.getElementById("sp_atk2").value;
-        var sp_def2 = document.getElementById("sp_def2").value;
-        var spd2 = document.getElementById("spd2").value;
-        var hpEV2 = document.getElementById("hpEV2").value;
-        var atkEV2 = document.getElementById("atkEV2").value;
-        var defEV2 = document.getElementById("defEV2").value;
-        var sp_atkEV2 = document.getElementById("sp_atkEV2").value;
-        var sp_defEV2 = document.getElementById("sp_defEV2").value;
-        var spdEV2 = document.getElementById("spdEV2").value;
-        var hpIV2 = document.getElementById("hpIV2").value;
-        var atkIV2 = document.getElementById("atkIV2").value;
-        var defIV2 = document.getElementById("defIV2").value;
-        var sp_atkIV2 = document.getElementById("sp_atkIV2").value;
-        var sp_defIV2 = document.getElementById("sp_defIV2").value;
-        var spdIV2 = document.getElementById("spdIV2").value;
-
-        //------------------------pokemon3-------------------------
-        var pokedex3 = document.getElementById("selectpokemon3").value.split("|")[0];
-        var name3 = document.getElementById("selectpokemon3").text;
-        var gmax3 = document.getElementById("selectpokemon3").value.split("|")[1];
-        var type1_3 = document.getElementById("selectpokemon3").value.split("|")[2];
-        var type2_3 = document.getElementById("selectpokemon3").value.split("|")[3];
-        var ability3 = document.getElementById("selectability3").text;
-        var nature3 = document.getElementById("selectnature3").text;
-        var item3 = document.getElementById("selectitem3").text;
-        var move1_3 = document.getElementById("selectmove1_3").text;
-        var move2_3 = document.getElementById("selectmove2_3").text;
-        var move3_3 = document.getElementById("selectmove3_3").text;
-        var move4_3 = document.getElementById("selectmove4_3").text;
-        var movetype1_3 = document.getElementById('selectmove1_3').value.split("|")[1];
-        var movetype2_3 = document.getElementById('selectmove2_3').value.split("|")[1];
-        var movetype3_3 = document.getElementById('selectmove3_3').value.split("|")[1];
-        var movetype4_3 = document.getElementById('selectmove4_3').value.split("|")[1];
-        var level3 = document.getElementById("level3").value;
-        var hp3 = document.getElementById("hp3").value;
-        var atk3 = document.getElementById("atk3").value;
-        var def3 = document.getElementById("def3").value;
-        var sp_atk3 = document.getElementById("sp_atk3").value;
-        var sp_def3 = document.getElementById("sp_def3").value;
-        var spd3 = document.getElementById("spd3").value;
-        var hpEV3 = document.getElementById("hpEV3").value;
-        var atkEV3 = document.getElementById("atkEV3").value;
-        var defEV3 = document.getElementById("defEV3").value;
-        var sp_atkEV3 = document.getElementById("sp_atkEV3").value;
-        var sp_defEV3 = document.getElementById("sp_defEV3").value;
-        var spdEV3 = document.getElementById("spdEV3").value;
-        var hpIV3 = document.getElementById("hpIV3").value;
-        var atkIV3 = document.getElementById("atkIV3").value;
-        var defIV3 = document.getElementById("defIV3").value;
-        var sp_atkIV3 = document.getElementById("sp_atkIV3").value;
-        var sp_defIV3 = document.getElementById("sp_defIV3").value;
-        var spdIV3 = document.getElementById("spdIV3").value;
-
-        //------------------------pokemon4-------------------------
-        var pokedex4 = document.getElementById("selectpokemon4").value.split("|")[0];
-        var name4 = document.getElementById("selectpokemon4").text;
-        var gmax4 = document.getElementById("selectpokemon4").value.split("|")[1];
-        var type1_4 = document.getElementById("selectpokemon4").value.split("|")[2];
-        var type2_4 = document.getElementById("selectpokemon4").value.split("|")[3];
-        var ability4 = document.getElementById("selectability4").text;
-        var nature4 = document.getElementById("selectnature4").text;
-        var item4 = document.getElementById("selectitem4").text;
-        var move1_4 = document.getElementById("selectmove1_4").text;
-        var move2_4 = document.getElementById("selectmove2_4").text;
-        var move3_4 = document.getElementById("selectmove3_4").text;
-        var move4_4 = document.getElementById("selectmove4_4").text;
-        var movetype1_4 = document.getElementById('selectmove1_4').value.split("|")[1];
-        var movetype2_4 = document.getElementById('selectmove2_4').value.split("|")[1];
-        var movetype3_4 = document.getElementById('selectmove3_4').value.split("|")[1];
-        var movetype4_4 = document.getElementById('selectmove4_4').value.split("|")[1];
-        var level4 = document.getElementById("level4").value;
-        var hp4 = document.getElementById("hp4").value;
-        var atk4 = document.getElementById("atk4").value;
-        var def4 = document.getElementById("def4").value;
-        var sp_atk4 = document.getElementById("sp_atk4").value;
-        var sp_def4 = document.getElementById("sp_def4").value;
-        var spd4 = document.getElementById("spd4").value;
-        var hpEV4 = document.getElementById("hpEV4").value;
-        var atkEV4 = document.getElementById("atkEV4").value;
-        var defEV4 = document.getElementById("defEV4").value;
-        var sp_atkEV4 = document.getElementById("sp_atkEV4").value;
-        var sp_defEV4 = document.getElementById("sp_defEV4").value;
-        var spdEV4 = document.getElementById("spdEV4").value;
-        var hpIV4 = document.getElementById("hpIV4").value;
-        var atkIV4 = document.getElementById("atkIV4").value;
-        var defIV4 = document.getElementById("defIV4").value;
-        var sp_atkIV4 = document.getElementById("sp_atkIV4").value;
-        var sp_defIV4 = document.getElementById("sp_defIV4").value;
-        var spdIV4 = document.getElementById("spdIV4").value;
-
-        //------------------------pokemon5-------------------------
-        var pokedex5 = document.getElementById("selectpokemon5").value.split("|")[0];
-        var name5 = document.getElementById("selectpokemon5").text;
-        var gmax5 = document.getElementById("selectpokemon5").value.split("|")[1];
-        var type1_5 = document.getElementById("selectpokemon5").value.split("|")[2];
-        var type2_5 = document.getElementById("selectpokemon5").value.split("|")[3];
-        var ability5 = document.getElementById("selectability5").text;
-        var nature5 = document.getElementById("selectnature5").text;
-        var item5 = document.getElementById("selectitem5").text;
-        var move1_5 = document.getElementById("selectmove1_5").text;
-        var move2_5 = document.getElementById("selectmove2_5").text;
-        var move3_5 = document.getElementById("selectmove3_5").text;
-        var move4_5 = document.getElementById("selectmove4_5").text;
-        var movetype1_5 = document.getElementById('selectmove1_5').value.split("|")[1];
-        var movetype2_5 = document.getElementById('selectmove2_5').value.split("|")[1];
-        var movetype3_5 = document.getElementById('selectmove3_5').value.split("|")[1];
-        var movetype4_5 = document.getElementById('selectmove4_5').value.split("|")[1];
-        var level5 = document.getElementById("level5").value;
-        var hp5 = document.getElementById("hp5").value;
-        var atk5 = document.getElementById("atk5").value;
-        var def5 = document.getElementById("def5").value;
-        var sp_atk5 = document.getElementById("sp_atk5").value;
-        var sp_def5 = document.getElementById("sp_def5").value;
-        var spd5 = document.getElementById("spd5").value;
-        var hpEV5 = document.getElementById("hpEV5").value;
-        var atkEV5 = document.getElementById("atkEV5").value;
-        var defEV5 = document.getElementById("defEV5").value;
-        var sp_atkEV5 = document.getElementById("sp_atkEV5").value;
-        var sp_defEV5 = document.getElementById("sp_defEV5").value;
-        var spdEV5 = document.getElementById("spdEV5").value;
-        var hpIV5 = document.getElementById("hpIV5").value;
-        var atkIV5 = document.getElementById("atkIV5").value;
-        var defIV5 = document.getElementById("defIV5").value;
-        var sp_atkIV5 = document.getElementById("sp_atkIV5").value;
-        var sp_defIV5 = document.getElementById("sp_defIV5").value;
-        var spdIV5 = document.getElementById("spdIV5").value;
-
-        //------------------------pokemon6-------------------------
-        var pokedex6 = document.getElementById("selectpokemon6").value.split("|")[0];
-        var name6 = document.getElementById("selectpokemon6").text;
-        var gmax6 = document.getElementById("selectpokemon6").value.split("|")[1];
-        var type1_6 = document.getElementById("selectpokemon6").value.split("|")[2];
-        var type2_6 = document.getElementById("selectpokemon6").value.split("|")[3];
-        var ability6 = document.getElementById("selectability6").text;
-        var nature6 = document.getElementById("selectnature6").text;
-        var item6 = document.getElementById("selectitem6").text;
-        var move1_6 = document.getElementById("selectmove1_6").text;
-        var move2_6 = document.getElementById("selectmove2_6").text;
-        var move3_6 = document.getElementById("selectmove3_6").text;
-        var move4_6 = document.getElementById("selectmove4_6").text;
-        var movetype1_6 = document.getElementById('selectmove1_6').value.split("|")[1];
-        var movetype2_6 = document.getElementById('selectmove2_6').value.split("|")[1];
-        var movetype3_6 = document.getElementById('selectmove3_6').value.split("|")[1];
-        var movetype4_6 = document.getElementById('selectmove4_6').value.split("|")[1];
-        var level6 = document.getElementById("level6").value;
-        var hp6 = document.getElementById("hp6").value;
-        var atk6 = document.getElementById("atk6").value;
-        var def6 = document.getElementById("def6").value;
-        var sp_atk6 = document.getElementById("sp_atk6").value;
-        var sp_def6 = document.getElementById("sp_def6").value;
-        var spd6 = document.getElementById("spd6").value;
-        var hpEV6 = document.getElementById("hpEV6").value;
-        var atkEV6 = document.getElementById("atkEV6").value;
-        var defEV6 = document.getElementById("defEV6").value;
-        var sp_atkEV6 = document.getElementById("sp_atkEV6").value;
-        var sp_defEV6 = document.getElementById("sp_defEV6").value;
-        var spdEV6 = document.getElementById("spdEV6").value;
-        var hpIV6 = document.getElementById("hpIV6").value;
-        var atkIV6 = document.getElementById("atkIV6").value;
-        var defIV6 = document.getElementById("defIV6").value;
-        var sp_atkIV6 = document.getElementById("sp_atkIV6").value;
-        var sp_defIV6 = document.getElementById("sp_defIV6").value;
-        var spdIV6 = document.getElementById("spdIV6").value;
-
-        var csrf = document.getElementById("csrf").value;
-        var url = document.getElementById("newteamurl").value;
-
-
-        $("#send-my-url-to-django-button").click(function() {
-            $.ajax({
-                url: url,
-                type: "POST",
-                dataType: "json",
-                data: {
-                    user_id: user_id,
-                    teamname: teamname,
-                    csrfmiddlewaretoken: csrf
-                    },
-                success : function(json) {
-                    alert("Successfully sent the URL to Django");
-                },
-                error : function(xhr,errmsg,err) {
-                    alert("Could not send URL to Django. Error: " + xhr.status + ": " + xhr.responseText);
-                }
-            });
-        });
-    };
-</script>
 <script src="{% static 'js/teambuilder.js' %}"></script>
 </body>
 </html>

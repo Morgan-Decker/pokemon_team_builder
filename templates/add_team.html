@@ -157,7 +157,7 @@
 
     {#---------------------------------------------------------Pokemon 2-----------------------------------------------------------------#}
 
-    <div class="team_member" id="team_member_2">
+    <div class="team_member" id="team_member_2" style="display:none">
 
         <div class="pokemon_text"><h1>Pokemon:</h1></div>
         <div class="pokemon_selector">
@@ -300,7 +300,7 @@
 
     {#---------------------------------------------------------Pokemon 3-----------------------------------------------------------------#}
 
-    <div class="team_member" id="team_member_3">
+    <div class="team_member" id="team_member_3" style="display:none">
 
         <div class="pokemon_text"><h1>Pokemon:</h1></div>
         <div class="pokemon_selector">
@@ -443,7 +443,7 @@
 
     {#---------------------------------------------------------Pokemon 4-----------------------------------------------------------------#}
 
-    <div class="team_member" id="team_member_4">
+    <div class="team_member" id="team_member_4" style="display:none">
 
         <div class="pokemon_text"><h1>Pokemon:</h1></div>
         <div class="pokemon_selector">
@@ -586,7 +586,7 @@
 
     {#---------------------------------------------------------Pokemon 5-----------------------------------------------------------------#}
 
-    <div class="team_member" id="team_member_5">
+    <div class="team_member" id="team_member_5" style="display:none">
 
         <div class="pokemon_text"><h1>Pokemon:</h1></div>
         <div class="pokemon_selector">
@@ -729,7 +729,7 @@
 
     {#---------------------------------------------------------Pokemon 6-----------------------------------------------------------------#}
 
-    <div class="team_member" id="team_member_6">
+    <div class="team_member" id="team_member_6" style="display:none">
 
         <div class="pokemon_text"><h1>Pokemon:</h1></div>
         <div class="pokemon_selector">
@@ -870,6 +870,19 @@
         </form>
     </div>
 
+    <div>
+        <strong id="like_count">{{ teamview.likes }}</strong> likes
+        {% if user.is_authenticated %}
+	<button id="like_btn"
+                data-teamid="{{ category.id }}"
+                class="btn btn-primary btn-sm"
+                type="button">
+        <span data-feather="thumbs-up"></span>
+	Like Team
+	</button>
+	{% endif %}
+    </div>
+
     <input class="button1" id="team_image1" type="button" onclick="team_pokemon1()"
            style="background-image: url('/static/img/sprites/{{ teamview.pokedex1 }}.png')"></input>
     <input class="button2" id="team_image2" type="button" onclick="team_pokemon2()"
@@ -883,5 +896,6 @@
     <input class="button6" id="team_image6" type="button" onclick="team_pokemon6()"
            style="background-image: url('/static/img/sprites/{{ teamview.pokedex6 }}.png')"></input>
 <script src="{% static 'js/teamviewer.js' %}"></script>
+<script src="{% static 'js/builder-ajax.js' %}"></script>
 </body>
 </html>
