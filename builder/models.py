@@ -8,6 +8,18 @@ from autoslug import AutoSlugField
 class UserProfile(models.Model):
     user = models.CharField(max_length=100)
     picture = models.ImageField(upload_to='profile_images', blank=True, default=None, null=True)
+    friends = models.ManyToManyField('self')
+    def __str__(self):
+        return self.user.username
+
+class FriendRequest(models.Model):
+    from_user = models.ForeignKey(
+        UserProfile, related_name='from_user', on_delete=models.CASCADE)
+    to_user = models.ForeignKey(
+        User, related_name='to_user', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.from_user.user.username
 
 
 class Team(models.Model):
@@ -237,8 +249,12 @@ class Team(models.Model):
 
     class Meta:
         db_table = "team_table"
+
     def __str__(self):
         return self.teamname
+
+    def number_of_likes(self):
+        return self.likes.count()
 
 
 class Pokemon(models.Model):

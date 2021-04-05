@@ -102,14 +102,21 @@ def builder(request):
     ability_database = Ability.objects.all()
     item_database = Item.objects.all()
 
-    print("before post")
     if request.method=='POST':
-        print("after post")
         if request.POST.get('user_id') and request.POST.get('teamname'):
-            print("after if")
 
             def g(x):
                 return request.POST.get(x)
+
+            def authenticate_teamname(teamname):
+                allteams = Team.objects.values_list('teamname', flat=True)
+                j = 0
+                while teamname in allteams:
+                    j += 1
+                    newteamname = teamname + str(j)
+                    if newteamname not in allteams:
+                        teamname = newteamname
+                return teamname
 
             userprofile = g('user_id')
             teamname = g('teamname')
@@ -156,7 +163,7 @@ def builder(request):
             hpEV6, atkEV6, defEV6, sp_atkEV6, sp_defEV6, spdEV6 = g('hpEV6'), g('atkEV6'), g('defEV6'), g('sp_atkEV6'), g('sp_defEV6'), g('spdEV6')
             hpIV6, atkIV6, defIV6, sp_atkIV6, sp_defIV6, spdIV6 = g('hpIV6'), g('atkIV6'), g('defIV6'), g('sp_atkIV6'), g('sp_defIV6'), g('spdIV6')
             type1_6, type2_6 = g('type1_6'), g('type2_6')
-            d, created = Team.objects.get_or_create(teamname=teamname, userprofile=userprofile, likes=0,
+            d, created = Team.objects.get_or_create(teamname=authenticate_teamname(teamname), userprofile=userprofile, likes=0,
                                                     pokedex1=pokedex1, name1=name1, ability1=ability1, nature1=nature1, gmax1=gmax1,
                                                     item1=item1, move1_1=move1_1, move2_1=move2_1, move3_1=move3_1, move4_1=move4_1,
                                                     movetype1_1=movetype1_1, movetype2_1=movetype2_1, movetype3_1=movetype3_1, movetype4_1=movetype4_1,
@@ -304,3 +311,27 @@ def visitor_cookie_handler(request):
 
     # Update/set the visits cookie
     request.session['visits'] = visits
+
+@login_required
+def request_friend(request, username_slug):
+    from_user = request.user
+    to_user = UserProfile.objects.get(slug = username_slug)
+    friendrequest, created = FriendRequest.objects.get_or_create(
+        from_user=from_user, to_user=to_user)
+    if created:
+        return HttpResponse('friend request sent')
+    else:
+        return HttpResponse('friend request was already sent')
+
+@login_required
+def accept_friend(request, requestID):
+    friend_request = FriendRequest.object.get(id=requestID)
+    to_user = friend_request.to_user
+    from_user = friend_request.from_user
+    if to_user == request.user:
+        to_user.friends.add(from_user)
+        from_user.friends.add(to_user)
+        friend_request.delete()
+        return HttpResponse('friend request accepted')
+    else:
+        return HttpResponse('friend request not accepted')
