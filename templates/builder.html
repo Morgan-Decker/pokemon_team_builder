@@ -23,7 +23,7 @@
     <div class="pokemon_text"><h1>Pokemon:</h1></div>
     <div class="pokemon_selector">
         <select class="pokemonlist" id="selectpokemon1">
-            <option value="null">Select Pokemon</option>
+            <option value="0|1|None|None|0|0|0|0|0|0|None">Select Pokemon</option>
             {% for results in showpokemon %}
             <option value="{{ results.pokedex }}|{{ results.gigantamax_factor }}|
 {{ results.type1 }}|{{ results.type2 }}|{{ results.hp }}|{{ results.attack }}|
@@ -162,7 +162,7 @@
     <input type="number" id="spdIV1" class="spdIV" value=31 min=0 max=31 name="spdIV1">
 
     <input id="submitname1" name="name1" type="hidden"></input>
-    <input id="submitpokedex1" name="pokedex1" type="hidden"></input>
+    <input id="submitpokedex1" name="pokedex1" value=0 type="hidden"></input>
     <input id="submitnature1" name="nature1" type="hidden"></input>
     <input id="submitmove1_1" name="move1_1" type="hidden"></input>
     <input id="submitmove2_1" name="move2_1" type="hidden"></input>
@@ -174,13 +174,13 @@
     <input id="movetype4_1" name="movetype4_1" type="hidden"></input>
     <input id="type1_1" name="type1_1" type="hidden"></input>
     <input id="type2_1" name="type2_1" type="hidden"></input>
-    <input id="hpsubmit1" name="hp1" type="hidden"></input>
-    <input id="atksubmit1" name="atk1" type="hidden"></input>
-    <input id="defsubmit1" name="def1" type="hidden"></input>
-    <input id="sp_atksubmit1" name="sp_atk1" type="hidden"></input>
-    <input id="sp_defsubmit1" name="sp_def1" type="hidden"></input>
-    <input id="spdsubmit1" name="spd1" type="hidden"></input>
-    <input id="gmaxsubmit1" name="gmax1" type="hidden"></input>
+    <input id="hpsubmit1" name="hp1" value=0 type="hidden"></input>
+    <input id="atksubmit1" name="atk1" value=0 type="hidden"></input>
+    <input id="defsubmit1" name="def1" value=0 type="hidden"></input>
+    <input id="sp_atksubmit1" name="sp_atk1" value=0 type="hidden"></input>
+    <input id="sp_defsubmit1" name="sp_def1" value=0 type="hidden"></input>
+    <input id="spdsubmit1" name="spd1" value=0 type="hidden"></input>
+    <input id="gmaxsubmit1" name="gmax1" value=1 type="hidden"></input>
 </div>
 
 {#---------------------------------------------------------Pokemon 2-----------------------------------------------------------------#}
@@ -189,7 +189,7 @@
     <div class="pokemon_text"><h1>Pokemon:</h1></div>
     <div class="pokemon_selector">
         <select class="pokemonlist" id="selectpokemon2">
-            <option value="null">Select Pokemon</option>
+            <option value="0|1|None|None|0|0|0|0|0|0|None">Select Pokemon</option>
             {% for results in showpokemon %}
             <option value="{{ results.pokedex }}|{{ results.gigantamax_factor }}|
 {{ results.type1 }}|{{ results.type2 }}|{{ results.hp }}|{{ results.attack }}|
@@ -328,7 +328,7 @@
     <input type="number" id="spdIV2" class="spdIV" value=31 min=0 max=31 name="spdIV2">
 
     <input id="submitname2" name="name2" type="hidden"></input>
-    <input id="submitpokedex2" name="pokedex2" type="hidden"></input>
+    <input id="submitpokedex2" name="pokedex2" value=0 type="hidden"></input>
     <input id="submitnature2" name="nature2" type="hidden"></input>
     <input id="submitmove1_2" name="move1_2" type="hidden"></input>
     <input id="submitmove2_2" name="move2_2" type="hidden"></input>
@@ -340,13 +340,13 @@
     <input id="movetype4_2" name="movetype4_2" type="hidden"></input>
     <input id="type1_2" name="type1_2" type="hidden"></input>
     <input id="type2_2" name="type2_2" type="hidden"></input>
-    <input id="hpsubmit2" name="hp2" type="hidden"></input>
-    <input id="atksubmit2" name="atk2" type="hidden"></input>
-    <input id="defsubmit2" name="def2" type="hidden"></input>
-    <input id="sp_atksubmit2" name="sp_atk2" type="hidden"></input>
-    <input id="sp_defsubmit2" name="sp_def2" type="hidden"></input>
-    <input id="spdsubmit2" name="spd2" type="hidden"></input>
-    <input id="gmaxsubmit2" name="gmax2" type="hidden"></input>
+    <input id="hpsubmit2" name="hp2" value=0 type="hidden"></input>
+    <input id="atksubmit2" name="atk2" value=0 type="hidden"></input>
+    <input id="defsubmit2" name="def2" value=0 type="hidden"></input>
+    <input id="sp_atksubmit2" name="sp_atk2" value=0 type="hidden"></input>
+    <input id="sp_defsubmit2" name="sp_def2" value=0 type="hidden"></input>
+    <input id="spdsubmit2" name="spd2" value=0 type="hidden"></input>
+    <input id="gmaxsubmit2" name="gmax2" value=1 type="hidden"></input>
 </div>
 
 ---------------------------------------------------------Pokemon 3-----------------------------------------------------------------
@@ -355,7 +355,7 @@
     <div class="pokemon_text"><h1>Pokemon:</h1></div>
     <div class="pokemon_selector">
         <select class="pokemonlist" id="selectpokemon3">
-            <option value="null">Select Pokemon</option>
+            <option value="0|1|None|None|0|0|0|0|0|0|None">Select Pokemon</option>
             {% for results in showpokemon %}
             <option value="{{ results.pokedex }}|{{ results.gigantamax_factor }}|
 {{ results.type1 }}|{{ results.type2 }}|{{ results.hp }}|{{ results.attack }}|
@@ -494,7 +494,7 @@
     <input type="number" id="spdIV3" class="spdIV" value=31 min=0 max=31 name="spdIV3">
 
     <input id="submitname3" name="name3" type="hidden"></input>
-    <input id="submitpokedex3" name="pokedex3" type="hidden"></input>
+    <input id="submitpokedex3" name="pokedex3" value=0 type="hidden"></input>
     <input id="submitnature3" name="nature3" type="hidden"></input>
     <input id="submitmove1_3" name="move1_3" type="hidden"></input>
     <input id="submitmove2_3" name="move2_3" type="hidden"></input>
@@ -506,13 +506,13 @@
     <input id="movetype4_3" name="movetype4_3" type="hidden"></input>
     <input id="type1_3" name="type1_3" type="hidden"></input>
     <input id="type2_3" name="type2_3" type="hidden"></input>
-    <input id="hpsubmit3" name="hp3" type="hidden"></input>
-    <input id="atksubmit3" name="atk3" type="hidden"></input>
-    <input id="defsubmit3" name="def3" type="hidden"></input>
-    <input id="sp_atksubmit3" name="sp_atk3" type="hidden"></input>
-    <input id="sp_defsubmit3" name="sp_def3" type="hidden"></input>
-    <input id="spdsubmit3" name="spd3" type="hidden"></input>
-    <input id="gmaxsubmit3" name="gmax3" type="hidden"></input>
+    <input id="hpsubmit3" name="hp3" value=0 type="hidden"></input>
+    <input id="atksubmit3" name="atk3" value=0 type="hidden"></input>
+    <input id="defsubmit3" name="def3" value=0 type="hidden"></input>
+    <input id="sp_atksubmit3" name="sp_atk3" value=0 type="hidden"></input>
+    <input id="sp_defsubmit3" name="sp_def3" value=0 type="hidden"></input>
+    <input id="spdsubmit3" name="spd3" value=0 type="hidden"></input>
+    <input id="gmaxsubmit3" name="gmax3" value=1 type="hidden"></input>
 </div>
 
 {#---------------------------------------------------------Pokemon 4-----------------------------------------------------------------#}
@@ -521,7 +521,7 @@
     <div class="pokemon_text"><h1>Pokemon:</h1></div>
     <div class="pokemon_selector">
         <select class="pokemonlist" id="selectpokemon4">
-            <option value="null">Select Pokemon</option>
+            <option value="0|1|None|None|0|0|0|0|0|0|None">Select Pokemon</option>
             {% for results in showpokemon %}
             <option value="{{ results.pokedex }}|{{ results.gigantamax_factor }}|
 {{ results.type1 }}|{{ results.type2 }}|{{ results.hp }}|{{ results.attack }}|
@@ -660,7 +660,7 @@
     <input type="number" id="spdIV4" class="spdIV" value=31 min=0 max=31 name="spdIV4">
 
     <input id="submitname4" name="name4" type="hidden"></input>
-    <input id="submitpokedex4" name="pokedex4" type="hidden"></input>
+    <input id="submitpokedex4" name="pokedex4" value=0 type="hidden"></input>
     <input id="submitnature4" name="nature4" type="hidden"></input>
     <input id="submitmove1_4" name="move1_4" type="hidden"></input>
     <input id="submitmove2_4" name="move2_4" type="hidden"></input>
@@ -672,13 +672,13 @@
     <input id="movetype4_4" name="movetype4_4" type="hidden"></input>
     <input id="type1_4" name="type1_4" type="hidden"></input>
     <input id="type2_4" name="type2_4" type="hidden"></input>
-    <input id="hpsubmit4" name="hp4" type="hidden"></input>
-    <input id="atksubmit4" name="atk4" type="hidden"></input>
-    <input id="defsubmit4" name="def4" type="hidden"></input>
-    <input id="sp_atksubmit4" name="sp_atk4" type="hidden"></input>
-    <input id="sp_defsubmit4" name="sp_def4" type="hidden"></input>
-    <input id="spdsubmit4" name="spd4" type="hidden"></input>
-    <input id="gmaxsubmit4" name="gmax4" type="hidden"></input>
+    <input id="hpsubmit4" name="hp4" value=0 type="hidden"></input>
+    <input id="atksubmit4" name="atk4" value=0 type="hidden"></input>
+    <input id="defsubmit4" name="def4" value=0 type="hidden"></input>
+    <input id="sp_atksubmit4" name="sp_atk4" value=0 type="hidden"></input>
+    <input id="sp_defsubmit4" name="sp_def4" value=0 type="hidden"></input>
+    <input id="spdsubmit4" name="spd4" value=0 type="hidden"></input>
+    <input id="gmaxsubmit4" name="gmax4" value=1 type="hidden"></input>
 </div>
 
 {#---------------------------------------------------------Pokemon 5-----------------------------------------------------------------#}
@@ -687,7 +687,7 @@
     <div class="pokemon_text"><h1>Pokemon:</h1></div>
     <div class="pokemon_selector">
         <select class="pokemonlist" id="selectpokemon5">
-            <option value="null">Select Pokemon</option>
+            <option value="0|1|None|None|0|0|0|0|0|0|None">Select Pokemon</option>
             {% for results in showpokemon %}
             <option value="{{ results.pokedex }}|{{ results.gigantamax_factor }}|
 {{ results.type1 }}|{{ results.type2 }}|{{ results.hp }}|{{ results.attack }}|
@@ -826,7 +826,7 @@
     <input type="number" id="spdIV5" class="spdIV" value=31 min=0 max=31 name="spdIV5">
 
     <input id="submitname5" name="name5" type="hidden"></input>
-    <input id="submitpokedex5" name="pokedex5" type="hidden"></input>
+    <input id="submitpokedex5" name="pokedex5" value=0 type="hidden"></input>
     <input id="submitnature5" name="nature5" type="hidden"></input>
     <input id="submitmove1_5" name="move1_5" type="hidden"></input>
     <input id="submitmove2_5" name="move2_5" type="hidden"></input>
@@ -838,13 +838,13 @@
     <input id="movetype4_5" name="movetype4_5" type="hidden"></input>
     <input id="type1_5" name="type1_5" type="hidden"></input>
     <input id="type2_5" name="type2_5" type="hidden"></input>
-    <input id="hpsubmit5" name="hp5" type="hidden"></input>
-    <input id="atksubmit5" name="atk5" type="hidden"></input>
-    <input id="defsubmit5" name="def5" type="hidden"></input>
-    <input id="sp_atksubmit5" name="sp_atk5" type="hidden"></input>
-    <input id="sp_defsubmit5" name="sp_def5" type="hidden"></input>
-    <input id="spdsubmit5" name="spd5" type="hidden"></input>
-    <input id="gmaxsubmit5" name="gmax5" type="hidden"></input>
+    <input id="hpsubmit5" name="hp5" value=0 type="hidden"></input>
+    <input id="atksubmit5" name="atk5" value=0 type="hidden"></input>
+    <input id="defsubmit5" name="def5" value=0 type="hidden"></input>
+    <input id="sp_atksubmit5" name="sp_atk5" value=0 type="hidden"></input>
+    <input id="sp_defsubmit5" name="sp_def5" value=0 type="hidden"></input>
+    <input id="spdsubmit5" name="spd5" value=0 type="hidden"></input>
+    <input id="gmaxsubmit5" name="gmax5" value=1 type="hidden"></input>
 </div>
 
 {#---------------------------------------------------------Pokemon 6-----------------------------------------------------------------#}
@@ -853,7 +853,7 @@
     <div class="pokemon_text"><h1>Pokemon:</h1></div>
     <div class="pokemon_selector">
         <select class="pokemonlist" id="selectpokemon6">
-            <option value="null">Select Pokemon</option>
+            <option value="0|1|None|None|0|0|0|0|0|0|None">Select Pokemon</option>
             {% for results in showpokemon %}
             <option value="{{ results.pokedex }}|{{ results.gigantamax_factor }}|
 {{ results.type1 }}|{{ results.type2 }}|{{ results.hp }}|{{ results.attack }}|
@@ -992,7 +992,7 @@
     <input type="number" id="spdIV6" class="spdIV" value=31 min=0 max=31 name="spdIV6">
 
     <input id="submitname6" name="name6" type="hidden"></input>
-    <input id="submitpokedex6" name="pokedex6" type="hidden"></input>
+    <input id="submitpokedex6" name="pokedex6" value=0 type="hidden"></input>
     <input id="submitnature6" name="nature6" type="hidden"></input>
     <input id="submitmove1_6" name="move1_6" type="hidden"></input>
     <input id="submitmove2_6" name="move2_6" type="hidden"></input>
@@ -1004,13 +1004,13 @@
     <input id="movetype4_6" name="movetype4_6" type="hidden"></input>
     <input id="type1_6" name="type1_6" type="hidden"></input>
     <input id="type2_6" name="type2_6" type="hidden"></input>
-    <input id="hpsubmit6" name="hp6" type="hidden"></input>
-    <input id="atksubmit6" name="atk6" type="hidden"></input>
-    <input id="defsubmit6" name="def6" type="hidden"></input>
-    <input id="sp_atksubmit6" name="sp_atk6" type="hidden"></input>
-    <input id="sp_defsubmit6" name="sp_def6" type="hidden"></input>
-    <input id="spdsubmit6" name="spd6" type="hidden"></input>
-    <input id="gmaxsubmit6" name="gmax6" type="hidden"></input>
+    <input id="hpsubmit6" name="hp6" value=0 type="hidden"></input>
+    <input id="atksubmit6" name="atk6" value=0 type="hidden"></input>
+    <input id="defsubmit6" name="def6" value=0 type="hidden"></input>
+    <input id="sp_atksubmit6" name="sp_atk6" value=0 type="hidden"></input>
+    <input id="sp_defsubmit6" name="sp_def6" value=0 type="hidden"></input>
+    <input id="spdsubmit6" name="spd6" value=0 type="hidden"></input>
+    <input id="gmaxsubmit6" name="gmax6" value=1 type="hidden"></input>
 </div>
 
 {#---------------------------------------------------------------------------------------------------#}

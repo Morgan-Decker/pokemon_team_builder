@@ -1,6 +1,8 @@
 import os
+import sys
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pokemon_team_builder.settings')
+working_dir = os.path.realpath(os.path.join(os.getcwd(), os.path.dirname(__file__)))
 
 import django
 
@@ -97,7 +99,7 @@ def item_add_data(name):
 
 
 def populate():
-    f = open("C:/Users/craig/Documents/Uni/Computing Science/2nd Year/Semester 2/WAD2/Gen 8/pokemon.txt", "r")
+    f = open(os.path.join(working_dir, 'pokemon.txt'), "r")
     pokemon = []
     types = []
     abilities = []
@@ -200,7 +202,7 @@ def populate():
     f.close()
     pokemon.pop(0)
 
-    f = open("C:/Users/craig/Documents/Uni/Computing Science/2nd Year/Semester 2/WAD2/Gen 8/moves.txt", "r")
+    f = open(os.path.join(working_dir,"moves.txt"), "r")
     moves = []
     for x in f:
         if not x.startswith("#"):
@@ -210,7 +212,7 @@ def populate():
             moves.append([movename, movetype])
     f.close()
 
-    f = open("C:/Users/craig/Documents/Uni/Computing Science/2nd Year/Semester 2/WAD2/Gen 8/abilities.txt", "r")
+    f = open(working_dir+"/abilities.txt", "r")
     ability = []
     for x in f:
         if not (x.strip().startswith("#") or x.strip().startswith("ï")):
@@ -219,7 +221,7 @@ def populate():
             ability.append([abilityname])
     f.close()
 
-    f = open("C:/Users/craig/Documents/Uni/Computing Science/2nd Year/Semester 2/WAD2/Gen 8/items.txt", "r")
+    f = open(working_dir+"/items.txt", "r")
     item = []
     for x in f:
         if not (x.strip().startswith("#") or x.strip().startswith("ï")):
