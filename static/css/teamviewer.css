@@ -23,7 +23,7 @@ br {
 }
 .pokemon_sprite img{
   position:absolute;
-  top:-520px;
+  top:-600px;
   left:1050px;
 }
 
@@ -33,7 +33,7 @@ br {
 }
 .gigantamax_factor img{
   position:absolute;
-  top:-290px;
+  top:-360px;
   left:1165px;
   z-index: -1;
 }
@@ -44,7 +44,7 @@ position:relative;
 }
 .type1_div img{
 position:absolute;
-top:-190px;
+top:-260px;
 left:1070px;
   z-index: -1;
 }
@@ -55,7 +55,7 @@ position:relative;
 }
 .type2_div img{
 position:absolute;
-top:-190px;
+top:-260px;
 left:1170px;
   z-index: -1;
 }
@@ -138,7 +138,7 @@ left:1170px;
 
 .move_text{
   left: 1020px;
-  top: 75px;
+  top: 45px;
 }
 .move1list {
   --radius: 0;
@@ -149,7 +149,7 @@ left:1170px;
   width:350px;
   position: relative;
   left: 1000px;
-  top: 80px;
+  top: 50px;
   padding-left: 60px;
   z-index: -1;
 }
@@ -158,7 +158,7 @@ left:1170px;
 }
 .move1_div img{
   position:absolute;
-  top:-117px;
+  top:-147px;
   left:1010px;
   z-index: -1;
   pointer-events: none;
@@ -173,7 +173,7 @@ left:1170px;
   width:350px;
   position: relative;
   left: 1000px;
-  top: 90px;
+  top: 60px;
   padding-left: 60px;
   z-index: -1;
 }
@@ -182,7 +182,7 @@ position:relative;
 }
 .move2_div img{
   position:absolute;
-  top:-54px;
+  top:-84px;
   left:1010px;
   z-index: -1;
   pointer-events: none;
@@ -197,7 +197,7 @@ position:relative;
   width:350px;
   position: relative;
   left: 1000px;
-  top: 100px;
+  top: 70px;
   padding-left: 60px;
   z-index: -1;
 }
@@ -206,7 +206,7 @@ position:relative;
 }
 .move3_div img{
   position:absolute;
-  top:6px;
+  top:-26px;
   left:1010px;
   z-index: -1;
   pointer-events: none;
@@ -221,7 +221,7 @@ position:relative;
   width:350px;
   position: relative;
   left: 1000px;
-  top: 110px;
+  top: 80px;
   padding-left: 60px;
   z-index: -1;
 }
@@ -230,7 +230,7 @@ position:relative;
 }
 .move4_div img{
   position:absolute;
-  top:63px;
+  top:33px;
   left:1010px;
   z-index: -1;
   pointer-events: none;
@@ -248,11 +248,11 @@ position:relative;
 
 .level_text {
   left: 1080px;
-  top: -280px;
+  top: -350px;
 }
 .level {
   width:80px;
-  top:-270px;
+  top:-350px;
   left:1080px;
   font-size: 20px;
   padding-left: 15px;
@@ -260,62 +260,62 @@ position:relative;
 }
 
 .hpEV {
-  top:-430px;
+  top:-450px;
   left:700px;
   z-index: -1;
 }
 .atkEV {
-  top:-420px;
+  top:-440px;
   left:700px;
   z-index: -1;
 }
 .defEV {
-  top:-410px;
+  top:-430px;
   left:700px;
   z-index: -1;
 }
 .sp_atkEV {
-  top:-400px;
+  top:-420px;
   left:700px;
   z-index: -1;
 }
 .sp_defEV {
-  top:-390px;
+  top:-410px;
   left:700px;
   z-index: -1;
 }
 .spdEV {
-  top:-380px;
+  top:-400px;
   left:700px;
   z-index: -1;
 }
 .hpIV {
-  top:-586px;
+  top:-606px;
   left:770px;
   z-index: -1;
 }
 .atkIV {
-  top:-576px;
+  top:-596px;
   left:770px;
   z-index: -1;
 }
 .defIV {
-  top:-566px;
+  top:-586px;
   left:770px;
   z-index: -1;
 }
 .sp_atkIV {
-  top:-556px;
+  top:-576px;
   left:770px;
   z-index: -1;
 }
 .sp_defIV {
-  top:-546px;
+  top:-566px;
   left:770px;
   z-index: -1;
 }
 .spdIV {
-  top:-536px;
+  top:-556px;
   left:770px;
   z-index: -1;
 }
@@ -340,63 +340,63 @@ position:relative;
   z-index: -2;
 }
 .hp {
-  top:-405px;
+  top:-425px;
   left:840px;
 }
 .atk {
-  top:-369px;
+  top:-389px;
   left:776px;
 }
 .def {
-  top:-333px;
+  top:-353px;
   left:712px;
 }
 .sp_atk {
-  top:-297px;
+  top:-317px;
   left:648px;
 }
 .sp_def {
-  top:-261px;
+  top:-281px;
   left:584px;
 }
 .spd {
-  top:-225px;
+  top:-245px;
   left:520px;
 }
 .hp_text{
-  top:-156px;
+  top:-176px;
   left:580px;
 }
 .atk_text{
-  top:-148px;
+  top:-168px;
   left:580px;
 }
 .def_text{
-  top:-140px;
+  top:-160px;
   left:580px;
 }
 .sp_atk_text{
-  top:-132px;
+  top:-152px;
   left:580px;
 }
 .sp_def_text{
-  top:-124px;
+  top:-144px;
   left:580px;
 }
 .spd_text{
-  top:-116px;
+  top:-136px;
   left:580px;
 }
 .EV_text{
-  top:-355px;
+  top:-375px;
   left:700px;
 }
 .IV_text{
-  top:-383px;
+  top:-403px;
   left:770px;
 }
 .stats_text{
-  top:-411px;
+  top:-431px;
   left:840px;
 }
 .submit_text{

@@ -233,6 +233,7 @@ def populate():
         ["Timid", "speed", "defence"], ["Hasty", "speed", "speed"], ["Jolly", "speed", "sp_atk"], ["Naive", "speed", "sp_def"],
         ["Modest", "sp_atk", "defence"], ["Mild", "sp_atk", "speed"], ["Quiet", "sp_atk", "sp_atk"], ["Rash", "sp_atk", "sp_def"],
         ["Calm", "sp_def", "defence"], ["Gentle", "sp_def", "speed"], ["Sassy", "sp_def", "sp_atk"], ["Careful", "sp_def", "sp_def"],
+        ["Hardy", None, None], ["Docile", None, None], ["Serious", None, None], ["Bashful", None, None], ["Quirky", None, None]
           ]
 
     team_data = [
