@@ -1,0 +1,901 @@
+{% include 'base.html' %}
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/teamviewer.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
+</head>
+<body>
+<div class="teamname_text"><h1>Team Name:</h1></div>
+    <form>
+        <input type="text" id="teamname" name="teamname" class="teamname" value="{{ teamview.teamname }}">
+    </form>
+<br/>
+<br/>
+{#---------------------------------------------------------Pokemon 1-----------------------------------------------------------------#}
+
+    <div class="team_member" id="team_member_1">
+
+        <div class="pokemon_text"><h1>Pokemon:</h1></div>
+        <div class="pokemon_selector">
+            <select class="pokemonlist" id="selectpokemon1">
+                <option>{{ teamview.name1 }}</option>
+            </select>
+        </div>
+
+        <div class="ability_text"><h1>Ability:</h1></div>
+        <div class="ability_selector">
+            <select class="abilitylist" id="selectability1">
+                <option>{{ teamview.ability1 }}</option>
+            </select>
+        </div>
+
+        <div class="nature_text"><h1>Nature:</h1></div>
+        <div class="nature_selector">
+            <select class="naturelist" id="selectnature1">
+                <option>{{ teamview.nature1 }}</option>
+            </select>
+        </div>
+
+        <div class="item_text"><h1>Item:</h1></div>
+        <div class="item_selector">
+            <select class="itemlist" id="selectitem1">
+                <option>{{ teamview.item1 }}</option>
+            </select>
+        </div>
+
+        <div class="move_text"><h1>Moves:</h1></div>
+        <div class="move1_selector">
+            <select class="move1list" id="selectmove1_1">
+                <option>{{ teamview.move1_1 }}</option>
+            </select>
+        </div>
+
+        <div class="move1_selector">
+            <select class="move2list" id="selectmove2_1">
+                <option>{{ teamview.move2_1 }}</option>
+            </select>
+        </div>
+
+        <div class="move1_selector">
+            <select class="move3list" id="selectmove3_1">
+                <option>{{ teamview.move3_1 }}</option>
+            </select>
+        </div>
+
+        <div class="move1_selector">
+            <select class="move4list" id="selectmove4_1">
+                <option>{{ teamview.move4_1 }}</option>
+            </select>
+        </div>
+
+        <div class="pokemon_sprite">
+            <img id="image1" src="/static/img/sprites/{{ teamview.pokedex1 }}.png" width="250px" height="250px" />
+        </div>
+        <div class="gigantamax_factor">
+            <img id="gigantamax_image1" src="/static/img/gigantamax/{{ teamview.gmax1 }}.png" width="110px" height="100px" />
+        </div>
+        <div class="type1_div">
+            <img id="type1_image1" src="/static/img/typelogo/{{ teamview.type1_1 }}.png" width="100px" height="35px" />
+        </div>
+        <div class="type2_div">
+            <img id="type2_image1" src="/static/img/typelogo/{{ teamview.type2_1 }}.png" width="100px" height="35px" />
+        </div>
+        <div class="move1_div">
+            <img id="move1_image1" src="/static/img/types/{{ teamview.movetype1_1 }}.png" width="40px" height="40px" />
+        </div>
+        <div class="move2_div">
+            <img id="move2_image1" src="/static/img/types/{{ teamview.movetype2_1 }}.png" width="40px" height="40px" />
+        </div>
+        <div class="move3_div">
+            <img id="move3_image1" src="/static/img/types/{{ teamview.movetype3_1 }}.png" width="40px" height="40px" />
+        </div>
+        <div class="move4_div">
+            <img id="move4_image1" src="/static/img/types/{{ teamview.movetype4_1 }}.png" width="40px" height="40px" />
+        </div>
+
+        <div class="level_text"><h1>Level:</h1></div>
+        <form onSubmit="return false;">
+            <input type="number" id="level1" class="level" value={{ teamview.level1 }}>
+        </form>
+
+        <div class="hp_text"><h1>Hp:</h1></div>
+        <div class="atk_text"><h1>Attack:</h1></div>
+        <div class="def_text"><h1>Defence:</h1></div>
+        <div class="sp_atk_text"><h1>Sp. Atk:</h1></div>
+        <div class="sp_def_text"><h1>Sp. Def:</h1></div>
+        <div class="spd_text"><h1>Speed:</h1></div>
+        <div class="EV_text"><h1>EVs</h1></div>
+        <div class="IV_text"><h1>IVs</h1></div>
+        <div class="stats_text"><h1>Stats</h1></div>
+
+        <div class="hp"><h1 id="hp1">{{ teamview.hp1 }}</h1></div>
+        <div class="atk"><h1 id="atk1">{{ teamview.atk1 }}</h1></div>
+        <div class="def"><h1 id="def1">{{ teamview.def1 }}</h1></div>
+        <div class="sp_atk"><h1 id="sp_atk1">{{ teamview.sp_atk1 }}</h1></div>
+        <div class="sp_def"><h1 id="sp_def1">{{ teamview.sp_def1 }}</h1></div>
+        <div class="spd"><h1 id="spd1">{{ teamview.spd1 }}</h1></div>
+
+        <form onSubmit="return false;">
+            <input type="number" id="hpEV1" name="hpEV" class="hpEV" value={{ teamview.hpEV1 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="atkEV1" name="atkEV" class="atkEV" value={{ teamview.atkEV1 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="defEV1" name="defEV" class="defEV" value={{ teamview.defEV1 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="sp_atkEV1" name="sp_atkEV" class="sp_atkEV" value={{ teamview.sp_atkEV1 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="sp_defEV1" name="sp_defEV" class="sp_defEV" value={{ teamview.sp_defEV1 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="spdEV1" name="spdEV" class="spdEV" value={{ teamview.spdEV1 }} min=0 max=252>
+        </form>
+
+        <form onSubmit="return false;">
+            <input type="number" id="hpIV1" name="hpIV" class="hpIV" value={{ teamview.hpIV1 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="atkIV1" name="atkIV" class="atkIV" value={{ teamview.atkIV1 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="defIV1" name="defIV" class="defIV" value={{ teamview.defIV1 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="sp_atkIV1" name="sp_atkIV" class="sp_atkIV" value={{ teamview.sp_atkIV1 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="sp_defIV1" name="sp_defIV" class="sp_defIV" value={{ teamview.sp_defIV1 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="spdIV1" name="spdIV" class="spdIV" value={{ teamview.spdIV1 }} min=0 max=31>
+        </form>
+    </div>
+
+    {#---------------------------------------------------------Pokemon 2-----------------------------------------------------------------#}
+
+    <div class="team_member" id="team_member_2" style="display:none">
+
+        <div class="pokemon_text"><h1>Pokemon:</h1></div>
+        <div class="pokemon_selector">
+            <select class="pokemonlist" id="selectpokemon1">
+                <option>{{ teamview.name2 }}</option>
+            </select>
+        </div>
+
+        <div class="ability_text"><h1>Ability:</h1></div>
+        <div class="ability_selector">
+            <select class="abilitylist" id="selectability1">
+                <option>{{ teamview.ability2 }}</option>
+            </select>
+        </div>
+
+        <div class="nature_text"><h1>Nature:</h1></div>
+        <div class="nature_selector">
+            <select class="naturelist" id="selectnature1">
+                <option>{{ teamview.nature2 }}</option>
+            </select>
+        </div>
+
+        <div class="item_text"><h1>Item:</h1></div>
+        <div class="item_selector">
+            <select class="itemlist" id="selectitem1">
+                <option>{{ teamview.item2 }}</option>
+            </select>
+        </div>
+
+        <div class="move_text"><h1>Moves:</h1></div>
+        <div class="move1_selector">
+            <select class="move1list" id="selectmove1_1">
+                <option>{{ teamview.move1_2 }}</option>
+            </select>
+        </div>
+
+        <div class="move1_selector">
+            <select class="move2list" id="selectmove2_1">
+                <option>{{ teamview.move2_2 }}</option>
+            </select>
+        </div>
+
+        <div class="move1_selector">
+            <select class="move3list" id="selectmove3_1">
+                <option>{{ teamview.move3_2 }}</option>
+            </select>
+        </div>
+
+        <div class="move1_selector">
+            <select class="move4list" id="selectmove4_1">
+                <option>{{ teamview.move4_2 }}</option>
+            </select>
+        </div>
+
+        <div class="pokemon_sprite">
+            <img id="image1" src="/static/img/sprites/{{ teamview.pokedex2 }}.png" width="250px" height="250px" />
+        </div>
+        <div class="gigantamax_factor">
+            <img id="gigantamax_image1" src="/static/img/gigantamax/{{ teamview.gmax2 }}.png" width="110px" height="100px" />
+        </div>
+        <div class="type1_div">
+            <img id="type1_image1" src="/static/img/typelogo/{{ teamview.type1_2 }}.png" width="100px" height="35px" />
+        </div>
+        <div class="type2_div">
+            <img id="type2_image1" src="/static/img/typelogo/{{ teamview.type2_2 }}.png" width="100px" height="35px" />
+        </div>
+        <div class="move1_div">
+            <img id="move1_image1" src="/static/img/types/{{ teamview.movetype1_2 }}.png" width="40px" height="40px" />
+        </div>
+        <div class="move2_div">
+            <img id="move2_image1" src="/static/img/types/{{ teamview.movetype2_2 }}.png" width="40px" height="40px" />
+        </div>
+        <div class="move3_div">
+            <img id="move3_image1" src="/static/img/types/{{ teamview.movetype3_2 }}.png" width="40px" height="40px" />
+        </div>
+        <div class="move4_div">
+            <img id="move4_image1" src="/static/img/types/{{ teamview.movetype4_2 }}.png" width="40px" height="40px" />
+        </div>
+
+        <div class="level_text"><h1>Level:</h1></div>
+        <form onSubmit="return false;">
+            <input type="number" id="level1" class="level" value={{ teamview.level2 }}>
+        </form>
+
+        <div class="hp_text"><h1>Hp:</h1></div>
+        <div class="atk_text"><h1>Attack:</h1></div>
+        <div class="def_text"><h1>Defence:</h1></div>
+        <div class="sp_atk_text"><h1>Sp. Atk:</h1></div>
+        <div class="sp_def_text"><h1>Sp. Def:</h1></div>
+        <div class="spd_text"><h1>Speed:</h1></div>
+        <div class="EV_text"><h1>EVs</h1></div>
+        <div class="IV_text"><h1>IVs</h1></div>
+        <div class="stats_text"><h1>Stats</h1></div>
+
+        <div class="hp"><h1 id="hp1">{{ teamview.hp2 }}</h1></div>
+        <div class="atk"><h1 id="atk1">{{ teamview.atk2 }}</h1></div>
+        <div class="def"><h1 id="def1">{{ teamview.def2 }}</h1></div>
+        <div class="sp_atk"><h1 id="sp_atk1">{{ teamview.sp_atk2 }}</h1></div>
+        <div class="sp_def"><h1 id="sp_def1">{{ teamview.sp_def2 }}</h1></div>
+        <div class="spd"><h1 id="spd1">{{ teamview.spd2 }}</h1></div>
+
+        <form onSubmit="return false;">
+            <input type="number" id="hpEV1" name="hpEV" class="hpEV" value={{ teamview.hpEV2 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="atkEV1" name="atkEV" class="atkEV" value={{ teamview.atkEV2 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="defEV1" name="defEV" class="defEV" value={{ teamview.defEV2 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="sp_atkEV1" name="sp_atkEV" class="sp_atkEV" value={{ teamview.sp_atkEV2 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="sp_defEV1" name="sp_defEV" class="sp_defEV" value={{ teamview.sp_defEV2 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="spdEV1" name="spdEV" class="spdEV" value={{ teamview.spdEV2 }} min=0 max=252>
+        </form>
+
+        <form onSubmit="return false;">
+            <input type="number" id="hpIV1" name="hpIV" class="hpIV" value={{ teamview.hpIV2 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="atkIV1" name="atkIV" class="atkIV" value={{ teamview.atkIV2 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="defIV1" name="defIV" class="defIV" value={{ teamview.defIV2 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="sp_atkIV1" name="sp_atkIV" class="sp_atkIV" value={{ teamview.sp_atkIV2 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="sp_defIV1" name="sp_defIV" class="sp_defIV" value={{ teamview.sp_defIV2 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="spdIV1" name="spdIV" class="spdIV" value={{ teamview.spdIV2 }} min=0 max=31>
+        </form>
+    </div>
+
+    {#---------------------------------------------------------Pokemon 3-----------------------------------------------------------------#}
+
+    <div class="team_member" id="team_member_3" style="display:none">
+
+        <div class="pokemon_text"><h1>Pokemon:</h1></div>
+        <div class="pokemon_selector">
+            <select class="pokemonlist" id="selectpokemon1">
+                <option>{{ teamview.name3 }}</option>
+            </select>
+        </div>
+
+        <div class="ability_text"><h1>Ability:</h1></div>
+        <div class="ability_selector">
+            <select class="abilitylist" id="selectability1">
+                <option>{{ teamview.ability3 }}</option>
+            </select>
+        </div>
+
+        <div class="nature_text"><h1>Nature:</h1></div>
+        <div class="nature_selector">
+            <select class="naturelist" id="selectnature1">
+                <option>{{ teamview.nature3 }}</option>
+            </select>
+        </div>
+
+        <div class="item_text"><h1>Item:</h1></div>
+        <div class="item_selector">
+            <select class="itemlist" id="selectitem1">
+                <option>{{ teamview.item3 }}</option>
+            </select>
+        </div>
+
+        <div class="move_text"><h1>Moves:</h1></div>
+        <div class="move1_selector">
+            <select class="move1list" id="selectmove1_1">
+                <option>{{ teamview.move1_3 }}</option>
+            </select>
+        </div>
+
+        <div class="move1_selector">
+            <select class="move2list" id="selectmove2_1">
+                <option>{{ teamview.move2_3 }}</option>
+            </select>
+        </div>
+
+        <div class="move1_selector">
+            <select class="move3list" id="selectmove3_1">
+                <option>{{ teamview.move3_3 }}</option>
+            </select>
+        </div>
+
+        <div class="move1_selector">
+            <select class="move4list" id="selectmove4_1">
+                <option>{{ teamview.move4_3 }}</option>
+            </select>
+        </div>
+
+        <div class="pokemon_sprite">
+            <img id="image1" src="/static/img/sprites/{{ teamview.pokedex3 }}.png" width="250px" height="250px" />
+        </div>
+        <div class="gigantamax_factor">
+            <img id="gigantamax_image1" src="/static/img/gigantamax/{{ teamview.gmax3 }}.png" width="110px" height="100px" />
+        </div>
+        <div class="type1_div">
+            <img id="type1_image1" src="/static/img/typelogo/{{ teamview.type1_3 }}.png" width="100px" height="35px" />
+        </div>
+        <div class="type2_div">
+            <img id="type2_image1" src="/static/img/typelogo/{{ teamview.type2_3 }}.png" width="100px" height="35px" />
+        </div>
+        <div class="move1_div">
+            <img id="move1_image1" src="/static/img/types/{{ teamview.movetype1_3 }}.png" width="40px" height="40px" />
+        </div>
+        <div class="move2_div">
+            <img id="move2_image1" src="/static/img/types/{{ teamview.movetype2_3 }}.png" width="40px" height="40px" />
+        </div>
+        <div class="move3_div">
+            <img id="move3_image1" src="/static/img/types/{{ teamview.movetype3_3 }}.png" width="40px" height="40px" />
+        </div>
+        <div class="move4_div">
+            <img id="move4_image1" src="/static/img/types/{{ teamview.movetype4_3 }}.png" width="40px" height="40px" />
+        </div>
+
+        <div class="level_text"><h1>Level:</h1></div>
+        <form onSubmit="return false;">
+            <input type="number" id="level1" class="level" value={{ teamview.level3 }}>
+        </form>
+
+        <div class="hp_text"><h1>Hp:</h1></div>
+        <div class="atk_text"><h1>Attack:</h1></div>
+        <div class="def_text"><h1>Defence:</h1></div>
+        <div class="sp_atk_text"><h1>Sp. Atk:</h1></div>
+        <div class="sp_def_text"><h1>Sp. Def:</h1></div>
+        <div class="spd_text"><h1>Speed:</h1></div>
+        <div class="EV_text"><h1>EVs</h1></div>
+        <div class="IV_text"><h1>IVs</h1></div>
+        <div class="stats_text"><h1>Stats</h1></div>
+
+        <div class="hp"><h1 id="hp1">{{ teamview.hp3 }}</h1></div>
+        <div class="atk"><h1 id="atk1">{{ teamview.atk3 }}</h1></div>
+        <div class="def"><h1 id="def1">{{ teamview.def3 }}</h1></div>
+        <div class="sp_atk"><h1 id="sp_atk1">{{ teamview.sp_atk3 }}</h1></div>
+        <div class="sp_def"><h1 id="sp_def1">{{ teamview.sp_def3 }}</h1></div>
+        <div class="spd"><h1 id="spd1">{{ teamview.spd3 }}</h1></div>
+
+        <form onSubmit="return false;">
+            <input type="number" id="hpEV1" name="hpEV" class="hpEV" value={{ teamview.hpEV3 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="atkEV1" name="atkEV" class="atkEV" value={{ teamview.atkEV3 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="defEV1" name="defEV" class="defEV" value={{ teamview.defEV3 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="sp_atkEV1" name="sp_atkEV" class="sp_atkEV" value={{ teamview.sp_atkEV3 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="sp_defEV1" name="sp_defEV" class="sp_defEV" value={{ teamview.sp_defEV3 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="spdEV1" name="spdEV" class="spdEV" value={{ teamview.spdEV3 }} min=0 max=252>
+        </form>
+
+        <form onSubmit="return false;">
+            <input type="number" id="hpIV1" name="hpIV" class="hpIV" value={{ teamview.hpIV3 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="atkIV1" name="atkIV" class="atkIV" value={{ teamview.atkIV3 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="defIV1" name="defIV" class="defIV" value={{ teamview.defIV3 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="sp_atkIV1" name="sp_atkIV" class="sp_atkIV" value={{ teamview.sp_atkIV3 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="sp_defIV1" name="sp_defIV" class="sp_defIV" value={{ teamview.sp_defIV3 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="spdIV1" name="spdIV" class="spdIV" value={{ teamview.spdIV3 }} min=0 max=31>
+        </form>
+    </div>
+
+    {#---------------------------------------------------------Pokemon 4-----------------------------------------------------------------#}
+
+    <div class="team_member" id="team_member_4" style="display:none">
+
+        <div class="pokemon_text"><h1>Pokemon:</h1></div>
+        <div class="pokemon_selector">
+            <select class="pokemonlist" id="selectpokemon1">
+                <option>{{ teamview.name4 }}</option>
+            </select>
+        </div>
+
+        <div class="ability_text"><h1>Ability:</h1></div>
+        <div class="ability_selector">
+            <select class="abilitylist" id="selectability1">
+                <option>{{ teamview.ability4 }}</option>
+            </select>
+        </div>
+
+        <div class="nature_text"><h1>Nature:</h1></div>
+        <div class="nature_selector">
+            <select class="naturelist" id="selectnature1">
+                <option>{{ teamview.nature4 }}</option>
+            </select>
+        </div>
+
+        <div class="item_text"><h1>Item:</h1></div>
+        <div class="item_selector">
+            <select class="itemlist" id="selectitem1">
+                <option>{{ teamview.item4 }}</option>
+            </select>
+        </div>
+
+        <div class="move_text"><h1>Moves:</h1></div>
+        <div class="move1_selector">
+            <select class="move1list" id="selectmove1_1">
+                <option>{{ teamview.move1_4 }}</option>
+            </select>
+        </div>
+
+        <div class="move1_selector">
+            <select class="move2list" id="selectmove2_1">
+                <option>{{ teamview.move2_4 }}</option>
+            </select>
+        </div>
+
+        <div class="move1_selector">
+            <select class="move3list" id="selectmove3_1">
+                <option>{{ teamview.move3_4 }}</option>
+            </select>
+        </div>
+
+        <div class="move1_selector">
+            <select class="move4list" id="selectmove4_1">
+                <option>{{ teamview.move4_4 }}</option>
+            </select>
+        </div>
+
+        <div class="pokemon_sprite">
+            <img id="image1" src="/static/img/sprites/{{ teamview.pokedex4 }}.png" width="250px" height="250px" />
+        </div>
+        <div class="gigantamax_factor">
+            <img id="gigantamax_image1" src="/static/img/gigantamax/{{ teamview.gmax4 }}.png" width="110px" height="100px" />
+        </div>
+        <div class="type1_div">
+            <img id="type1_image1" src="/static/img/typelogo/{{ teamview.type1_4 }}.png" width="100px" height="35px" />
+        </div>
+        <div class="type2_div">
+            <img id="type2_image1" src="/static/img/typelogo/{{ teamview.type2_4 }}.png" width="100px" height="35px" />
+        </div>
+        <div class="move1_div">
+            <img id="move1_image1" src="/static/img/types/{{ teamview.movetype1_4 }}.png" width="40px" height="40px" />
+        </div>
+        <div class="move2_div">
+            <img id="move2_image1" src="/static/img/types/{{ teamview.movetype2_4 }}.png" width="40px" height="40px" />
+        </div>
+        <div class="move3_div">
+            <img id="move3_image1" src="/static/img/types/{{ teamview.movetype3_4 }}.png" width="40px" height="40px" />
+        </div>
+        <div class="move4_div">
+            <img id="move4_image1" src="/static/img/types/{{ teamview.movetype4_4 }}.png" width="40px" height="40px" />
+        </div>
+
+        <div class="level_text"><h1>Level:</h1></div>
+        <form onSubmit="return false;">
+            <input type="number" id="level1" class="level" value={{ teamview.level4 }}>
+        </form>
+
+        <div class="hp_text"><h1>Hp:</h1></div>
+        <div class="atk_text"><h1>Attack:</h1></div>
+        <div class="def_text"><h1>Defence:</h1></div>
+        <div class="sp_atk_text"><h1>Sp. Atk:</h1></div>
+        <div class="sp_def_text"><h1>Sp. Def:</h1></div>
+        <div class="spd_text"><h1>Speed:</h1></div>
+        <div class="EV_text"><h1>EVs</h1></div>
+        <div class="IV_text"><h1>IVs</h1></div>
+        <div class="stats_text"><h1>Stats</h1></div>
+
+        <div class="hp"><h1 id="hp1">{{ teamview.hp4 }}</h1></div>
+        <div class="atk"><h1 id="atk1">{{ teamview.atk4 }}</h1></div>
+        <div class="def"><h1 id="def1">{{ teamview.def4 }}</h1></div>
+        <div class="sp_atk"><h1 id="sp_atk1">{{ teamview.sp_atk4 }}</h1></div>
+        <div class="sp_def"><h1 id="sp_def1">{{ teamview.sp_def4 }}</h1></div>
+        <div class="spd"><h1 id="spd1">{{ teamview.spd4 }}</h1></div>
+
+        <form onSubmit="return false;">
+            <input type="number" id="hpEV1" name="hpEV" class="hpEV" value={{ teamview.hpEV4 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="atkEV1" name="atkEV" class="atkEV" value={{ teamview.atkEV4 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="defEV1" name="defEV" class="defEV" value={{ teamview.defEV4 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="sp_atkEV1" name="sp_atkEV" class="sp_atkEV" value={{ teamview.sp_atkEV4 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="sp_defEV1" name="sp_defEV" class="sp_defEV" value={{ teamview.sp_defEV4 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="spdEV1" name="spdEV" class="spdEV" value={{ teamview.spdEV4 }} min=0 max=252>
+        </form>
+
+        <form onSubmit="return false;">
+            <input type="number" id="hpIV1" name="hpIV" class="hpIV" value={{ teamview.hpIV4 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="atkIV1" name="atkIV" class="atkIV" value={{ teamview.atkIV4 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="defIV1" name="defIV" class="defIV" value={{ teamview.defIV4 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="sp_atkIV1" name="sp_atkIV" class="sp_atkIV" value={{ teamview.sp_atkIV4 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="sp_defIV1" name="sp_defIV" class="sp_defIV" value={{ teamview.sp_defIV4 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="spdIV1" name="spdIV" class="spdIV" value={{ teamview.spdIV4 }} min=0 max=31>
+        </form>
+    </div>
+
+    {#---------------------------------------------------------Pokemon 5-----------------------------------------------------------------#}
+
+    <div class="team_member" id="team_member_5" style="display:none">
+
+        <div class="pokemon_text"><h1>Pokemon:</h1></div>
+        <div class="pokemon_selector">
+            <select class="pokemonlist" id="selectpokemon1">
+                <option>{{ teamview.name5 }}</option>
+            </select>
+        </div>
+
+        <div class="ability_text"><h1>Ability:</h1></div>
+        <div class="ability_selector">
+            <select class="abilitylist" id="selectability1">
+                <option>{{ teamview.ability5 }}</option>
+            </select>
+        </div>
+
+        <div class="nature_text"><h1>Nature:</h1></div>
+        <div class="nature_selector">
+            <select class="naturelist" id="selectnature1">
+                <option>{{ teamview.nature5 }}</option>
+            </select>
+        </div>
+
+        <div class="item_text"><h1>Item:</h1></div>
+        <div class="item_selector">
+            <select class="itemlist" id="selectitem1">
+                <option>{{ teamview.item5 }}</option>
+            </select>
+        </div>
+
+        <div class="move_text"><h1>Moves:</h1></div>
+        <div class="move1_selector">
+            <select class="move1list" id="selectmove1_1">
+                <option>{{ teamview.move1_5 }}</option>
+            </select>
+        </div>
+
+        <div class="move1_selector">
+            <select class="move2list" id="selectmove2_1">
+                <option>{{ teamview.move2_5 }}</option>
+            </select>
+        </div>
+
+        <div class="move1_selector">
+            <select class="move3list" id="selectmove3_1">
+                <option>{{ teamview.move3_5 }}</option>
+            </select>
+        </div>
+
+        <div class="move1_selector">
+            <select class="move4list" id="selectmove4_1">
+                <option>{{ teamview.move4_5 }}</option>
+            </select>
+        </div>
+
+        <div class="pokemon_sprite">
+            <img id="image1" src="/static/img/sprites/{{ teamview.pokedex5 }}.png" width="250px" height="250px" />
+        </div>
+        <div class="gigantamax_factor">
+            <img id="gigantamax_image1" src="/static/img/gigantamax/{{ teamview.gmax5 }}.png" width="110px" height="100px" />
+        </div>
+        <div class="type1_div">
+            <img id="type1_image1" src="/static/img/typelogo/{{ teamview.type1_5 }}.png" width="100px" height="35px" />
+        </div>
+        <div class="type2_div">
+            <img id="type2_image1" src="/static/img/typelogo/{{ teamview.type2_5 }}.png" width="100px" height="35px" />
+        </div>
+        <div class="move1_div">
+            <img id="move1_image1" src="/static/img/types/{{ teamview.movetype1_5 }}.png" width="40px" height="40px" />
+        </div>
+        <div class="move2_div">
+            <img id="move2_image1" src="/static/img/types/{{ teamview.movetype2_5 }}.png" width="40px" height="40px" />
+        </div>
+        <div class="move3_div">
+            <img id="move3_image1" src="/static/img/types/{{ teamview.movetype3_5 }}.png" width="40px" height="40px" />
+        </div>
+        <div class="move4_div">
+            <img id="move4_image1" src="/static/img/types/{{ teamview.movetype4_5 }}.png" width="40px" height="40px" />
+        </div>
+
+        <div class="level_text"><h1>Level:</h1></div>
+        <form onSubmit="return false;">
+            <input type="number" id="level1" class="level" value={{ teamview.level5 }}>
+        </form>
+
+        <div class="hp_text"><h1>Hp:</h1></div>
+        <div class="atk_text"><h1>Attack:</h1></div>
+        <div class="def_text"><h1>Defence:</h1></div>
+        <div class="sp_atk_text"><h1>Sp. Atk:</h1></div>
+        <div class="sp_def_text"><h1>Sp. Def:</h1></div>
+        <div class="spd_text"><h1>Speed:</h1></div>
+        <div class="EV_text"><h1>EVs</h1></div>
+        <div class="IV_text"><h1>IVs</h1></div>
+        <div class="stats_text"><h1>Stats</h1></div>
+
+        <div class="hp"><h1 id="hp1">{{ teamview.hp5 }}</h1></div>
+        <div class="atk"><h1 id="atk1">{{ teamview.atk5 }}</h1></div>
+        <div class="def"><h1 id="def1">{{ teamview.def5 }}</h1></div>
+        <div class="sp_atk"><h1 id="sp_atk1">{{ teamview.sp_atk5 }}</h1></div>
+        <div class="sp_def"><h1 id="sp_def1">{{ teamview.sp_def5 }}</h1></div>
+        <div class="spd"><h1 id="spd1">{{ teamview.spd5 }}</h1></div>
+
+        <form onSubmit="return false;">
+            <input type="number" id="hpEV1" name="hpEV" class="hpEV" value={{ teamview.hpEV5 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="atkEV1" name="atkEV" class="atkEV" value={{ teamview.atkEV5 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="defEV1" name="defEV" class="defEV" value={{ teamview.defEV5 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="sp_atkEV1" name="sp_atkEV" class="sp_atkEV" value={{ teamview.sp_atkEV5 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="sp_defEV1" name="sp_defEV" class="sp_defEV" value={{ teamview.sp_defEV5 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="spdEV1" name="spdEV" class="spdEV" value={{ teamview.spdEV5 }} min=0 max=252>
+        </form>
+
+        <form onSubmit="return false;">
+            <input type="number" id="hpIV1" name="hpIV" class="hpIV" value={{ teamview.hpIV5 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="atkIV1" name="atkIV" class="atkIV" value={{ teamview.atkIV5 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="defIV1" name="defIV" class="defIV" value={{ teamview.defIV5 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="sp_atkIV1" name="sp_atkIV" class="sp_atkIV" value={{ teamview.sp_atkIV5 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="sp_defIV1" name="sp_defIV" class="sp_defIV" value={{ teamview.sp_defIV5 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="spdIV1" name="spdIV" class="spdIV" value={{ teamview.spdIV5 }} min=0 max=31>
+        </form>
+    </div>
+
+    {#---------------------------------------------------------Pokemon 6-----------------------------------------------------------------#}
+
+    <div class="team_member" id="team_member_6" style="display:none">
+
+        <div class="pokemon_text"><h1>Pokemon:</h1></div>
+        <div class="pokemon_selector">
+            <select class="pokemonlist" id="selectpokemon1">
+                <option>{{ teamview.name6 }}</option>
+            </select>
+        </div>
+
+        <div class="ability_text"><h1>Ability:</h1></div>
+        <div class="ability_selector">
+            <select class="abilitylist" id="selectability1">
+                <option>{{ teamview.ability6 }}</option>
+            </select>
+        </div>
+
+        <div class="nature_text"><h1>Nature:</h1></div>
+        <div class="nature_selector">
+            <select class="naturelist" id="selectnature1">
+                <option>{{ teamview.nature6 }}</option>
+            </select>
+        </div>
+
+        <div class="item_text"><h1>Item:</h1></div>
+        <div class="item_selector">
+            <select class="itemlist" id="selectitem1">
+                <option>{{ teamview.item6 }}</option>
+            </select>
+        </div>
+
+        <div class="move_text"><h1>Moves:</h1></div>
+        <div class="move1_selector">
+            <select class="move1list" id="selectmove1_1">
+                <option>{{ teamview.move1_6 }}</option>
+            </select>
+        </div>
+
+        <div class="move1_selector">
+            <select class="move2list" id="selectmove2_1">
+                <option>{{ teamview.move2_6 }}</option>
+            </select>
+        </div>
+
+        <div class="move1_selector">
+            <select class="move3list" id="selectmove3_1">
+                <option>{{ teamview.move3_6 }}</option>
+            </select>
+        </div>
+
+        <div class="move1_selector">
+            <select class="move4list" id="selectmove4_1">
+                <option>{{ teamview.move4_6 }}</option>
+            </select>
+        </div>
+
+        <div class="pokemon_sprite">
+            <img id="image1" src="/static/img/sprites/{{ teamview.pokedex6 }}.png" width="250px" height="250px" />
+        </div>
+        <div class="gigantamax_factor">
+            <img id="gigantamax_image1" src="/static/img/gigantamax/{{ teamview.gmax6 }}.png" width="110px" height="100px" />
+        </div>
+        <div class="type1_div">
+            <img id="type1_image1" src="/static/img/typelogo/{{ teamview.type1_6 }}.png" width="100px" height="35px" />
+        </div>
+        <div class="type2_div">
+            <img id="type2_image1" src="/static/img/typelogo/{{ teamview.type2_6 }}.png" width="100px" height="35px" />
+        </div>
+        <div class="move1_div">
+            <img id="move1_image1" src="/static/img/types/{{ teamview.movetype1_6 }}.png" width="40px" height="40px" />
+        </div>
+        <div class="move2_div">
+            <img id="move2_image1" src="/static/img/types/{{ teamview.movetype2_6 }}.png" width="40px" height="40px" />
+        </div>
+        <div class="move3_div">
+            <img id="move3_image1" src="/static/img/types/{{ teamview.movetype3_6 }}.png" width="40px" height="40px" />
+        </div>
+        <div class="move4_div">
+            <img id="move4_image1" src="/static/img/types/{{ teamview.movetype4_6 }}.png" width="40px" height="40px" />
+        </div>
+
+        <div class="level_text"><h1>Level:</h1></div>
+        <form onSubmit="return false;">
+            <input type="number" id="level1" class="level" value={{ teamview.level6 }}>
+        </form>
+
+        <div class="hp_text"><h1>Hp:</h1></div>
+        <div class="atk_text"><h1>Attack:</h1></div>
+        <div class="def_text"><h1>Defence:</h1></div>
+        <div class="sp_atk_text"><h1>Sp. Atk:</h1></div>
+        <div class="sp_def_text"><h1>Sp. Def:</h1></div>
+        <div class="spd_text"><h1>Speed:</h1></div>
+        <div class="EV_text"><h1>EVs</h1></div>
+        <div class="IV_text"><h1>IVs</h1></div>
+        <div class="stats_text"><h1>Stats</h1></div>
+
+        <div class="hp"><h1 id="hp1">{{ teamview.hp6 }}</h1></div>
+        <div class="atk"><h1 id="atk1">{{ teamview.atk6 }}</h1></div>
+        <div class="def"><h1 id="def1">{{ teamview.def6 }}</h1></div>
+        <div class="sp_atk"><h1 id="sp_atk1">{{ teamview.sp_atk6 }}</h1></div>
+        <div class="sp_def"><h1 id="sp_def1">{{ teamview.sp_def6 }}</h1></div>
+        <div class="spd"><h1 id="spd1">{{ teamview.spd6 }}</h1></div>
+
+        <form onSubmit="return false;">
+            <input type="number" id="hpEV1" name="hpEV" class="hpEV" value={{ teamview.hpEV6 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="atkEV1" name="atkEV" class="atkEV" value={{ teamview.atkEV6 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="defEV1" name="defEV" class="defEV" value={{ teamview.defEV6 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="sp_atkEV1" name="sp_atkEV" class="sp_atkEV" value={{ teamview.sp_atkEV6 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="sp_defEV1" name="sp_defEV" class="sp_defEV" value={{ teamview.sp_defEV6 }} min=0 max=252>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="spdEV1" name="spdEV" class="spdEV" value={{ teamview.spdEV6 }} min=0 max=252>
+        </form>
+
+        <form onSubmit="return false;">
+            <input type="number" id="hpIV1" name="hpIV" class="hpIV" value={{ teamview.hpIV6 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="atkIV1" name="atkIV" class="atkIV" value={{ teamview.atkIV6 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="defIV1" name="defIV" class="defIV" value={{ teamview.defIV6 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="sp_atkIV1" name="sp_atkIV" class="sp_atkIV" value={{ teamview.sp_atkIV6 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="sp_defIV1" name="sp_defIV" class="sp_defIV" value={{ teamview.sp_defIV6 }} min=0 max=31>
+        </form>
+        <form onSubmit="return false;">
+            <input type="number" id="spdIV1" name="spdIV" class="spdIV" value={{ teamview.spdIV6 }} min=0 max=31>
+        </form>
+    </div>
+
+{#    <div>#}
+{#        <strong id="like_count">{{ teamview.likes }}</strong> likes#}
+{#        {% if user.is_authenticated %}#}
+{#	<button id="like_btn"#}
+{#                data-teamid="{{ category.id }}"#}
+{#                class="btn btn-primary btn-sm"#}
+{#                type="button">#}
+{#        <span data-feather="thumbs-up"></span>#}
+{#	Like Team#}
+{#	</button>#}
+{#	{% endif %}#}
+{#    </div>#}
+
+    <input class="button1" id="team_image1" type="button" onclick="team_pokemon1()"
+           style="background-image: url('/static/img/sprites/{{ teamview.pokedex1 }}.png')"></input>
+    <input class="button2" id="team_image2" type="button" onclick="team_pokemon2()"
+           style="background-image: url('/static/img/sprites/{{ teamview.pokedex2 }}.png')"></input>
+    <input class="button3" id="team_image3" type="button" onclick="team_pokemon3()"
+           style="background-image: url('/static/img/sprites/{{ teamview.pokedex3 }}.png')"></input>
+    <input class="button4" id="team_image4" type="button" onclick="team_pokemon4()"
+           style="background-image: url('/static/img/sprites/{{ teamview.pokedex4 }}.png')"></input>
+    <input class="button5" id="team_image5" type="button" onclick="team_pokemon5()"
+           style="background-image: url('/static/img/sprites/{{ teamview.pokedex5 }}.png')"></input>
+    <input class="button6" id="team_image6" type="button" onclick="team_pokemon6()"
+           style="background-image: url('/static/img/sprites/{{ teamview.pokedex6 }}.png')"></input>
+<script src="{% static 'js/teamviewer.js' %}"></script>
+<script src="{% static 'js/builder-ajax.js' %}"></script>
+</body>
+</html>

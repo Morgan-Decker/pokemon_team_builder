@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5d109643-5a31-4c58-a4b1-a6e8e170d9b0" name="Default Changelist" comment="first commit">
+      <change afterPath="$PROJECT_DIR$/builder/migrations/0005_auto_20210405_1839.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/builder/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/builder/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/builder/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/builder/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/add_team.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_team.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
+    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1qRMEBK4B0K13svNJrH7aba6usa" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="full.screen.before.presentation.mode" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tango_with_django_project" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
+  </component>
+  <component name="RunManager">
+    <configuration name="pokemon_team_builder" type="Python.DjangoServer" factoryName="Django server">
+      <module name="pokemon_team_builder" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="DJANGO_SETTINGS_MODULE" value="pokemon_team_builder.settings" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task id="LOCAL-00001" summary="test 3">
+      <created>1616545964643</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1616545964643</updated>
+    </task>
+    <task id="LOCAL-00002" summary="first commit">
+      <created>1616549684573</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1616549684573</updated>
+    </task>
+    <task id="LOCAL-00003" summary="second commit">
+      <created>1616590656413</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1616590656413</updated>
+    </task>
+    <task id="LOCAL-00004" summary="second commit">
+      <created>1616590975045</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1616590975045</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5d109643-5a31-4c58-a4b1-a6e8e170d9b0" name="Default Changelist" comment="first commit" />
+      <created>1617037836514</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1617037836514</updated>
+      <workItem from="1617037838488" duration="887000" />
+      <workItem from="1617038747628" duration="36340000" />
+      <workItem from="1617332870958" duration="547000" />
+      <workItem from="1617402770200" duration="201000" />
+      <workItem from="1617500265569" duration="81046000" />
+    </task>
+    <task id="LOCAL-00005" summary="third commit">
+      <created>1617288135191</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1617288135191</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fifth commit">
+      <created>1617469107932</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1617469107932</updated>
+    </task>
+    <task id="LOCAL-00007" summary="sixth commit">
+      <created>1617474966951</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1617474966951</updated>
+    </task>
+    <task id="LOCAL-00008" summary="seventh commit">
+      <created>1617476793755</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1617476793755</updated>
+    </task>
+    <task id="LOCAL-00009" summary="eighth commit">
+      <created>1617500592776</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1617500592776</updated>
+    </task>
+    <task id="LOCAL-00010" summary="ninth commit">
+      <created>1617535570819</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1617535570819</updated>
+    </task>
+    <task id="LOCAL-00011" summary="tenth commit">
+      <created>1617555856872</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1617555856872</updated>
+    </task>
+    <task id="LOCAL-00012" summary="tenth commit">
+      <created>1617556225863</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1617556225863</updated>
+    </task>
+    <task id="LOCAL-00013" summary="tenth commit">
+      <created>1617571565174</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1617571565174</updated>
+    </task>
+    <task id="LOCAL-00014" summary="eleventh commit">
+      <created>1617571573666</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1617571573666</updated>
+    </task>
+    <task id="LOCAL-00015" summary="eleventh commit">
+      <created>1617577811767</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1617577811767</updated>
+    </task>
+    <task id="LOCAL-00016" summary="twelth commit">
+      <created>1617578002249</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1617578002249</updated>
+    </task>
+    <task id="LOCAL-00017" summary="thirteenth commit">
+      <created>1617583304632</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1617583304632</updated>
+    </task>
+    <task id="LOCAL-00018" summary="thirteenth commit">
+      <created>1617584474228</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1617584474228</updated>
+    </task>
+    <task id="LOCAL-00019" summary="thirteenth commit">
+      <created>1617585943305</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1617585943305</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Woo we can save teams">
+      <created>1617640057829</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1617640057829</updated>
+    </task>
+    <task id="LOCAL-00021" summary="fourteenth commit">
+      <created>1617643845643</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1617643845643</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="test 2" />
+    <MESSAGE value="test 3" />
+    <MESSAGE value="first commit" />
+    <MESSAGE value="second commit" />
+    <MESSAGE value="third commit" />
+    <MESSAGE value="fifth commit" />
+    <MESSAGE value="sixth commit" />
+    <MESSAGE value="seventh commit" />
+    <MESSAGE value="eighth commit" />
+    <MESSAGE value="ninth commit" />
+    <MESSAGE value="tenth commit" />
+    <MESSAGE value="eleventh commit" />
+    <MESSAGE value="twelth commit" />
+    <MESSAGE value="thirteenth commit" />
+    <MESSAGE value="Woo we can save teams" />
+    <MESSAGE value="fourteenth commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="fourteenth commit" />
+  </component>
+</project>

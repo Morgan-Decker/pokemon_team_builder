@@ -1,0 +1,1037 @@
+<!Doctype html>
+{% load static %}
+<html lang="">
+<head>
+    <link rel="stylesheet" href="{% static 'css/teambuilder.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
+    <title>builder</title>
+</head>
+{% include "base.html" %}
+<hr/>
+<body>
+
+<form method="POST">
+    {% csrf_token %}
+
+<div class="teamname_text" style="color:white;"><h1>Team Name:</h1></div>
+<input type="text" id="teamname" name="teamname" class="teamname" minlength="1" maxlength="26" required></input>
+<input id="user_id" type="hidden" name="user_id" value='{{ user.get_username }}' required></input>
+
+{#---------------------------------------------------------Pokemon 1-----------------------------------------------------------------#}
+<div class="team_member" id="team_member_1">
+
+    <div class="pokemon_text"><h1>Pokemon:</h1></div>
+    <div class="pokemon_selector">
+        <select class="pokemonlist" id="selectpokemon1">
+            <option value="0|1|None|None|0|0|0|0|0|0|None">Select Pokemon</option>
+            {% for results in showpokemon %}
+            <option value="{{ results.pokedex }}|{{ results.gigantamax_factor }}|
+{{ results.type1 }}|{{ results.type2 }}|{{ results.hp }}|{{ results.attack }}|
+{{ results.defence }}|{{ results.sp_atk }}|{{ results.sp_def }}|{{ results.speed }}|{{ results.name }}
+">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="ability_text"><h1>Ability:</h1></div>
+    <div class="ability_selector">
+        <select class="abilitylist" id="selectability1" name="ability1">
+            <option value="null">Select Ability</option>
+            {% for results in showability %}
+            <option>{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="nature_text"><h1>Nature:</h1></div>
+    <div class="nature_selector">
+        <select class="naturelist" id="selectnature1">
+            <option value="null">Select Nature</option>
+            {% for results in shownature %}
+            <option value="{{ results.name }}|{{ results.upstat }}|{{ results.downstat }}">
+                {{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="item_text"><h1>Item:</h1></div>
+    <div class="item_selector">
+        <select class="itemlist" id="selectitem1" name="item1">
+            <option value="null">Select Item</option>
+            {% for results in showitem %}
+            <option value="{{ results.name }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="move_text"><h1>Moves:</h1></div>
+    <div class="move1_selector">
+        <select class="move1list" id="selectmove1_1">
+            <option value="null">Select Move</option>
+            {% for results in showmove %}
+            <option value="{{ results.name }}|{{ results.type }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="move1_selector">
+        <select class="move2list" id="selectmove2_1">
+            <option value="null">Select Move</option>
+            {% for results in showmove %}
+            <option value="{{ results.name }}|{{ results.type }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="move1_selector">
+        <select class="move3list" id="selectmove3_1">
+            <option value="null">Select Move</option>
+            {% for results in showmove %}
+            <option value="{{ results.name }}|{{ results.type }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="move1_selector">
+        <select class="move4list" id="selectmove4_1">
+            <option value="null">Select Move</option>
+            {% for results in showmove %}
+            <option value="{{ results.name }}|{{ results.type }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="pokemon_sprite">
+        <img id="image1" src="{% static 'img/sprites/null.png' %}" width="250px" height="250px" />
+    </div>
+    <div class="gigantamax_factor">
+        <img id="gigantamax_image1" src="{% static 'img/gigantamax/1.png' %}" width="110px" height="100px" />
+    </div>
+    <div class="type1_div">
+        <img id="type1_image1" src="{% static 'img/typelogo/None.png' %}" width="100px" height="35px" />
+    </div>
+    <div class="type2_div">
+        <img id="type2_image1" src="{% static 'img/typelogo/None.png' %}" width="100px" height="35px" />
+    </div>
+    <div class="move1_div">
+        <img id="move1_image1" src="{% static 'img/types/None.png' %}" width="40px" height="40px" />
+    </div>
+    <div class="move2_div">
+        <img id="move2_image1" src="{% static 'img/types/None.png' %}" width="40px" height="40px" />
+    </div>
+    <div class="move3_div">
+        <img id="move3_image1" src="{% static 'img/types/None.png' %}" width="40px" height="40px" />
+    </div>
+    <div class="move4_div">
+        <img id="move4_image1" src="{% static 'img/types/None.png' %}" width="40px" height="40px" />
+    </div>
+
+    <div class="level_text"><h1>Level:</h1></div>
+    <input type="number" id="level1" name="level1" class="level" value=100 min=1 max=100>
+
+
+    <div class="hp_text"><h1>Hp:</h1></div>
+    <div class="atk_text"><h1>Attack:</h1></div>
+    <div class="def_text"><h1>Defence:</h1></div>
+    <div class="sp_atk_text"><h1>Sp. Atk:</h1></div>
+    <div class="sp_def_text"><h1>Sp. Def:</h1></div>
+    <div class="spd_text"><h1>Speed:</h1></div>
+    <div class="EV_text"><h1>EVs</h1></div>
+    <div class="IV_text"><h1>IVs</h1></div>
+    <div class="stats_text"><h1>Stats</h1></div>
+
+    <div class="hp"><h1 id="hp1">-</h1></div>
+    <div class="atk"><h1 id="atk1">-</h1></div>
+    <div class="def"><h1 id="def1">-</h1></div>
+    <div class="sp_atk"><h1 id="sp_atk1">-</h1></div>
+    <div class="sp_def"><h1 id="sp_def1">-</h1></div>
+    <div class="spd"><h1 id="spd1">-</h1></div>
+
+    <input type="number" id="hpEV1" class="hpEV" value=0 min=0 max=252 name="hpEV1">
+    <input type="number" id="atkEV1" class="atkEV" value=0 min=0 max=252 name="atkEV1">
+    <input type="number" id="defEV1" class="defEV" value=0 min=0 max=252 name="defEV1">
+    <input type="number" id="sp_atkEV1" class="sp_atkEV" value=0 min=0 max=252 name="sp_atkEV1">
+    <input type="number" id="sp_defEV1" class="sp_defEV" value=0 min=0 max=252 name="sp_defEV1">
+    <input type="number" id="spdEV1" class="spdEV" value=0 min=0 max=252 name="spdEV1">
+
+    <input type="number" id="hpIV1" class="hpIV" value=31 min=0 max=31 name="hpIV1">
+    <input type="number" id="atkIV1" class="atkIV" value=31 min=0 max=31 name="atkIV1">
+    <input type="number" id="defIV1" class="defIV" value=31 min=0 max=31 name="defIV1">
+    <input type="number" id="sp_atkIV1" class="sp_atkIV" value=31 min=0 max=31 name="sp_atkIV1">
+    <input type="number" id="sp_defIV1" class="sp_defIV" value=31 min=0 max=31 name="sp_defIV1">
+    <input type="number" id="spdIV1" class="spdIV" value=31 min=0 max=31 name="spdIV1">
+
+    <input id="submitname1" name="name1" type="hidden"></input>
+    <input id="submitpokedex1" name="pokedex1" value=0 type="hidden"></input>
+    <input id="submitnature1" name="nature1" type="hidden"></input>
+    <input id="submitmove1_1" name="move1_1" type="hidden"></input>
+    <input id="submitmove2_1" name="move2_1" type="hidden"></input>
+    <input id="submitmove3_1" name="move3_1" type="hidden"></input>
+    <input id="submitmove4_1" name="move4_1" type="hidden"></input>
+    <input id="movetype1_1" name="movetype1_1" type="hidden"></input>
+    <input id="movetype2_1" name="movetype2_1" type="hidden"></input>
+    <input id="movetype3_1" name="movetype3_1" type="hidden"></input>
+    <input id="movetype4_1" name="movetype4_1" type="hidden"></input>
+    <input id="type1_1" name="type1_1" type="hidden"></input>
+    <input id="type2_1" name="type2_1" type="hidden"></input>
+    <input id="hpsubmit1" name="hp1" value=0 type="hidden"></input>
+    <input id="atksubmit1" name="atk1" value=0 type="hidden"></input>
+    <input id="defsubmit1" name="def1" value=0 type="hidden"></input>
+    <input id="sp_atksubmit1" name="sp_atk1" value=0 type="hidden"></input>
+    <input id="sp_defsubmit1" name="sp_def1" value=0 type="hidden"></input>
+    <input id="spdsubmit1" name="spd1" value=0 type="hidden"></input>
+    <input id="gmaxsubmit1" name="gmax1" value=1 type="hidden"></input>
+</div>
+
+{#---------------------------------------------------------Pokemon 2-----------------------------------------------------------------#}
+<div class="team_member" id="team_member_2">
+
+    <div class="pokemon_text"><h1>Pokemon:</h1></div>
+    <div class="pokemon_selector">
+        <select class="pokemonlist" id="selectpokemon2">
+            <option value="0|1|None|None|0|0|0|0|0|0|None">Select Pokemon</option>
+            {% for results in showpokemon %}
+            <option value="{{ results.pokedex }}|{{ results.gigantamax_factor }}|
+{{ results.type1 }}|{{ results.type2 }}|{{ results.hp }}|{{ results.attack }}|
+{{ results.defence }}|{{ results.sp_atk }}|{{ results.sp_def }}|{{ results.speed }}|{{ results.name }}
+">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="ability_text"><h1>Ability:</h1></div>
+    <div class="ability_selector">
+        <select class="abilitylist" id="selectability2" name="ability2">
+            <option value="null">Select Ability</option>
+            {% for results in showability %}
+            <option>{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="nature_text"><h1>Nature:</h1></div>
+    <div class="nature_selector">
+        <select class="naturelist" id="selectnature2">
+            <option value="null">Select Nature</option>
+            {% for results in shownature %}
+            <option value="{{ results.name }}|{{ results.upstat }}|{{ results.downstat }}">
+                {{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="item_text"><h1>Item:</h1></div>
+    <div class="item_selector">
+        <select class="itemlist" id="selectitem2" name="item2">
+            <option value="null">Select Item</option>
+            {% for results in showitem %}
+            <option value="{{ results.name }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="move_text"><h1>Moves:</h1></div>
+    <div class="move1_selector">
+        <select class="move1list" id="selectmove1_2">
+            <option value="null">Select Move</option>
+            {% for results in showmove %}
+            <option value="{{ results.name }}|{{ results.type }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="move1_selector">
+        <select class="move2list" id="selectmove2_2">
+            <option value="null">Select Move</option>
+            {% for results in showmove %}
+            <option value="{{ results.name }}|{{ results.type }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="move1_selector">
+        <select class="move3list" id="selectmove3_2">
+            <option value="null">Select Move</option>
+            {% for results in showmove %}
+            <option value="{{ results.name }}|{{ results.type }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="move1_selector">
+        <select class="move4list" id="selectmove4_2">
+            <option value="null">Select Move</option>
+            {% for results in showmove %}
+            <option value="{{ results.name }}|{{ results.type }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="pokemon_sprite">
+        <img id="image2" src="{% static 'img/sprites/null.png' %}" width="250px" height="250px" />
+    </div>
+    <div class="gigantamax_factor">
+        <img id="gigantamax_image2" src="{% static 'img/gigantamax/1.png' %}" width="110px" height="100px" />
+    </div>
+    <div class="type1_div">
+        <img id="type1_image2" src="{% static 'img/typelogo/None.png' %}" width="100px" height="35px" />
+    </div>
+    <div class="type2_div">
+        <img id="type2_image2" src="{% static 'img/typelogo/None.png' %}" width="100px" height="35px" />
+    </div>
+    <div class="move1_div">
+        <img id="move1_image2" src="{% static 'img/types/None.png' %}" width="40px" height="40px" />
+    </div>
+    <div class="move2_div">
+        <img id="move2_image2" src="{% static 'img/types/None.png' %}" width="40px" height="40px" />
+    </div>
+    <div class="move3_div">
+        <img id="move3_image2" src="{% static 'img/types/None.png' %}" width="40px" height="40px" />
+    </div>
+    <div class="move4_div">
+        <img id="move4_image2" src="{% static 'img/types/None.png' %}" width="40px" height="40px" />
+    </div>
+
+    <div class="level_text"><h1>Level:</h1></div>
+    <input type="number" id="level2" name="level2" class="level" value=100 min=1 max=100>
+
+
+    <div class="hp_text"><h1>Hp:</h1></div>
+    <div class="atk_text"><h1>Attack:</h1></div>
+    <div class="def_text"><h1>Defence:</h1></div>
+    <div class="sp_atk_text"><h1>Sp. Atk:</h1></div>
+    <div class="sp_def_text"><h1>Sp. Def:</h1></div>
+    <div class="spd_text"><h1>Speed:</h1></div>
+    <div class="EV_text"><h1>EVs</h1></div>
+    <div class="IV_text"><h1>IVs</h1></div>
+    <div class="stats_text"><h1>Stats</h1></div>
+
+    <div class="hp"><h1 id="hp2">-</h1></div>
+    <div class="atk"><h1 id="atk2">-</h1></div>
+    <div class="def"><h1 id="def2">-</h1></div>
+    <div class="sp_atk"><h1 id="sp_atk2">-</h1></div>
+    <div class="sp_def"><h1 id="sp_def2">-</h1></div>
+    <div class="spd"><h1 id="spd2">-</h1></div>
+
+    <input type="number" id="hpEV2" class="hpEV" value=0 min=0 max=252 name="hpEV2">
+    <input type="number" id="atkEV2" class="atkEV" value=0 min=0 max=252 name="atkEV2">
+    <input type="number" id="defEV2" class="defEV" value=0 min=0 max=252 name="defEV2">
+    <input type="number" id="sp_atkEV2" class="sp_atkEV" value=0 min=0 max=252 name="sp_atkEV2">
+    <input type="number" id="sp_defEV2" class="sp_defEV" value=0 min=0 max=252 name="sp_defEV2">
+    <input type="number" id="spdEV2" class="spdEV" value=0 min=0 max=252 name="spdEV2">
+
+    <input type="number" id="hpIV2" class="hpIV" value=31 min=0 max=31 name="hpIV2">
+    <input type="number" id="atkIV2" class="atkIV" value=31 min=0 max=31 name="atkIV2">
+    <input type="number" id="defIV2" class="defIV" value=31 min=0 max=31 name="defIV2">
+    <input type="number" id="sp_atkIV2" class="sp_atkIV" value=31 min=0 max=31 name="sp_atkIV2">
+    <input type="number" id="sp_defIV2" class="sp_defIV" value=31 min=0 max=31 name="sp_defIV2">
+    <input type="number" id="spdIV2" class="spdIV" value=31 min=0 max=31 name="spdIV2">
+
+    <input id="submitname2" name="name2" type="hidden"></input>
+    <input id="submitpokedex2" name="pokedex2" value=0 type="hidden"></input>
+    <input id="submitnature2" name="nature2" type="hidden"></input>
+    <input id="submitmove1_2" name="move1_2" type="hidden"></input>
+    <input id="submitmove2_2" name="move2_2" type="hidden"></input>
+    <input id="submitmove3_2" name="move3_2" type="hidden"></input>
+    <input id="submitmove4_2" name="move4_2" type="hidden"></input>
+    <input id="movetype1_2" name="movetype1_2" type="hidden"></input>
+    <input id="movetype2_2" name="movetype2_2" type="hidden"></input>
+    <input id="movetype3_2" name="movetype3_2" type="hidden"></input>
+    <input id="movetype4_2" name="movetype4_2" type="hidden"></input>
+    <input id="type1_2" name="type1_2" type="hidden"></input>
+    <input id="type2_2" name="type2_2" type="hidden"></input>
+    <input id="hpsubmit2" name="hp2" value=0 type="hidden"></input>
+    <input id="atksubmit2" name="atk2" value=0 type="hidden"></input>
+    <input id="defsubmit2" name="def2" value=0 type="hidden"></input>
+    <input id="sp_atksubmit2" name="sp_atk2" value=0 type="hidden"></input>
+    <input id="sp_defsubmit2" name="sp_def2" value=0 type="hidden"></input>
+    <input id="spdsubmit2" name="spd2" value=0 type="hidden"></input>
+    <input id="gmaxsubmit2" name="gmax2" value=1 type="hidden"></input>
+</div>
+
+---------------------------------------------------------Pokemon 3-----------------------------------------------------------------
+<div class="team_member" id="team_member_3">
+
+    <div class="pokemon_text"><h1>Pokemon:</h1></div>
+    <div class="pokemon_selector">
+        <select class="pokemonlist" id="selectpokemon3">
+            <option value="0|1|None|None|0|0|0|0|0|0|None">Select Pokemon</option>
+            {% for results in showpokemon %}
+            <option value="{{ results.pokedex }}|{{ results.gigantamax_factor }}|
+{{ results.type1 }}|{{ results.type2 }}|{{ results.hp }}|{{ results.attack }}|
+{{ results.defence }}|{{ results.sp_atk }}|{{ results.sp_def }}|{{ results.speed }}|{{ results.name }}
+">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="ability_text"><h1>Ability:</h1></div>
+    <div class="ability_selector">
+        <select class="abilitylist" id="selectability3" name="ability3">
+            <option value="null">Select Ability</option>
+            {% for results in showability %}
+            <option>{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="nature_text"><h1>Nature:</h1></div>
+    <div class="nature_selector">
+        <select class="naturelist" id="selectnature3">
+            <option value="null">Select Nature</option>
+            {% for results in shownature %}
+            <option value="{{ results.name }}|{{ results.upstat }}|{{ results.downstat }}">
+                {{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="item_text"><h1>Item:</h1></div>
+    <div class="item_selector">
+        <select class="itemlist" id="selectitem3" name="item3">
+            <option value="null">Select Item</option>
+            {% for results in showitem %}
+            <option value="{{ results.name }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="move_text"><h1>Moves:</h1></div>
+    <div class="move1_selector">
+        <select class="move1list" id="selectmove1_3">
+            <option value="null">Select Move</option>
+            {% for results in showmove %}
+            <option value="{{ results.name }}|{{ results.type }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="move1_selector">
+        <select class="move2list" id="selectmove2_3">
+            <option value="null">Select Move</option>
+            {% for results in showmove %}
+            <option value="{{ results.name }}|{{ results.type }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="move1_selector">
+        <select class="move3list" id="selectmove3_3">
+            <option value="null">Select Move</option>
+            {% for results in showmove %}
+            <option value="{{ results.name }}|{{ results.type }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="move1_selector">
+        <select class="move4list" id="selectmove4_3">
+            <option value="null">Select Move</option>
+            {% for results in showmove %}
+            <option value="{{ results.name }}|{{ results.type }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="pokemon_sprite">
+        <img id="image3" src="{% static 'img/sprites/null.png' %}" width="250px" height="250px" />
+    </div>
+    <div class="gigantamax_factor">
+        <img id="gigantamax_image3" src="{% static 'img/gigantamax/1.png' %}" width="110px" height="100px" />
+    </div>
+    <div class="type1_div">
+        <img id="type1_image3" src="{% static 'img/typelogo/None.png' %}" width="100px" height="35px" />
+    </div>
+    <div class="type2_div">
+        <img id="type2_image3" src="{% static 'img/typelogo/None.png' %}" width="100px" height="35px" />
+    </div>
+    <div class="move1_div">
+        <img id="move1_image3" src="{% static 'img/types/None.png' %}" width="40px" height="40px" />
+    </div>
+    <div class="move2_div">
+        <img id="move2_image3" src="{% static 'img/types/None.png' %}" width="40px" height="40px" />
+    </div>
+    <div class="move3_div">
+        <img id="move3_image3" src="{% static 'img/types/None.png' %}" width="40px" height="40px" />
+    </div>
+    <div class="move4_div">
+        <img id="move4_image3" src="{% static 'img/types/None.png' %}" width="40px" height="40px" />
+    </div>
+
+    <div class="level_text"><h1>Level:</h1></div>
+    <input type="number" id="level3" name="level3" class="level" value=100 min=1 max=100>
+
+
+    <div class="hp_text"><h1>Hp:</h1></div>
+    <div class="atk_text"><h1>Attack:</h1></div>
+    <div class="def_text"><h1>Defence:</h1></div>
+    <div class="sp_atk_text"><h1>Sp. Atk:</h1></div>
+    <div class="sp_def_text"><h1>Sp. Def:</h1></div>
+    <div class="spd_text"><h1>Speed:</h1></div>
+    <div class="EV_text"><h1>EVs</h1></div>
+    <div class="IV_text"><h1>IVs</h1></div>
+    <div class="stats_text"><h1>Stats</h1></div>
+
+    <div class="hp"><h1 id="hp3">-</h1></div>
+    <div class="atk"><h1 id="atk3">-</h1></div>
+    <div class="def"><h1 id="def3">-</h1></div>
+    <div class="sp_atk"><h1 id="sp_atk3">-</h1></div>
+    <div class="sp_def"><h1 id="sp_def3">-</h1></div>
+    <div class="spd"><h1 id="spd3">-</h1></div>
+
+    <input type="number" id="hpEV3" class="hpEV" value=0 min=0 max=252 name="hpEV3">
+    <input type="number" id="atkEV3" class="atkEV" value=0 min=0 max=252 name="atkEV3">
+    <input type="number" id="defEV3" class="defEV" value=0 min=0 max=252 name="defEV3">
+    <input type="number" id="sp_atkEV3" class="sp_atkEV" value=0 min=0 max=252 name="sp_atkEV3">
+    <input type="number" id="sp_defEV3" class="sp_defEV" value=0 min=0 max=252 name="sp_defEV3">
+    <input type="number" id="spdEV3" class="spdEV" value=0 min=0 max=252 name="spdEV3">
+
+    <input type="number" id="hpIV3" class="hpIV" value=31 min=0 max=31 name="hpIV3">
+    <input type="number" id="atkIV3" class="atkIV" value=31 min=0 max=31 name="atkIV3">
+    <input type="number" id="defIV3" class="defIV" value=31 min=0 max=31 name="defIV3">
+    <input type="number" id="sp_atkIV3" class="sp_atkIV" value=31 min=0 max=31 name="sp_atkIV3">
+    <input type="number" id="sp_defIV3" class="sp_defIV" value=31 min=0 max=31 name="sp_defIV3">
+    <input type="number" id="spdIV3" class="spdIV" value=31 min=0 max=31 name="spdIV3">
+
+    <input id="submitname3" name="name3" type="hidden"></input>
+    <input id="submitpokedex3" name="pokedex3" value=0 type="hidden"></input>
+    <input id="submitnature3" name="nature3" type="hidden"></input>
+    <input id="submitmove1_3" name="move1_3" type="hidden"></input>
+    <input id="submitmove2_3" name="move2_3" type="hidden"></input>
+    <input id="submitmove3_3" name="move3_3" type="hidden"></input>
+    <input id="submitmove4_3" name="move4_3" type="hidden"></input>
+    <input id="movetype1_3" name="movetype1_3" type="hidden"></input>
+    <input id="movetype2_3" name="movetype2_3" type="hidden"></input>
+    <input id="movetype3_3" name="movetype3_3" type="hidden"></input>
+    <input id="movetype4_3" name="movetype4_3" type="hidden"></input>
+    <input id="type1_3" name="type1_3" type="hidden"></input>
+    <input id="type2_3" name="type2_3" type="hidden"></input>
+    <input id="hpsubmit3" name="hp3" value=0 type="hidden"></input>
+    <input id="atksubmit3" name="atk3" value=0 type="hidden"></input>
+    <input id="defsubmit3" name="def3" value=0 type="hidden"></input>
+    <input id="sp_atksubmit3" name="sp_atk3" value=0 type="hidden"></input>
+    <input id="sp_defsubmit3" name="sp_def3" value=0 type="hidden"></input>
+    <input id="spdsubmit3" name="spd3" value=0 type="hidden"></input>
+    <input id="gmaxsubmit3" name="gmax3" value=1 type="hidden"></input>
+</div>
+
+{#---------------------------------------------------------Pokemon 4-----------------------------------------------------------------#}
+<div class="team_member" id="team_member_4">
+
+    <div class="pokemon_text"><h1>Pokemon:</h1></div>
+    <div class="pokemon_selector">
+        <select class="pokemonlist" id="selectpokemon4">
+            <option value="0|1|None|None|0|0|0|0|0|0|None">Select Pokemon</option>
+            {% for results in showpokemon %}
+            <option value="{{ results.pokedex }}|{{ results.gigantamax_factor }}|
+{{ results.type1 }}|{{ results.type2 }}|{{ results.hp }}|{{ results.attack }}|
+{{ results.defence }}|{{ results.sp_atk }}|{{ results.sp_def }}|{{ results.speed }}|{{ results.name }}
+">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="ability_text"><h1>Ability:</h1></div>
+    <div class="ability_selector">
+        <select class="abilitylist" id="selectability4" name="ability4">
+            <option value="null">Select Ability</option>
+            {% for results in showability %}
+            <option>{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="nature_text"><h1>Nature:</h1></div>
+    <div class="nature_selector">
+        <select class="naturelist" id="selectnature4">
+            <option value="null">Select Nature</option>
+            {% for results in shownature %}
+            <option value="{{ results.name }}|{{ results.upstat }}|{{ results.downstat }}">
+                {{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="item_text"><h1>Item:</h1></div>
+    <div class="item_selector">
+        <select class="itemlist" id="selectitem4" name="item4">
+            <option value="null">Select Item</option>
+            {% for results in showitem %}
+            <option value="{{ results.name }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="move_text"><h1>Moves:</h1></div>
+    <div class="move1_selector">
+        <select class="move1list" id="selectmove1_4">
+            <option value="null">Select Move</option>
+            {% for results in showmove %}
+            <option value="{{ results.name }}|{{ results.type }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="move1_selector">
+        <select class="move2list" id="selectmove2_4">
+            <option value="null">Select Move</option>
+            {% for results in showmove %}
+            <option value="{{ results.name }}|{{ results.type }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="move1_selector">
+        <select class="move3list" id="selectmove3_4">
+            <option value="null">Select Move</option>
+            {% for results in showmove %}
+            <option value="{{ results.name }}|{{ results.type }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="move1_selector">
+        <select class="move4list" id="selectmove4_4">
+            <option value="null">Select Move</option>
+            {% for results in showmove %}
+            <option value="{{ results.name }}|{{ results.type }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="pokemon_sprite">
+        <img id="image4" src="{% static 'img/sprites/null.png' %}" width="250px" height="250px" />
+    </div>
+    <div class="gigantamax_factor">
+        <img id="gigantamax_image4" src="{% static 'img/gigantamax/1.png' %}" width="110px" height="100px" />
+    </div>
+    <div class="type1_div">
+        <img id="type1_image4" src="{% static 'img/typelogo/None.png' %}" width="100px" height="35px" />
+    </div>
+    <div class="type2_div">
+        <img id="type2_image4" src="{% static 'img/typelogo/None.png' %}" width="100px" height="35px" />
+    </div>
+    <div class="move1_div">
+        <img id="move1_image4" src="{% static 'img/types/None.png' %}" width="40px" height="40px" />
+    </div>
+    <div class="move2_div">
+        <img id="move2_image4" src="{% static 'img/types/None.png' %}" width="40px" height="40px" />
+    </div>
+    <div class="move3_div">
+        <img id="move3_image4" src="{% static 'img/types/None.png' %}" width="40px" height="40px" />
+    </div>
+    <div class="move4_div">
+        <img id="move4_image4" src="{% static 'img/types/None.png' %}" width="40px" height="40px" />
+    </div>
+
+    <div class="level_text"><h1>Level:</h1></div>
+    <input type="number" id="level4" name="level4" class="level" value=100 min=1 max=100>
+
+
+    <div class="hp_text"><h1>Hp:</h1></div>
+    <div class="atk_text"><h1>Attack:</h1></div>
+    <div class="def_text"><h1>Defence:</h1></div>
+    <div class="sp_atk_text"><h1>Sp. Atk:</h1></div>
+    <div class="sp_def_text"><h1>Sp. Def:</h1></div>
+    <div class="spd_text"><h1>Speed:</h1></div>
+    <div class="EV_text"><h1>EVs</h1></div>
+    <div class="IV_text"><h1>IVs</h1></div>
+    <div class="stats_text"><h1>Stats</h1></div>
+
+    <div class="hp"><h1 id="hp4">-</h1></div>
+    <div class="atk"><h1 id="atk4">-</h1></div>
+    <div class="def"><h1 id="def4">-</h1></div>
+    <div class="sp_atk"><h1 id="sp_atk4">-</h1></div>
+    <div class="sp_def"><h1 id="sp_def4">-</h1></div>
+    <div class="spd"><h1 id="spd4">-</h1></div>
+
+    <input type="number" id="hpEV4" class="hpEV" value=0 min=0 max=252 name="hpEV4">
+    <input type="number" id="atkEV4" class="atkEV" value=0 min=0 max=252 name="atkEV4">
+    <input type="number" id="defEV4" class="defEV" value=0 min=0 max=252 name="defEV4">
+    <input type="number" id="sp_atkEV4" class="sp_atkEV" value=0 min=0 max=252 name="sp_atkEV4">
+    <input type="number" id="sp_defEV4" class="sp_defEV" value=0 min=0 max=252 name="sp_defEV4">
+    <input type="number" id="spdEV4" class="spdEV" value=0 min=0 max=252 name="spdEV4">
+
+    <input type="number" id="hpIV4" class="hpIV" value=31 min=0 max=31 name="hpIV4">
+    <input type="number" id="atkIV4" class="atkIV" value=31 min=0 max=31 name="atkIV4">
+    <input type="number" id="defIV4" class="defIV" value=31 min=0 max=31 name="defIV4">
+    <input type="number" id="sp_atkIV4" class="sp_atkIV" value=31 min=0 max=31 name="sp_atkIV4">
+    <input type="number" id="sp_defIV4" class="sp_defIV" value=31 min=0 max=31 name="sp_defIV4">
+    <input type="number" id="spdIV4" class="spdIV" value=31 min=0 max=31 name="spdIV4">
+
+    <input id="submitname4" name="name4" type="hidden"></input>
+    <input id="submitpokedex4" name="pokedex4" value=0 type="hidden"></input>
+    <input id="submitnature4" name="nature4" type="hidden"></input>
+    <input id="submitmove1_4" name="move1_4" type="hidden"></input>
+    <input id="submitmove2_4" name="move2_4" type="hidden"></input>
+    <input id="submitmove3_4" name="move3_4" type="hidden"></input>
+    <input id="submitmove4_4" name="move4_4" type="hidden"></input>
+    <input id="movetype1_4" name="movetype1_4" type="hidden"></input>
+    <input id="movetype2_4" name="movetype2_4" type="hidden"></input>
+    <input id="movetype3_4" name="movetype3_4" type="hidden"></input>
+    <input id="movetype4_4" name="movetype4_4" type="hidden"></input>
+    <input id="type1_4" name="type1_4" type="hidden"></input>
+    <input id="type2_4" name="type2_4" type="hidden"></input>
+    <input id="hpsubmit4" name="hp4" value=0 type="hidden"></input>
+    <input id="atksubmit4" name="atk4" value=0 type="hidden"></input>
+    <input id="defsubmit4" name="def4" value=0 type="hidden"></input>
+    <input id="sp_atksubmit4" name="sp_atk4" value=0 type="hidden"></input>
+    <input id="sp_defsubmit4" name="sp_def4" value=0 type="hidden"></input>
+    <input id="spdsubmit4" name="spd4" value=0 type="hidden"></input>
+    <input id="gmaxsubmit4" name="gmax4" value=1 type="hidden"></input>
+</div>
+
+{#---------------------------------------------------------Pokemon 5-----------------------------------------------------------------#}
+<div class="team_member" id="team_member_5">
+
+    <div class="pokemon_text"><h1>Pokemon:</h1></div>
+    <div class="pokemon_selector">
+        <select class="pokemonlist" id="selectpokemon5">
+            <option value="0|1|None|None|0|0|0|0|0|0|None">Select Pokemon</option>
+            {% for results in showpokemon %}
+            <option value="{{ results.pokedex }}|{{ results.gigantamax_factor }}|
+{{ results.type1 }}|{{ results.type2 }}|{{ results.hp }}|{{ results.attack }}|
+{{ results.defence }}|{{ results.sp_atk }}|{{ results.sp_def }}|{{ results.speed }}|{{ results.name }}
+">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="ability_text"><h1>Ability:</h1></div>
+    <div class="ability_selector">
+        <select class="abilitylist" id="selectability5" name="ability5">
+            <option value="null">Select Ability</option>
+            {% for results in showability %}
+            <option>{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="nature_text"><h1>Nature:</h1></div>
+    <div class="nature_selector">
+        <select class="naturelist" id="selectnature5">
+            <option value="null">Select Nature</option>
+            {% for results in shownature %}
+            <option value="{{ results.name }}|{{ results.upstat }}|{{ results.downstat }}">
+                {{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="item_text"><h1>Item:</h1></div>
+    <div class="item_selector">
+        <select class="itemlist" id="selectitem5" name="item5">
+            <option value="null">Select Item</option>
+            {% for results in showitem %}
+            <option value="{{ results.name }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="move_text"><h1>Moves:</h1></div>
+    <div class="move1_selector">
+        <select class="move1list" id="selectmove1_5">
+            <option value="null">Select Move</option>
+            {% for results in showmove %}
+            <option value="{{ results.name }}|{{ results.type }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="move1_selector">
+        <select class="move2list" id="selectmove2_5">
+            <option value="null">Select Move</option>
+            {% for results in showmove %}
+            <option value="{{ results.name }}|{{ results.type }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="move1_selector">
+        <select class="move3list" id="selectmove3_5">
+            <option value="null">Select Move</option>
+            {% for results in showmove %}
+            <option value="{{ results.name }}|{{ results.type }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="move1_selector">
+        <select class="move4list" id="selectmove4_5">
+            <option value="null">Select Move</option>
+            {% for results in showmove %}
+            <option value="{{ results.name }}|{{ results.type }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="pokemon_sprite">
+        <img id="image5" src="{% static 'img/sprites/null.png' %}" width="250px" height="250px" />
+    </div>
+    <div class="gigantamax_factor">
+        <img id="gigantamax_image5" src="{% static 'img/gigantamax/1.png' %}" width="110px" height="100px" />
+    </div>
+    <div class="type1_div">
+        <img id="type1_image5" src="{% static 'img/typelogo/None.png' %}" width="100px" height="35px" />
+    </div>
+    <div class="type2_div">
+        <img id="type2_image5" src="{% static 'img/typelogo/None.png' %}" width="100px" height="35px" />
+    </div>
+    <div class="move1_div">
+        <img id="move1_image5" src="{% static 'img/types/None.png' %}" width="40px" height="40px" />
+    </div>
+    <div class="move2_div">
+        <img id="move2_image5" src="{% static 'img/types/None.png' %}" width="40px" height="40px" />
+    </div>
+    <div class="move3_div">
+        <img id="move3_image5" src="{% static 'img/types/None.png' %}" width="40px" height="40px" />
+    </div>
+    <div class="move4_div">
+        <img id="move4_image5" src="{% static 'img/types/None.png' %}" width="40px" height="40px" />
+    </div>
+
+    <div class="level_text"><h1>Level:</h1></div>
+    <input type="number" id="level5" name="level5" class="level" value=100 min=1 max=100>
+
+
+    <div class="hp_text"><h1>Hp:</h1></div>
+    <div class="atk_text"><h1>Attack:</h1></div>
+    <div class="def_text"><h1>Defence:</h1></div>
+    <div class="sp_atk_text"><h1>Sp. Atk:</h1></div>
+    <div class="sp_def_text"><h1>Sp. Def:</h1></div>
+    <div class="spd_text"><h1>Speed:</h1></div>
+    <div class="EV_text"><h1>EVs</h1></div>
+    <div class="IV_text"><h1>IVs</h1></div>
+    <div class="stats_text"><h1>Stats</h1></div>
+
+    <div class="hp"><h1 id="hp5">-</h1></div>
+    <div class="atk"><h1 id="atk5">-</h1></div>
+    <div class="def"><h1 id="def5">-</h1></div>
+    <div class="sp_atk"><h1 id="sp_atk5">-</h1></div>
+    <div class="sp_def"><h1 id="sp_def5">-</h1></div>
+    <div class="spd"><h1 id="spd5">-</h1></div>
+
+    <input type="number" id="hpEV5" class="hpEV" value=0 min=0 max=252 name="hpEV5">
+    <input type="number" id="atkEV5" class="atkEV" value=0 min=0 max=252 name="atkEV5">
+    <input type="number" id="defEV5" class="defEV" value=0 min=0 max=252 name="defEV5">
+    <input type="number" id="sp_atkEV5" class="sp_atkEV" value=0 min=0 max=252 name="sp_atkEV5">
+    <input type="number" id="sp_defEV5" class="sp_defEV" value=0 min=0 max=252 name="sp_defEV5">
+    <input type="number" id="spdEV5" class="spdEV" value=0 min=0 max=252 name="spdEV5">
+
+    <input type="number" id="hpIV5" class="hpIV" value=31 min=0 max=31 name="hpIV5">
+    <input type="number" id="atkIV5" class="atkIV" value=31 min=0 max=31 name="atkIV5">
+    <input type="number" id="defIV5" class="defIV" value=31 min=0 max=31 name="defIV5">
+    <input type="number" id="sp_atkIV5" class="sp_atkIV" value=31 min=0 max=31 name="sp_atkIV5">
+    <input type="number" id="sp_defIV5" class="sp_defIV" value=31 min=0 max=31 name="sp_defIV5">
+    <input type="number" id="spdIV5" class="spdIV" value=31 min=0 max=31 name="spdIV5">
+
+    <input id="submitname5" name="name5" type="hidden"></input>
+    <input id="submitpokedex5" name="pokedex5" value=0 type="hidden"></input>
+    <input id="submitnature5" name="nature5" type="hidden"></input>
+    <input id="submitmove1_5" name="move1_5" type="hidden"></input>
+    <input id="submitmove2_5" name="move2_5" type="hidden"></input>
+    <input id="submitmove3_5" name="move3_5" type="hidden"></input>
+    <input id="submitmove4_5" name="move4_5" type="hidden"></input>
+    <input id="movetype1_5" name="movetype1_5" type="hidden"></input>
+    <input id="movetype2_5" name="movetype2_5" type="hidden"></input>
+    <input id="movetype3_5" name="movetype3_5" type="hidden"></input>
+    <input id="movetype4_5" name="movetype4_5" type="hidden"></input>
+    <input id="type1_5" name="type1_5" type="hidden"></input>
+    <input id="type2_5" name="type2_5" type="hidden"></input>
+    <input id="hpsubmit5" name="hp5" value=0 type="hidden"></input>
+    <input id="atksubmit5" name="atk5" value=0 type="hidden"></input>
+    <input id="defsubmit5" name="def5" value=0 type="hidden"></input>
+    <input id="sp_atksubmit5" name="sp_atk5" value=0 type="hidden"></input>
+    <input id="sp_defsubmit5" name="sp_def5" value=0 type="hidden"></input>
+    <input id="spdsubmit5" name="spd5" value=0 type="hidden"></input>
+    <input id="gmaxsubmit5" name="gmax5" value=1 type="hidden"></input>
+</div>
+
+{#---------------------------------------------------------Pokemon 6-----------------------------------------------------------------#}
+<div class="team_member" id="team_member_6">
+
+    <div class="pokemon_text"><h1>Pokemon:</h1></div>
+    <div class="pokemon_selector">
+        <select class="pokemonlist" id="selectpokemon6">
+            <option value="0|1|None|None|0|0|0|0|0|0|None">Select Pokemon</option>
+            {% for results in showpokemon %}
+            <option value="{{ results.pokedex }}|{{ results.gigantamax_factor }}|
+{{ results.type1 }}|{{ results.type2 }}|{{ results.hp }}|{{ results.attack }}|
+{{ results.defence }}|{{ results.sp_atk }}|{{ results.sp_def }}|{{ results.speed }}|{{ results.name }}
+">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="ability_text"><h1>Ability:</h1></div>
+    <div class="ability_selector">
+        <select class="abilitylist" id="selectability6" name="ability6">
+            <option value="null">Select Ability</option>
+            {% for results in showability %}
+            <option>{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="nature_text"><h1>Nature:</h1></div>
+    <div class="nature_selector">
+        <select class="naturelist" id="selectnature6">
+            <option value="null">Select Nature</option>
+            {% for results in shownature %}
+            <option value="{{ results.name }}|{{ results.upstat }}|{{ results.downstat }}">
+                {{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="item_text"><h1>Item:</h1></div>
+    <div class="item_selector">
+        <select class="itemlist" id="selectitem6" name="item6">
+            <option value="null">Select Item</option>
+            {% for results in showitem %}
+            <option value="{{ results.name }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="move_text"><h1>Moves:</h1></div>
+    <div class="move1_selector">
+        <select class="move1list" id="selectmove1_6">
+            <option value="null">Select Move</option>
+            {% for results in showmove %}
+            <option value="{{ results.name }}|{{ results.type }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="move1_selector">
+        <select class="move2list" id="selectmove2_6">
+            <option value="null">Select Move</option>
+            {% for results in showmove %}
+            <option value="{{ results.name }}|{{ results.type }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="move1_selector">
+        <select class="move3list" id="selectmove3_6">
+            <option value="null">Select Move</option>
+            {% for results in showmove %}
+            <option value="{{ results.name }}|{{ results.type }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="move1_selector">
+        <select class="move4list" id="selectmove4_6">
+            <option value="null">Select Move</option>
+            {% for results in showmove %}
+            <option value="{{ results.name }}|{{ results.type }}">{{ results.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="pokemon_sprite">
+        <img id="image6" src="{% static 'img/sprites/null.png' %}" width="250px" height="250px" />
+    </div>
+    <div class="gigantamax_factor">
+        <img id="gigantamax_image6" src="{% static 'img/gigantamax/1.png' %}" width="110px" height="100px" />
+    </div>
+    <div class="type1_div">
+        <img id="type1_image6" src="{% static 'img/typelogo/None.png' %}" width="100px" height="35px" />
+    </div>
+    <div class="type2_div">
+        <img id="type2_image6" src="{% static 'img/typelogo/None.png' %}" width="100px" height="35px" />
+    </div>
+    <div class="move1_div">
+        <img id="move1_image6" src="{% static 'img/types/None.png' %}" width="40px" height="40px" />
+    </div>
+    <div class="move2_div">
+        <img id="move2_image6" src="{% static 'img/types/None.png' %}" width="40px" height="40px" />
+    </div>
+    <div class="move3_div">
+        <img id="move3_image6" src="{% static 'img/types/None.png' %}" width="40px" height="40px" />
+    </div>
+    <div class="move4_div">
+        <img id="move4_image6" src="{% static 'img/types/None.png' %}" width="40px" height="40px" />
+    </div>
+
+    <div class="level_text"><h1>Level:</h1></div>
+    <input type="number" id="level6" name="level6" class="level" value=100 min=1 max=100>
+
+
+    <div class="hp_text"><h1>Hp:</h1></div>
+    <div class="atk_text"><h1>Attack:</h1></div>
+    <div class="def_text"><h1>Defence:</h1></div>
+    <div class="sp_atk_text"><h1>Sp. Atk:</h1></div>
+    <div class="sp_def_text"><h1>Sp. Def:</h1></div>
+    <div class="spd_text"><h1>Speed:</h1></div>
+    <div class="EV_text"><h1>EVs</h1></div>
+    <div class="IV_text"><h1>IVs</h1></div>
+    <div class="stats_text"><h1>Stats</h1></div>
+
+    <div class="hp"><h1 id="hp6">-</h1></div>
+    <div class="atk"><h1 id="atk6">-</h1></div>
+    <div class="def"><h1 id="def6">-</h1></div>
+    <div class="sp_atk"><h1 id="sp_atk6">-</h1></div>
+    <div class="sp_def"><h1 id="sp_def6">-</h1></div>
+    <div class="spd"><h1 id="spd6">-</h1></div>
+
+    <input type="number" id="hpEV6" class="hpEV" value=0 min=0 max=252 name="hpEV6">
+    <input type="number" id="atkEV6" class="atkEV" value=0 min=0 max=252 name="atkEV6">
+    <input type="number" id="defEV6" class="defEV" value=0 min=0 max=252 name="defEV6">
+    <input type="number" id="sp_atkEV6" class="sp_atkEV" value=0 min=0 max=252 name="sp_atkEV6">
+    <input type="number" id="sp_defEV6" class="sp_defEV" value=0 min=0 max=252 name="sp_defEV6">
+    <input type="number" id="spdEV6" class="spdEV" value=0 min=0 max=252 name="spdEV6">
+
+    <input type="number" id="hpIV6" class="hpIV" value=31 min=0 max=31 name="hpIV6">
+    <input type="number" id="atkIV6" class="atkIV" value=31 min=0 max=31 name="atkIV6">
+    <input type="number" id="defIV6" class="defIV" value=31 min=0 max=31 name="defIV6">
+    <input type="number" id="sp_atkIV6" class="sp_atkIV" value=31 min=0 max=31 name="sp_atkIV6">
+    <input type="number" id="sp_defIV6" class="sp_defIV" value=31 min=0 max=31 name="sp_defIV6">
+    <input type="number" id="spdIV6" class="spdIV" value=31 min=0 max=31 name="spdIV6">
+
+    <input id="submitname6" name="name6" type="hidden"></input>
+    <input id="submitpokedex6" name="pokedex6" value=0 type="hidden"></input>
+    <input id="submitnature6" name="nature6" type="hidden"></input>
+    <input id="submitmove1_6" name="move1_6" type="hidden"></input>
+    <input id="submitmove2_6" name="move2_6" type="hidden"></input>
+    <input id="submitmove3_6" name="move3_6" type="hidden"></input>
+    <input id="submitmove4_6" name="move4_6" type="hidden"></input>
+    <input id="movetype1_6" name="movetype1_6" type="hidden"></input>
+    <input id="movetype2_6" name="movetype2_6" type="hidden"></input>
+    <input id="movetype3_6" name="movetype3_6" type="hidden"></input>
+    <input id="movetype4_6" name="movetype4_6" type="hidden"></input>
+    <input id="type1_6" name="type1_6" type="hidden"></input>
+    <input id="type2_6" name="type2_6" type="hidden"></input>
+    <input id="hpsubmit6" name="hp6" value=0 type="hidden"></input>
+    <input id="atksubmit6" name="atk6" value=0 type="hidden"></input>
+    <input id="defsubmit6" name="def6" value=0 type="hidden"></input>
+    <input id="sp_atksubmit6" name="sp_atk6" value=0 type="hidden"></input>
+    <input id="sp_defsubmit6" name="sp_def6" value=0 type="hidden"></input>
+    <input id="spdsubmit6" name="spd6" value=0 type="hidden"></input>
+    <input id="gmaxsubmit6" name="gmax6" value=1 type="hidden"></input>
+</div>
+
+{#---------------------------------------------------------------------------------------------------#}
+
+    <input class="button1" id="team_image1" type="button" onclick="team_pokemon1()"></input>
+    <input class="button2" id="team_image2" type="button" onclick="team_pokemon2()"></input>
+    <input class="button3" id="team_image3" type="button" onclick="team_pokemon3()"></input>
+    <input class="button4" id="team_image4" type="button" onclick="team_pokemon4()"></input>
+    <input class="button5" id="team_image5" type="button" onclick="team_pokemon5()"></input>
+    <input class="button6" id="team_image6" type="button" onclick="team_pokemon6()"></input>
+
+    <div class="submit_text"><h1>Submit:</h1></div>
+    <input class="submit" id="submit_team" type="submit" value=""></input>
+
+</form>
+{% if messages  %}
+    {% for message in messagees %}
+        <h2 style="color: white;">{{ message }}</h2>
+    {% endfor %}
+{% endif %}
+
+<script src="{% static 'js/teambuilder.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+input{
+  z-index: 0;
+  --radius: 0;
+  --baseFg: white;
+  --baseBg: #3A3A3A;
+  --accentFg: black;
+  --accentBg: #3A3A3A;
+  position: relative;
+  color: var(--baseFg);
+  background-color: #181818;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 1px 100%, 20px 22px, 20px 22px, 20px 100%;
+  border-radius:5px;border:1px solid #AAAAAA;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  display:inline-block;
+  padding-left: 2px;
+}
+
+.login_div, .signup_div {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  margin-left: -250px; (half the element width))
+  width: 100%;
+  text-align: left;
+  border-radius:20px;border:1px solid #AAAAAA;
+  padding: 70px 0;
+  background-color: #3A3A3A;
+  color: white;
+  padding-left:40px;
+  padding-right:40px;
+  z-index: 0;
+}
+
+
+.submit {
+  padding-left:10px;
+  padding-right:10px;
+}

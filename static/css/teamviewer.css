@@ -1,0 +1,487 @@
+.teamname {
+  height: 50px;
+  width: 400px;
+  left: 600px;
+  top: 40px;
+  z-index: -1;
+}
+.teamname_text {
+  left: 600px;
+  top: 40px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  color: white;
+  position: relative;
+  z-index: -1;
+}
+br {
+  line-height: 10px;
+}
+.pokemon_sprite{
+  position:relative;
+  z-index: -1;
+}
+.pokemon_sprite img{
+  position:absolute;
+  top:-600px;
+  left:1050px;
+}
+
+.gigantamax_factor{
+  position:relative;
+  z-index: -1;
+}
+.gigantamax_factor img{
+  position:absolute;
+  top:-360px;
+  left:1165px;
+  z-index: -1;
+}
+
+.type1_div{
+position:relative;
+  z-index: -1;
+}
+.type1_div img{
+position:absolute;
+top:-260px;
+left:1070px;
+  z-index: -1;
+}
+
+.type2_div{
+position:relative;
+  z-index: -1;
+}
+.type2_div img{
+position:absolute;
+top:-260px;
+left:1170px;
+  z-index: -1;
+}
+
+.pokemon_text{
+  font-family: 'Oswald', sans-serif;
+  font-size: 15px;
+  color: white;
+  position: relative;
+  left: 600px;
+  top: 20px;
+  z-index: -1;
+}
+.pokemonlist {
+  --radius: 0;
+  --baseFg: white;
+  --baseBg: #3A3A3A;
+  --accentFg: black;
+  --accentBg: #3A3A3A;
+  width:400px;
+  position: relative;
+  left: 600px;
+  top: 20px;
+  z-index: -1;
+}
+
+.ability_text{
+  left: 600px;
+  top: 30px;
+  z-index: -1;
+}
+.abilitylist {
+  --radius: 0;
+  --baseFg: white;
+  --baseBg: #3A3A3A;
+  --accentFg: black;
+  --accentBg: #3A3A3A;
+  width:350px;
+  position: relative;
+  left: 600px;
+  top: 30px;
+  z-index: -1;
+}
+
+.nature_text{
+  left: 600px;
+  top: 40px;
+  z-index: -1;
+}
+.naturelist {
+  --radius: 0;
+  --baseFg: white;
+  --baseBg: #3A3A3A;
+  --accentFg: black;
+  --accentBg: #3A3A3A;
+  width:350px;
+  position: relative;
+  left: 600px;
+  top: 40px;
+  z-index: -1;
+}
+
+.item_text{
+  left: 600px;
+  top: 50px;
+  z-index: -1;
+}
+.itemlist {
+  --radius: 0;
+  --baseFg: white;
+  --baseBg: #3A3A3A;
+  --accentFg: black;
+  --accentBg: #3A3A3A;
+  width:350px;
+  position: relative;
+  left: 600px;
+  top: 50px;
+  z-index: -1;
+}
+
+.move_text{
+  left: 1020px;
+  top: 45px;
+}
+.move1list {
+  --radius: 0;
+  --baseFg: white;
+  --baseBg: #3A3A3A;
+  --accentFg: black;
+  --accentBg: #3A3A3A;
+  width:350px;
+  position: relative;
+  left: 1000px;
+  top: 50px;
+  padding-left: 60px;
+  z-index: -1;
+}
+.move1_div{
+  position:relative;
+}
+.move1_div img{
+  position:absolute;
+  top:-147px;
+  left:1010px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.move2list {
+  --radius: 0;
+  --baseFg: white;
+  --baseBg: #3A3A3A;
+  --accentFg: black;
+  --accentBg: #3A3A3A;
+  width:350px;
+  position: relative;
+  left: 1000px;
+  top: 60px;
+  padding-left: 60px;
+  z-index: -1;
+}
+.move2_div{
+position:relative;
+}
+.move2_div img{
+  position:absolute;
+  top:-84px;
+  left:1010px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.move3list {
+  --radius: 0;
+  --baseFg: white;
+  --baseBg: #3A3A3A;
+  --accentFg: black;
+  --accentBg: #3A3A3A;
+  width:350px;
+  position: relative;
+  left: 1000px;
+  top: 70px;
+  padding-left: 60px;
+  z-index: -1;
+}
+.move3_div{
+  position:relative;
+}
+.move3_div img{
+  position:absolute;
+  top:-26px;
+  left:1010px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.move4list {
+  --radius: 0;
+  --baseFg: white;
+  --baseBg: #3A3A3A;
+  --accentFg: black;
+  --accentBg: #3A3A3A;
+  width:350px;
+  position: relative;
+  left: 1000px;
+  top: 80px;
+  padding-left: 60px;
+  z-index: -1;
+}
+.move4_div{
+position:relative;
+}
+.move4_div img{
+  position:absolute;
+  top:33px;
+  left:1010px;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hp_text, .atk_text, .def_text, .sp_atk_text, .sp_def_text, .spd_text,
+.EV_text, .IV_text, .stats_text, .level_text, .move_text, .ability_text,
+.nature_text, .item_text, .submit_text{
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  color: white;
+  position: relative;
+  z-index: -2;
+}
+
+.level_text {
+  left: 1080px;
+  top: -350px;
+}
+.level {
+  width:80px;
+  top:-350px;
+  left:1080px;
+  font-size: 20px;
+  padding-left: 15px;
+  z-index: -2;
+}
+
+.hpEV {
+  top:-450px;
+  left:700px;
+  z-index: -1;
+}
+.atkEV {
+  top:-440px;
+  left:700px;
+  z-index: -1;
+}
+.defEV {
+  top:-430px;
+  left:700px;
+  z-index: -1;
+}
+.sp_atkEV {
+  top:-420px;
+  left:700px;
+  z-index: -1;
+}
+.sp_defEV {
+  top:-410px;
+  left:700px;
+  z-index: -1;
+}
+.spdEV {
+  top:-400px;
+  left:700px;
+  z-index: -1;
+}
+.hpIV {
+  top:-606px;
+  left:770px;
+  z-index: -1;
+}
+.atkIV {
+  top:-596px;
+  left:770px;
+  z-index: -1;
+}
+.defIV {
+  top:-586px;
+  left:770px;
+  z-index: -1;
+}
+.sp_atkIV {
+  top:-576px;
+  left:770px;
+  z-index: -1;
+}
+.sp_defIV {
+  top:-566px;
+  left:770px;
+  z-index: -1;
+}
+.spdIV {
+  top:-556px;
+  left:770px;
+  z-index: -1;
+}
+.hp, .atk, .def, .sp_atk, .sp_def, .spd {
+  text-align: center;
+  --radius: 0;
+  --baseFg: white;
+  --baseBg: #3A3A3A;
+  --accentFg: black;
+  --accentBg: #3A3A3A;
+  width:60px;
+  position: relative;
+  color: #430000;
+  background-color: #8E8E8E;
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 1px 100%, 20px 22px, 20px 22px, 20px 100%;
+  border-radius:20px;border:1px solid #AAAAAA;
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
+  display:inline-block;
+  padding: 0px;
+  z-index: -2;
+}
+.hp {
+  top:-425px;
+  left:840px;
+}
+.atk {
+  top:-389px;
+  left:776px;
+}
+.def {
+  top:-353px;
+  left:712px;
+}
+.sp_atk {
+  top:-317px;
+  left:648px;
+}
+.sp_def {
+  top:-281px;
+  left:584px;
+}
+.spd {
+  top:-245px;
+  left:520px;
+}
+.hp_text{
+  top:-176px;
+  left:580px;
+}
+.atk_text{
+  top:-168px;
+  left:580px;
+}
+.def_text{
+  top:-160px;
+  left:580px;
+}
+.sp_atk_text{
+  top:-152px;
+  left:580px;
+}
+.sp_def_text{
+  top:-144px;
+  left:580px;
+}
+.spd_text{
+  top:-136px;
+  left:580px;
+}
+.EV_text{
+  top:-375px;
+  left:700px;
+}
+.IV_text{
+  top:-403px;
+  left:770px;
+}
+.stats_text{
+  top:-431px;
+  left:840px;
+}
+.submit_text{
+  left: 1400px;
+  top: 570px;
+}
+
+input{
+  z-index: 0;
+  --radius: 0;
+  --baseFg: white;
+  --baseBg: #3A3A3A;
+  --accentFg: black;
+  --accentBg: #3A3A3A;
+  width:60px;
+  position: relative;
+  color: var(--baseFg);
+  background-color: var(--baseBg);
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 1px 100%, 20px 22px, 20px 22px, 20px 100%;
+  border-radius:20px;border:1px solid #AAAAAA;
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  display:inline-block;
+  padding-left: 15px;
+}
+
+select {
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  -webkit-appearance: none;
+  appearance: none;
+  color: var(--baseFg);
+  line-height: 1.2;
+  outline: 0;
+  overflow:hidden;
+  display:inline-block;
+  padding: 0.65em 2.5em 0.55em 0.75em;
+  border-radius:20px;border:1px solid #AAAAAA;
+  background-color: var(--baseBg);
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-size: 1px 100%, 20px 22px, 20px 22px, 20px 100%;
+  background-position: right 20px center, right bottom, right bottom, right bottom;
+}
+
+/*select:hover {*/
+/*  background-image: linear-gradient(var(--accentFg), var(--accentFg)),*/
+/*    linear-gradient(-135deg, transparent 50%, var(--accentFg) 50%),*/
+/*    linear-gradient(-225deg, transparent 50%, var(--accentFg) 50%),*/
+/*    linear-gradient(var(--accentFg) 42%, var(--accentBg) 42%);*/
+/*}*/
+
+.button1, .button2, .button3, .button4, .button5, .button6 {
+  background-color:#181818;
+  background-size: 100% 100%;
+  cursor:pointer;
+  border: 2px solid white;
+  padding: 10px;
+  border-radius: 10px;
+  width:100px;
+  height:100px;
+  position: absolute;
+
+}
+.button1 {
+  left: 400px;
+  top: 110px;
+}
+.button2 {
+  left: 400px;
+  top: 220px;
+}
+.button3 {
+  left: 400px;
+  top: 330px;
+}
+.button4 {
+  left: 400px;
+  top: 440px;
+}
+.button5{
+  left: 400px;
+  top: 550px;
+}
+.button6 {
+  left: 400px;
+  top: 660px;
+}
