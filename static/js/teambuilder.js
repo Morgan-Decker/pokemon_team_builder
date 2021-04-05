@@ -5,6 +5,7 @@ var changeSprite_1 = function () {
     document.getElementById('submitname1').value = this.options[this.selectedIndex].value.split("|")[10]
     document.getElementById('submitpokedex1').value = this.options[this.selectedIndex].value.split("|")[0]
 }
+
 var changeGigantamax_1 = function () {
     document.getElementById('gigantamax_image1').src = "/static/img/gigantamax/" +
         this.options[this.selectedIndex].value.split("|")[1] + ".png"
@@ -456,10 +457,10 @@ function calculatestats(i){
 
     document.getElementById('submitnature'+i).value = document.getElementById('selectnature'+i).value.split("|")[0]
 }
+
 function calculateStat(base, IV, EV, level, nature){
     return Math.floor((Math.floor(0.01 * (2 * base + IV + Math.floor(0.25 * EV)) * level) + 5) * nature)
 }
-
 
 //------------------------------------------------Event Listeners----------------------------------------------------------------
 //pokemon 1 -------------------------------------------------------------------
