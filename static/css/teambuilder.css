@@ -147,6 +147,7 @@ left:1170px;
 }
 .move1_div{
   position:relative;
+  z-index: 1;
 }
 .move1_div img{
   position:absolute;
@@ -170,7 +171,8 @@ left:1170px;
   z-index: 1;
 }
 .move2_div{
-position:relative;
+  position:relative;
+  z-index: 1;
 }
 .move2_div img{
   position:absolute;
@@ -195,6 +197,7 @@ position:relative;
 }
 .move3_div{
   position:relative;
+  z-index: 1;
 }
 .move3_div img{
   position:absolute;
@@ -218,7 +221,8 @@ position:relative;
   z-index: 1;
 }
 .move4_div{
-position:relative;
+  position:relative;
+  z-index: 1;
 }
 .move4_div img{
   position:absolute;
@@ -380,7 +384,7 @@ position:relative;
 }
 .submit_text{
   left: 1400px;
-  top: -365px;
+  top: -375px;
 }
 
 input{

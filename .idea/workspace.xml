@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d109643-5a31-4c58-a4b1-a6e8e170d9b0" name="Default Changelist" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/builder/migrations/0005_auto_20210405_1839.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/builder/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/builder/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/builder/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/builder/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/add_team.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_team.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/teambuilder.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/teambuilder.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/builder.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/builder.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +113,7 @@
       <workItem from="1617038747628" duration="36340000" />
       <workItem from="1617332870958" duration="547000" />
       <workItem from="1617402770200" duration="201000" />
-      <workItem from="1617500265569" duration="81046000" />
+      <workItem from="1617500265569" duration="85351000" />
     </task>
     <task id="LOCAL-00005" summary="third commit">
       <created>1617288135191</created>
@@ -236,7 +234,49 @@
       <option name="project" value="LOCAL" />
       <updated>1617643845643</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="bug fixed, can no longer have multiple teams with the same name">
+      <created>1617652586191</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1617652586191</updated>
+    </task>
+    <task id="LOCAL-00023" summary="update">
+      <created>1617653408178</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1617653408178</updated>
+    </task>
+    <task id="LOCAL-00024" summary="update">
+      <created>1617654167987</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1617654167987</updated>
+    </task>
+    <task id="LOCAL-00025" summary="update">
+      <created>1617654604953</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1617654604953</updated>
+    </task>
+    <task id="LOCAL-00026" summary="update">
+      <created>1617654753182</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1617654753182</updated>
+    </task>
+    <task id="LOCAL-00027" summary="update">
+      <created>1617655620893</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1617655620893</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -272,6 +312,8 @@
     <MESSAGE value="thirteenth commit" />
     <MESSAGE value="Woo we can save teams" />
     <MESSAGE value="fourteenth commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="fourteenth commit" />
+    <MESSAGE value="bug fixed, can no longer have multiple teams with the same name" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
 </project>
