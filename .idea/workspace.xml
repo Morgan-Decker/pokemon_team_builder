@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d109643-5a31-4c58-a4b1-a6e8e170d9b0" name="Default Changelist" comment="first commit">
-      <change beforePath="$PROJECT_DIR$/static/css/teambuilder.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/teambuilder.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pokemon_team_builder/populate.py" beforeDir="false" afterPath="$PROJECT_DIR$/pokemon_team_builder/populate.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +112,7 @@
       <workItem from="1617038747628" duration="36340000" />
       <workItem from="1617332870958" duration="547000" />
       <workItem from="1617402770200" duration="201000" />
-      <workItem from="1617500265569" duration="42765000" />
+      <workItem from="1617500265569" duration="45940000" />
     </task>
     <task id="LOCAL-00005" summary="third commit">
       <created>1617288135191</created>
@@ -190,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617577811767</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="twelth commit">
+      <created>1617578002249</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1617578002249</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -222,6 +230,7 @@
     <MESSAGE value="ninth commit" />
     <MESSAGE value="tenth commit" />
     <MESSAGE value="eleventh commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="eleventh commit" />
+    <MESSAGE value="twelth commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="twelth commit" />
   </component>
 </project>
