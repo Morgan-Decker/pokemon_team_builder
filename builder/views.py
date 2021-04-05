@@ -33,13 +33,15 @@ def team_view(request, slug):
     team_database = Team.objects.all()
     pokemon_database = Pokemon.objects.all()
     move_database = Move.objects.all()
+    total_likes = team_view.total_likes()
     
     visitor_cookie_handler(request)
     
     return render(request, 'add_team.html', {'teamview' : team_view,
                                              'Team_database': team_database,
                                              "showpokemon": pokemon_database,
-                                             "showmove": move_database
+                                             "showmove": move_database,
+                                             'total_likes' = total_likes
                                              })
 
 def popular(request):
@@ -257,20 +259,13 @@ def accept_friend(request, requestID):
         return HttpResponse('friend request accepted')
     else:
         return HttpResponse('friend request not accepted')
+
+def LikeView(request, pk):
+    team = get_object_or_404(Team, id=request.POST.get('team_id'))
+    team.likes.add(request.user)
+    return HTTPResponseRedirect(reverse('team', args=[str.pk])
     
-class LikeTeamView(View):
-    @login_required
-    def get(self, request):
-        team_id = request.GET['team_id']
-        try:
-            team = Team.objects.get(id=int(team_id))
-        except Team.DoesNotExist:
-            return HttpResponse(-1)
-        except ValueError:
-            return HttpResponse(-1)
-        team.likes = team.likes + 1
-        team.save()
-        return HttpResponse(team.likes)
+
 
 def get_server_side_cookie(request, cookie, default_val=None):
     val = request.session.get(cookie)

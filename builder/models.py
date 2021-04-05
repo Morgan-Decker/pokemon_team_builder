@@ -27,11 +27,11 @@ class FriendRequest(models.Model):
 class Team(models.Model):
     userprofile = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
-    likes = models.IntegerField(default=0)
+    likes = models.ManyToManyField(UserProfile, related_name = 'teams')
     slug = AutoSlugField(populate_from='teamname')
 
 
-      # note - other tables hold data to be read so the user can
+    # note - other tables hold data to be read so the user can
     # make selections and cannot hold this data for teams that
     # have already been submitted
     name1 = models.CharField(max_length=100, default=None, blank=True, null=True)
@@ -253,7 +253,7 @@ class Team(models.Model):
     def __str__(self):
         return self.name
     
-    def number_of_likes(self):
+    def total_likes(self):
         return self.likes.count()
     
 class Pokemon(models.Model):

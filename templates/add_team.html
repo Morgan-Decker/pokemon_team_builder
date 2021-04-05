@@ -870,18 +870,19 @@
         </form>
     </div>
 
+   
+
     <div>
-        <strong id="like_count">{{ teamview.likes }}</strong> likes
-        {% if user.is_authenticated %}
-	<button id="like_btn"
-                data-teamid="{{ category.id }}"
-                class="btn btn-primary btn-sm"
-                type="button">
-        span data-feather="thumbs-up"></span>
-	Like Team
-	</button>
-	{% endif %}
-    </div>	
+        <form action= "{% url 'like_team' team.pk %}"
+              method= "POST">
+            {% csrf_token %}
+            <button type = "submit",
+                    name = "team_id",
+                    value = {{ team.id }},
+                    class = "btn btn-primary btn-sm>Like</button> - {{ total_likes }} Likes
+        </form>
+    </div>
+	
 
     <input class="button1" id="team_image1" type="button" onclick="team_pokemon1()"
            style="background-image: url('/static/img/sprites/{{ teamview.pokedex1 }}.png')"></input>
