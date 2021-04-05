@@ -6,8 +6,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from datetime import datetime
 from django.views import View
-from builder.forms import UserForm, UserProfileForm, Pokemon
-from builder.models import Team, Pokemon, Move, Ability, Item, Nature
+from builder.forms import UserForm, UserProfileForm
+from builder.models import Team, Pokemon, Move, Ability, Item, Nature, UserProfile, FriendRequest
 
 
 # Create your views here.
@@ -77,20 +77,68 @@ def share_username(request, username_slug):
     context_dict = {}
 
 
-@login_required(login_url='/restricted/')
 def friends(request):
     # get list of friends
-    # get list of each friend's teams
+
+    friend_list = UserProfile.objects.values_list('friends', flat=True)
+    # create dictionary of each friend and their teams
+    friend_team_dict = {}
+    for friend in friend_list:
+        teams = Team.objects.filter(userprofile=friend)
+        friend_team_dict[friend] = teams
+
+    friend_requests = FriendRequest.object.filter(to_user=request.user)
+
+    visitor_cookie_handler(request)
 
     context_dict = {}
-    return render(request, 'friends.html', context=context_dict)
+    context_dict['friend_teams'] = friend_team_dict
+    context_dict['friend_requests'] = friend_requests
+
+    response = render(request, 'builder/friends.html', context=context_dict)
+    return response
 
 
-@login_required(login_url='/restricted/')
 def viewfriend(request, friendname_slug):
     # get list of friendname_slug's teams
 
+    user = UserProfile.objects.get(slug=friendname_slug)
+    team_list = Team.objects.filter(user_profile=user)
+
     context_dict = {}
+    context_dict['friend_teams'] = team_list
+
+    response = render(request, '', context=context_dict)
+    return response
+
+@login_required
+def request_friend(request, username_slug):
+    from_user = request.user
+    to_user = UserProfile.objects.get(slug = username_slug)
+    friendrequest, created = FriendRequest.objects.get_or_create(
+        from_user=from_user, to_user=to_user)
+    if created:
+        return HttpResponse('friend request sent')
+    else:
+        return HttpResponse('friend request was already sent')
+
+@login_required
+def accept_friend(request, requestID):
+    friend_request = FriendRequest.object.get(id=requestID)
+    to_user = friend_request.to_user
+    from_user = friend_request.from_user
+    if to_user == request.user:
+        to_user.friends.add(from_user)
+        from_user.friends.add(to_user)
+        friend_request.delete()
+        return HttpResponse('friend request accepted')
+    else:
+        return HttpResponse('friend request not accepted')
+
+def LikeView(request, pk):
+    team = get_object_or_404(Team, id=request.POST.get('team_id'))
+    team.likes.add(request.user)
+    return HttpResponseRedirect(reverse('team', args=[str.pk]))
 
 @login_required(login_url='/restricted/')
 def builder(request):
@@ -311,27 +359,3 @@ def visitor_cookie_handler(request):
 
     # Update/set the visits cookie
     request.session['visits'] = visits
-
-@login_required
-def request_friend(request, username_slug):
-    from_user = request.user
-    to_user = UserProfile.objects.get(slug = username_slug)
-    friendrequest, created = FriendRequest.objects.get_or_create(
-        from_user=from_user, to_user=to_user)
-    if created:
-        return HttpResponse('friend request sent')
-    else:
-        return HttpResponse('friend request was already sent')
-
-@login_required
-def accept_friend(request, requestID):
-    friend_request = FriendRequest.object.get(id=requestID)
-    to_user = friend_request.to_user
-    from_user = friend_request.from_user
-    if to_user == request.user:
-        to_user.friends.add(from_user)
-        from_user.friends.add(to_user)
-        friend_request.delete()
-        return HttpResponse('friend request accepted')
-    else:
-        return HttpResponse('friend request not accepted')
