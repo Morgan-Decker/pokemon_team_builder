@@ -32,4 +32,7 @@ urlpatterns = [
     path('builder/', include('builder.urls')),
     path('admin/', admin.site.urls),
     url(r'^teams/(?P<slug>[-\w]+)/$', views.team_view, name='team'),
+    path('request/<slug:username_slug>/', views.request_friend, name='request_friend'),
+    path('accept/<slug:username_slug>/', views.accept_friend, name='accept_friend'),
+    path('like/<int:pk>', views.LikeView, name='like_team')
 ]
