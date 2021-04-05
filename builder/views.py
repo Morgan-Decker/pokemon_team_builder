@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from datetime import datetime
 from builder.forms import UserForm, UserProfileForm
+from django.views import View
 from builder.models import UserProfile, Team, FriendRequest, Pokemon, Move, Ability, Item, Nature
 
 # Create your views here.
