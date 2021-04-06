@@ -26,15 +26,17 @@ def home(request):
 
 
 def team_view(request, slug):
+    team_view = get_object_or_404(Team, slug=slug)
+    follow_list = Followlist.objects.filter(follower=request.user)
+
     if request.method == 'POST':
         if request.POST.get('follow_user'):
             current_user = request.user
             follow_user = request.POST.get('follow_user')
             d, created = Followlist.objects.get_or_create(follower=current_user, following=follow_user)
             print("- Data: {0}, Created: {1}".format(str(d), str(created)))
-    team_view = get_object_or_404(Team, slug=slug)
-    follow_list = Followlist.objects.filter(follower=request.user)
     show = True
+
     for follow in follow_list:
         if team_view.userprofile == follow.following:
             show = False
@@ -72,10 +74,10 @@ def Your_Teams(request):
     return render(request, 'your_teams.html', {'teamview': team_database})
 
 @login_required(login_url='/restricted/')
-def friends(request):
+def following(request):
     follow_list = Followlist.objects.filter(follower=request.user)
-    team_database = Team.objects.all()
-    response = render(request, 'friends.html', context={'following':follow_list, 'teamview':team_database})
+    team_database = Team.objects.all()[::-1]
+    response = render(request, 'following.html', context={'following':follow_list, 'teamview':team_database})
     return response
 
 def LikeView(request, pk):

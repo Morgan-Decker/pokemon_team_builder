@@ -2,21 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d109643-5a31-4c58-a4b1-a6e8e170d9b0" name="Default Changelist" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/builder/migrations/0006_auto_20210406_0304.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/builder/migrations/0007_auto_20210406_0323.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/builder/migrations/0008_auto_20210406_0356.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/Dislike Button.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/Like Button.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/follow.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/builder/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/builder/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/builder/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/builder/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/builder/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/builder/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pokemon_team_builder/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/pokemon_team_builder/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/teamviewer.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/teamviewer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/add_team.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_team.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/friends.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/friends.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +115,7 @@
       <workItem from="1617038747628" duration="36340000" />
       <workItem from="1617332870958" duration="547000" />
       <workItem from="1617402770200" duration="201000" />
-      <workItem from="1617500265569" duration="97334000" />
+      <workItem from="1617500265569" duration="97722000" />
     </task>
     <task id="LOCAL-00005" summary="third commit">
       <created>1617288135191</created>
@@ -295,7 +285,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617656668465</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Added the ability to follow other users">
+      <created>1617680963362</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1617680963362</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,6 +330,7 @@
     <MESSAGE value="fourteenth commit" />
     <MESSAGE value="bug fixed, can no longer have multiple teams with the same name" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="Added the ability to follow other users" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the ability to follow other users" />
   </component>
 </project>

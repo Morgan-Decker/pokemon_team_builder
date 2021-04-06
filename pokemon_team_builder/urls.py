@@ -21,7 +21,7 @@ from builder import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('your_teams/', views.Your_Teams, name='your_teams'),
-    path('friends/', views.friends, name='friends'),
+    path('following/', views.following, name='following'),
     path('builder/', views.builder, name='builder'),
     path('login/', views.user_login, name='login'),
     path('logout/', views.user_logout, name='logout'),
