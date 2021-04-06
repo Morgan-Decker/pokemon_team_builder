@@ -1,3 +1,5 @@
+from functools import reduce
+
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse
@@ -7,7 +9,7 @@ from django.contrib import messages
 from datetime import datetime
 from django.views import View
 from builder.forms import UserForm, UserProfileForm
-from builder.models import Team, Pokemon, Move, Ability, Item, Nature, UserProfile, FriendRequest
+from builder.models import Team, Pokemon, Move, Ability, Item, Nature, UserProfile, Followlist, Like_Team
 
 
 # Create your views here.
@@ -24,15 +26,73 @@ def home(request):
 
 
 def team_view(request, slug):
+    if request.method == 'POST':
+        if request.POST.get('follow_user'):
+            current_user = request.user
+            follow_user = request.POST.get('follow_user')
+            d, created = Followlist.objects.get_or_create(follower=current_user, following=follow_user)
+            print("- Data: {0}, Created: {1}".format(str(d), str(created)))
+
+    if request.method == 'POST':
+        if request.POST.get('unfollow_user'):
+            current_user = request.user
+            follow_user = request.POST.get('unfollow_user')
+            Followlist.objects.filter(follower=current_user, following=follow_user).delete()
+
+    if request.method == 'POST':
+        if request.POST.get('like_user_id') and request.POST.get('like_team_name'):
+            current_user = request.user
+            like_teamname = request.POST.get('like_team_name')
+            Like_Team.objects.get_or_create(user=current_user, teamname=like_teamname)
+            try:
+                team = Team.objects.get(teamname=like_teamname)
+            except Team.DoesNotExist:
+                return HttpResponse(-1)
+            except ValueError:
+                return HttpResponse(-1)
+            team.likes = team.likes + 1
+            team.save()
+
+    if request.method == 'POST':
+        if request.POST.get('unlike_user_id') and request.POST.get('unlike_team_name'):
+            current_user = request.user
+            like_teamname = request.POST.get('unlike_team_name')
+            Like_Team.objects.filter(user=current_user, teamname=like_teamname).delete()
+            try:
+                team = Team.objects.get(teamname=like_teamname)
+            except Team.DoesNotExist:
+                return HttpResponse(-1)
+            except ValueError:
+                return HttpResponse(-1)
+            team.likes = team.likes - 1
+            team.save()
+
+    if request.method == 'POST':
+        if request.POST.get('delete_user_id') and request.POST.get('delete_team_name'):
+            current_user = request.user
+            delete_team_name = request.POST.get('delete_team_name')
+            print(delete_team_name)
+            Team.objects.filter(userprofile=current_user, teamname=delete_team_name).delete()
+            team_database = Team.objects.filter(userprofile=current_user)[::-1]
+            return render(request, 'your_teams.html', {'teamview': team_database})
+
     team_view = get_object_or_404(Team, slug=slug)
-    team_database = Team.objects.all()
-    pokemon_database = Pokemon.objects.all()
-    move_database = Move.objects.all()
-    return render(request, 'add_team.html', {'teamview': team_view,
-                                             'Team_database': team_database,
-                                             "showpokemon": pokemon_database,
-                                             "showmove": move_database
-                                             })
+    follow_list = Followlist.objects.filter(follower=request.user)
+    like_list = Like_Team.objects.filter(teamname=team_view.teamname)
+
+    show = True
+    for follow in follow_list:
+        if team_view.userprofile == follow.following:
+            show = False
+    liked = False
+    for like in like_list:
+        print(like.user)
+        print(request.user)
+        if str(request.user) == str(like.user):
+            print("made it here")
+            liked = True
+    return render(request, 'add_team.html', {'teamview': team_view,'followlist': follow_list,
+                                             'show': show, 'liked': liked})
 
 
 class LikeTeamView(View):
@@ -59,88 +119,18 @@ def recent(request):
     recent_team_list = Team.objects.all()[::-1]
     return render(request, 'recent.html', context={'recentteams': recent_team_list})
 
-
 @login_required(login_url='/restricted/')
 def Your_Teams(request):
     user = request.user
     team_database = Team.objects.filter(userprofile=user)[::-1]
     return render(request, 'your_teams.html', {'teamview': team_database})
 
-
 @login_required(login_url='/restricted/')
-def share_priv_username(request, username_private_slug):
-    # list of private teams
-
-    context_dict = {}
-
-
-@login_required(login_url='/restricted/')
-def share_username(request, username_slug):
-    # list of public teams
-
-    context_dict = {}
-
-
-def friends(request):
-    # get list of friends
-
-    friend_list = UserProfile.objects.values_list('friends', flat=True)
-    # create dictionary of each friend and their teams
-    friend_team_dict = {}
-    for friend in friend_list:
-        teams = Team.objects.filter(userprofile=friend)
-        friend_team_dict[friend] = teams
-
-    friend_requests = FriendRequest.objects.filter(to_user=request.user)
-
-    visitor_cookie_handler(request)
-
-    context_dict = {}
-    context_dict['friend_teams'] = friend_team_dict
-    context_dict['friend_requests'] = friend_requests
-
-    response = render(request, 'friends.html', context=context_dict)
+def following(request):
+    follow_list = Followlist.objects.filter(follower=request.user)
+    team_database = Team.objects.all()[::-1]
+    response = render(request, 'following.html', context={'following':follow_list, 'teamview':team_database})
     return response
-
-
-def viewfriend(request, friendname_slug):
-    # get list of friendname_slug's teams
-
-    user = UserProfile.objects.get(slug=friendname_slug)
-    team_list = Team.objects.filter(user_profile=user)
-
-    context_dict = {}
-    context_dict['friend_teams'] = team_list
-
-    response = render(request, '', context=context_dict)
-    return response
-
-
-@login_required
-def request_friend(request, username_slug):
-    from_user = request.user
-    to_user = UserProfile.objects.get(slug=username_slug)
-    friendrequest, created = FriendRequest.objects.get_or_create(
-        from_user=from_user, to_user=to_user)
-    if created:
-        return HttpResponse('friend request sent')
-    else:
-        return HttpResponse('friend request was already sent')
-
-
-@login_required
-def accept_friend(request, requestID):
-    friend_request = FriendRequest.object.get(id=requestID)
-    to_user = friend_request.to_user
-    from_user = friend_request.from_user
-    if to_user == request.user:
-        to_user.friends.add(from_user)
-        from_user.friends.add(to_user)
-        friend_request.delete()
-        return HttpResponse('friend request accepted')
-    else:
-        return HttpResponse('friend request not accepted')
-
 
 def LikeView(request, pk):
     team = get_object_or_404(Team, id=request.POST.get('team_id'))
@@ -159,6 +149,7 @@ def builder(request):
     item_database = Item.objects.all()
 
     if request.method == 'POST':
+        print("shouldnt be here")
         if request.POST.get('user_id') and request.POST.get('teamname'):
 
             def g(x):
@@ -339,11 +330,6 @@ def builder(request):
                                             "showability": ability_database,
                                             "showitem": item_database
                                             })
-
-
-def buildteam(request, teamname_slug):
-    context_dict = {}
-
 
 def user_login(request):
     if request.method == 'POST':

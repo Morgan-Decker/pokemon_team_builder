@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css">
 </head>
 <body>
+
 <div class="teamname_text"><h1>Team Name:</h1></div>
     <form>
         <input type="text" id="teamname" name="teamname" class="teamname" value="{{ teamview.teamname }}">
@@ -870,18 +871,52 @@
         </form>
     </div>
 
-{#    <div>#}
-{#        <strong id="like_count">{{ teamview.likes }}</strong> likes#}
-{#        {% if user.is_authenticated %}#}
-{#	<button id="like_btn"#}
-{#                data-teamid="{{ category.id }}"#}
-{#                class="btn btn-primary btn-sm"#}
-{#                type="button">#}
-{#        <span data-feather="thumbs-up"></span>#}
-{#	Like Team#}
-{#	</button>#}
-{#	{% endif %}#}
-{#    </div>#}
+{% if user.is_authenticated %}
+    {% if not teamview.userprofile == user.get_username %}
+    {% if show == True %}
+    <div class="user_text"><h1>Follow User:<br/>{{ teamview.userprofile }}</h1></div>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="hidden" id="follow_user" name="follow_user" value={{ teamview.userprofile }}>
+        <input type="hidden" id="user_id" name="user_id" value={{ user.get_username }}>
+        <input class="follow" id="follow" type="submit" value=""></input>
+    </form>
+    {% endif %}
+    {% if show == False %}
+    <div class="user_text"><h1>Unfollow User:<br/>{{ teamview.userprofile }}</h1></div>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="hidden" id="follow_user" name="unfollow_user" value={{ teamview.userprofile }}>
+        <input type="hidden" id="user_id" name="user_id" value={{ user.get_username }}>
+        <input class="follow" id="follow" type="submit" value=""></input>
+    </form>
+        {% endif %}
+    {% else %}
+        <div class="delete_text"><h1>Delete Team:<br/>{{ teamview.teamname }}</h1></div>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="hidden" id="follow_user" name="delete_user_id" value='{{ teamview.userprofile }}'>
+            <input type="hidden" id="user_id" name="delete_team_name" value='{{ teamview.teamname }}'>
+            <input class="delete_team" id="follow" type="submit" value=""></input>
+        </form>
+    {% endif %}
+    <div class="like_text"><h1>Like Team: {{ teamview.likes }}<br/></h1></div>
+    {% if liked == False %}
+        <form method="POST">
+            {% csrf_token %}
+            <input type="hidden" id="follow_user" name="like_user_id" value='{{ teamview.userprofile }}'>
+            <input type="hidden" id="user_id" name="like_team_name" value='{{ teamview.teamname }}'>
+            <input class="like_button" id="follow" type="submit" value=""></input>
+        </form>
+    {% else %}
+        <form method="POST">
+            {% csrf_token %}
+            <input type="hidden" id="follow_user" name="unlike_user_id" value='{{ teamview.userprofile }}'>
+            <input type="hidden" id="user_id" name="unlike_team_name" value='{{ teamview.teamname }}'>
+            <input class="unlike_button" id="follow" type="submit" value=""></input>
+        </form>
+    {% endif %}
+{% endif %}
 
     <input class="button1" id="team_image1" type="button" onclick="team_pokemon1()"
            style="background-image: url('/static/img/sprites/{{ teamview.pokedex1 }}.png')"></input>
