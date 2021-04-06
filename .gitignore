@@ -6,7 +6,9 @@
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
-secret.py
+pokemon_team_builder/secret.py
+builder/migrations
+Lib/sire-packages/django/conbrib/admin/migrations
 
 # C extensions
 *.so

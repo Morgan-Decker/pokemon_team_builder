@@ -239,33 +239,14 @@ def populate():
           ]
 
     team_data = [
-        [888, "Single Pokemon Tester Team", 1024, "Zacian", "Intrepid Sword", "jolly", "Focus Sash",
+        [888, "Single Pokemon Tester Team", 1024,
+         "Zacian", "Intrepid Sword", "jolly", "Focus Sash",
         "Flare Blitz", "Crunch", "Extreme Speed", "Roost", 100, 325, 296, 266, 196, 266, 312,
         0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, 1, "fire", "dark", "normal", "flying", "fairy", None],
-        [6, "Charizard Team", 197, "Charizard", "Solar Power", "jolly", "Focus Sash",
-        "Flare Blitz", "Crunch", "Extreme Speed", "Roost", 100, 78, 84, 78, 100, 109, 85,
-        0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, 2, "fire", "dark", "normal", "flying", "fire", "flying"],
-        [6, "Charizard Team2", 3, "Charizard", "Solar Power", "jolly", "Focus Sash",
-         "Flare Blitz", "Crunch", "Extreme Speed", "Roost", 100, 78, 84, 78, 100, 109, 85,
-         0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, 2, "fire", "dark", "normal", "flying", "fire", "flying"],
-        [6, "Charizard Team3", 565, "Charizard", "Solar Power", "jolly", "Focus Sash",
-         "Flare Blitz", "Crunch", "Extreme Speed", "Roost", 100, 78, 84, 78, 100, 109, 85,
-         0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, 2, "fire", "dark", "normal", "flying", "fire", "flying"],
-        [6, "Charizard Team4", 12, "Charizard", "Solar Power", "jolly", "Focus Sash",
-         "Flare Blitz", "Crunch", "Extreme Speed", "Roost", 100, 78, 84, 78, 100, 109, 85,
-         0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, 2, "fire", "dark", "normal", "flying", "fire", "flying"],
-        [6, "Charizard Team5", 123, "Charizard", "Solar Power", "jolly", "Focus Sash",
-         "Flare Blitz", "Crunch", "Extreme Speed", "Roost", 100, 78, 84, 78, 100, 109, 85,
-         0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, 2, "fire", "dark", "normal", "flying", "fire", "flying"],
-        [6, "Charizard Team6", 987, "Charizard", "Solar Power", "jolly", "Focus Sash",
-         "Flare Blitz", "Crunch", "Extreme Speed", "Roost", 100, 78, 84, 78, 100, 109, 85,
-         0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, 2, "fire", "dark", "normal", "flying", "fire", "flying"],
-        [6, "Charizard Team7", 986, "Charizard", "Solar Power", "jolly", "Focus Sash",
-         "Flare Blitz", "Crunch", "Extreme Speed", "Roost", 100, 78, 84, 78, 100, 109, 85,
-         0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, 2, "fire", "dark", "normal", "flying", "fire", "flying"],
-        [6, "Charizard Team8", 1, "Charizard", "Solar Power", "jolly", "Focus Sash",
-         "Flare Blitz", "Crunch", "Extreme Speed", "Roost", 100, 78, 84, 78, 100, 109, 85,
-         0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, 2, "fire", "dark", "normal", "flying", "fire", "flying"],
+        [6, "Charizard Team", 197,
+         "Charizard", "Solar Power", "timid", "Heavy Duty Boots",
+        "Fire Blast", "Hurricane", "Solar Beam", "Focus Blast", 100, 78, 84, 78, 100, 109, 85,
+         0, 0, 0, 0, 0, 0, 31, 31, 31, 31, 31, 31, 1, "fire", "dark", "normal", "flying", "fairy", None]
     ]
 
     for row in team_data:
