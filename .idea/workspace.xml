@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d109643-5a31-4c58-a4b1-a6e8e170d9b0" name="Default Changelist" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/builder/migrations/0009_like_team.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/Liked Button.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/builder/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/builder/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/builder/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/builder/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/teamviewer.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/teamviewer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/Dislike Button.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/add_team.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_team.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pokemon_team_builder/population_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/pokemon_team_builder/population_script.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +112,7 @@
       <workItem from="1617038747628" duration="36340000" />
       <workItem from="1617332870958" duration="547000" />
       <workItem from="1617402770200" duration="201000" />
-      <workItem from="1617500265569" duration="102952000" />
+      <workItem from="1617500265569" duration="110954000" />
     </task>
     <task id="LOCAL-00005" summary="third commit">
       <created>1617288135191</created>
@@ -323,7 +317,21 @@
       <option name="project" value="LOCAL" />
       <updated>1617683948597</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Added like button to team viewer">
+      <created>1617686601383</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1617686601383</updated>
+    </task>
+    <task id="LOCAL-00035" summary="added migrations folder to gitignore, renamed populate.py to population_script.py">
+      <created>1617710900634</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1617710900634</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,6 +374,8 @@
     <MESSAGE value="Added unfollow button" />
     <MESSAGE value="prevented users from following themselves" />
     <MESSAGE value="added functionality for deleting your own teams" />
-    <option name="LAST_COMMIT_MESSAGE" value="added functionality for deleting your own teams" />
+    <MESSAGE value="Added like button to team viewer" />
+    <MESSAGE value="added migrations folder to gitignore, renamed populate.py to population_script.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="added migrations folder to gitignore, renamed populate.py to population_script.py" />
   </component>
 </project>
