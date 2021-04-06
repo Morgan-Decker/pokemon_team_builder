@@ -872,6 +872,7 @@
     </div>
 
 {% if user.is_authenticated %}
+    {% if not teamview.userprofile == user.get_username %}
     {% if show == True %}
     <div class="user_text"><h1>Follow User:<br/>{{ teamview.userprofile }}</h1></div>
     <form method="POST">
@@ -889,6 +890,7 @@
         <input type="hidden" id="user_id" name="user_id" value={{ user.get_username }}>
         <input class="follow" id="follow" type="submit" value=""></input>
     </form>
+        {% endif %}
     {% endif %}
 {% endif %}
 
