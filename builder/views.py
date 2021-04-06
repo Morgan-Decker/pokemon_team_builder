@@ -40,8 +40,16 @@ def team_view(request, slug):
         if request.POST.get('unfollow_user'):
             current_user = request.user
             follow_user = request.POST.get('unfollow_user')
-            print(current_user, follow_user)
             Followlist.objects.filter(follower=current_user, following=follow_user).delete()
+
+    if request.method == 'POST':
+        if request.POST.get('delete_user_id') and request.POST.get('delete_team_name'):
+            current_user = request.user
+            delete_team_name = request.POST.get('delete_team_name')
+            print(delete_team_name)
+            Team.objects.filter(userprofile=current_user, teamname=delete_team_name).delete()
+            team_database = Team.objects.filter(userprofile=current_user)[::-1]
+            return render(request, 'your_teams.html', {'teamview': team_database})
 
     show = True
     for follow in follow_list:

@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5d109643-5a31-4c58-a4b1-a6e8e170d9b0" name="Default Changelist" comment="first commit">
+      <change afterPath="$PROJECT_DIR$/static/img/delete team.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/builder/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/builder/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/teamviewer.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/teamviewer.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/add_team.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_team.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -112,7 +115,7 @@
       <workItem from="1617038747628" duration="36340000" />
       <workItem from="1617332870958" duration="547000" />
       <workItem from="1617402770200" duration="201000" />
-      <workItem from="1617500265569" duration="99037000" />
+      <workItem from="1617500265569" duration="100331000" />
     </task>
     <task id="LOCAL-00005" summary="third commit">
       <created>1617288135191</created>
@@ -303,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617682251113</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="prevented users from following themselves">
+      <created>1617682633222</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1617682633222</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -344,6 +354,7 @@
     <MESSAGE value="Added the ability to follow other users" />
     <MESSAGE value="changed 'friends' references to 'following', following teams display not in order of most recent" />
     <MESSAGE value="Added unfollow button" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added unfollow button" />
+    <MESSAGE value="prevented users from following themselves" />
+    <option name="LAST_COMMIT_MESSAGE" value="prevented users from following themselves" />
   </component>
 </project>

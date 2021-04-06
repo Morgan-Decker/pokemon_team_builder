@@ -891,6 +891,14 @@
         <input class="follow" id="follow" type="submit" value=""></input>
     </form>
         {% endif %}
+    {% else %}
+        <div class="delete_text"><h1>Delete Team:<br/>{{ teamview.teamname }}</h1></div>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="hidden" id="follow_user" name="delete_user_id" value='{{ teamview.userprofile }}'>
+            <input type="hidden" id="user_id" name="delete_team_name" value='{{ teamview.teamname }}'>
+            <input class="delete_team" id="follow" type="submit" value=""></input>
+        </form>
     {% endif %}
 {% endif %}
 
