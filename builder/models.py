@@ -6,7 +6,7 @@ from autoslug import AutoSlugField
 # Create your models here.
 
 class UserProfile(models.Model):
-    user = models.CharField(max_length=100)
+    user = models.CharField(max_length=100, primary_key=True)
     picture = models.ImageField(upload_to='profile_images', blank=True, default=None, null=True)
     friends = models.ManyToManyField('self')
     def __str__(self):
@@ -22,7 +22,7 @@ class Like_Team(models.Model):
 
 class Team(models.Model):
     userprofile = models.CharField(max_length=100)
-    teamname = models.CharField(max_length=30)
+    teamname = models.CharField(max_length=30, primary_key=True)
     likes = models.IntegerField(default=None, blank=True, null=True)
     slug = AutoSlugField(populate_from='teamname')
 
@@ -254,11 +254,15 @@ class Team(models.Model):
     def number_of_likes(self):
         return self.likes.count()
 
+    def save(self, *args, **kwargs):
+        if self.likes < 0:
+            self.likes = 0
+
+        self.slug = slugify(self.teamname)
+        super(Team, self).save(*args, **kwargs)
 
 class Pokemon(models.Model):
-    #team = models.ForeignKey(Team, on_delete=models.CASCADE, default=None, blank=True, null=True)
-
-    pokedex = models.IntegerField()
+    pokedex = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=100)
     hp = models.IntegerField()
     attack = models.IntegerField()
@@ -273,15 +277,17 @@ class Pokemon(models.Model):
     def __str__(self):
         return self.name
 
+    def save(self, *args, **kwargs):
+        if self.pokedex < 0:
+            self.pokedex = None
+        self.slug = slugify(self.name)
+        super(Pokemon, self).save(*args, **kwargs)
 
 class Move(models.Model):
-    # pokemon = models.ForeignKey(Pokemon, on_delete=models.CASCADE)
-
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, primary_key=True)
     type = models.CharField(max_length=100)
-    #category = models.CharField(max_length=100)
-    #contest = models.CharField(max_length=100)
 
+    #fields not needed without damage calculator
     #pp = models.IntegerField()
     #power = models.IntegerField()
     #accuracy = models.IntegerField()
@@ -291,23 +297,20 @@ class Move(models.Model):
 
 
 class Ability(models.Model):
-    #pokemon = models.ForeignKey(Pokemon, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, primary_key=True)
 
     def __str__(self):
         return self.name
 
 
 class Item(models.Model):
-    #pokemon = models.OneToOneField(Pokemon, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, primary_key=True)
 
     def __str__(self):
         return self.name
 
 
 class Nature(models.Model):
-    #pokemon = models.ForeignKey(Pokemon, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, primary_key=True)
     upstat = models.CharField(max_length=10, default=None, blank=True, null=True)
     downstat = models.CharField(max_length=10, default=None, blank=True, null=True)

@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5d109643-5a31-4c58-a4b1-a6e8e170d9b0" name="Default Changelist" comment="first commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pokemon_team_builder/population_script.py" beforeDir="false" afterPath="$PROJECT_DIR$/pokemon_team_builder/population_script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/builder/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/builder/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/builder/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/builder/tests.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +113,7 @@
       <workItem from="1617038747628" duration="36340000" />
       <workItem from="1617332870958" duration="547000" />
       <workItem from="1617402770200" duration="201000" />
-      <workItem from="1617500265569" duration="110954000" />
+      <workItem from="1617500265569" duration="112729000" />
     </task>
     <task id="LOCAL-00005" summary="third commit">
       <created>1617288135191</created>
@@ -331,7 +332,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617710900634</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="added more teams to the population script">
+      <created>1617717348810</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1617717348810</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,7 +359,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="test 2" />
     <MESSAGE value="test 3" />
     <MESSAGE value="first commit" />
     <MESSAGE value="second commit" />
@@ -376,6 +383,7 @@
     <MESSAGE value="added functionality for deleting your own teams" />
     <MESSAGE value="Added like button to team viewer" />
     <MESSAGE value="added migrations folder to gitignore, renamed populate.py to population_script.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="added migrations folder to gitignore, renamed populate.py to population_script.py" />
+    <MESSAGE value="added more teams to the population script" />
+    <option name="LAST_COMMIT_MESSAGE" value="added more teams to the population script" />
   </component>
 </project>
