@@ -16,6 +16,9 @@ class Followlist(models.Model):
     follower = models.CharField(max_length=100)
     following = models.CharField(max_length=100)
 
+class Like_Team(models.Model):
+    user = models.CharField(max_length=100)
+    teamname = models.CharField(max_length=30)
 
 class Team(models.Model):
     userprofile = models.CharField(max_length=100)

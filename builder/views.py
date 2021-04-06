@@ -9,7 +9,7 @@ from django.contrib import messages
 from datetime import datetime
 from django.views import View
 from builder.forms import UserForm, UserProfileForm
-from builder.models import Team, Pokemon, Move, Ability, Item, Nature, UserProfile, Followlist
+from builder.models import Team, Pokemon, Move, Ability, Item, Nature, UserProfile, Followlist, Like_Team
 
 
 # Create your views here.
@@ -26,9 +26,6 @@ def home(request):
 
 
 def team_view(request, slug):
-    team_view = get_object_or_404(Team, slug=slug)
-    follow_list = Followlist.objects.filter(follower=request.user)
-
     if request.method == 'POST':
         if request.POST.get('follow_user'):
             current_user = request.user
@@ -43,6 +40,34 @@ def team_view(request, slug):
             Followlist.objects.filter(follower=current_user, following=follow_user).delete()
 
     if request.method == 'POST':
+        if request.POST.get('like_user_id') and request.POST.get('like_team_name'):
+            current_user = request.user
+            like_teamname = request.POST.get('like_team_name')
+            Like_Team.objects.get_or_create(user=current_user, teamname=like_teamname)
+            try:
+                team = Team.objects.get(teamname=like_teamname)
+            except Team.DoesNotExist:
+                return HttpResponse(-1)
+            except ValueError:
+                return HttpResponse(-1)
+            team.likes = team.likes + 1
+            team.save()
+
+    if request.method == 'POST':
+        if request.POST.get('unlike_user_id') and request.POST.get('unlike_team_name'):
+            current_user = request.user
+            like_teamname = request.POST.get('unlike_team_name')
+            Like_Team.objects.filter(user=current_user, teamname=like_teamname).delete()
+            try:
+                team = Team.objects.get(teamname=like_teamname)
+            except Team.DoesNotExist:
+                return HttpResponse(-1)
+            except ValueError:
+                return HttpResponse(-1)
+            team.likes = team.likes - 1
+            team.save()
+
+    if request.method == 'POST':
         if request.POST.get('delete_user_id') and request.POST.get('delete_team_name'):
             current_user = request.user
             delete_team_name = request.POST.get('delete_team_name')
@@ -51,11 +76,23 @@ def team_view(request, slug):
             team_database = Team.objects.filter(userprofile=current_user)[::-1]
             return render(request, 'your_teams.html', {'teamview': team_database})
 
+    team_view = get_object_or_404(Team, slug=slug)
+    follow_list = Followlist.objects.filter(follower=request.user)
+    like_list = Like_Team.objects.filter(teamname=team_view.teamname)
+
     show = True
     for follow in follow_list:
         if team_view.userprofile == follow.following:
             show = False
-    return render(request, 'add_team.html', {'teamview': team_view,'followlist': follow_list, 'show': show})
+    liked = False
+    for like in like_list:
+        print(like.user)
+        print(request.user)
+        if str(request.user) == str(like.user):
+            print("made it here")
+            liked = True
+    return render(request, 'add_team.html', {'teamview': team_view,'followlist': follow_list,
+                                             'show': show, 'liked': liked})
 
 
 class LikeTeamView(View):
