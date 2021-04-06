@@ -242,7 +242,7 @@ left:1170px;
 
 .hp_text, .atk_text, .def_text, .sp_atk_text, .sp_def_text, .spd_text,
 .EV_text, .IV_text, .stats_text, .level_text, .move_text, .ability_text,
-.nature_text, .item_text, .submit_text{
+.nature_text, .item_text, .submit_text, .user_text{
   font-family: 'Oswald', sans-serif;
   font-size: 12px;
   color: white;
@@ -453,7 +453,7 @@ select {
 /*    linear-gradient(var(--accentFg) 42%, var(--accentBg) 42%);*/
 /*}*/
 
-.button1, .button2, .button3, .button4, .button5, .button6 {
+.button1, .button2, .button3, .button4, .button5, .button6, .follow {
   background-color:#181818;
   background-size: 100% 100%;
   cursor:pointer;
@@ -488,4 +488,22 @@ select {
 .button6 {
   left: 400px;
   top: 660px;
+}
+
+.like_button {
+  background-image: url("/static/img/Like Button.png");
+  left: 1400px;
+  top: -1000px;
+}
+
+.follow {
+  background-color: #3A3A3A;
+  background-image: url("/static/img/follow.png");
+  left: 1400px;
+  top: 380px;
+}
+
+.user_text{
+  left: 1400px;
+  top: -1100px;
 }

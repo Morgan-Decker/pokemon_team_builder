@@ -12,14 +12,9 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username
 
-class FriendRequest(models.Model):
-    from_user = models.ForeignKey(
-        UserProfile, related_name='from_user', on_delete=models.CASCADE)
-    to_user = models.ForeignKey(
-        User, related_name='to_user', on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.from_user.user.username
+class Followlist(models.Model):
+    follower = models.CharField(max_length=100)
+    following = models.CharField(max_length=100)
 
 
 class Team(models.Model):
