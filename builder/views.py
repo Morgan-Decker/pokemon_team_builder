@@ -35,8 +35,15 @@ def team_view(request, slug):
             follow_user = request.POST.get('follow_user')
             d, created = Followlist.objects.get_or_create(follower=current_user, following=follow_user)
             print("- Data: {0}, Created: {1}".format(str(d), str(created)))
-    show = True
 
+    if request.method == 'POST':
+        if request.POST.get('unfollow_user'):
+            current_user = request.user
+            follow_user = request.POST.get('unfollow_user')
+            print(current_user, follow_user)
+            Followlist.objects.filter(follower=current_user, following=follow_user).delete()
+
+    show = True
     for follow in follow_list:
         if team_view.userprofile == follow.following:
             show = False

@@ -881,6 +881,15 @@
         <input class="follow" id="follow" type="submit" value=""></input>
     </form>
     {% endif %}
+    {% if show == False %}
+    <div class="user_text"><h1>Unfollow User:<br/>{{ teamview.userprofile }}</h1></div>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="hidden" id="follow_user" name="unfollow_user" value={{ teamview.userprofile }}>
+        <input type="hidden" id="user_id" name="user_id" value={{ user.get_username }}>
+        <input class="follow" id="follow" type="submit" value=""></input>
+    </form>
+    {% endif %}
 {% endif %}
 
     <input class="button1" id="team_image1" type="button" onclick="team_pokemon1()"
